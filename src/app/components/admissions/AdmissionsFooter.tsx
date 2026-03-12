@@ -24,11 +24,11 @@ export default function AdmissionsFooter() {
             className="bg-white rounded-xl p-8 shadow-xl"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              {language === 'en' 
+              {language === 'en'
                 ? 'Help & Document Return Information'
                 : 'Bantuan & Informasi Pengembalian Berkas'}
             </h3>
-            
+
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="bg-sttb-red/10 p-2 rounded-lg">
@@ -72,8 +72,8 @@ export default function AdmissionsFooter() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="bg-gradient-to-br from-sttb-red to-red-700 rounded-xl p-8 shadow-xl text-white"
           >
-            <h3 className="text-2xl font-bold mb-4">
-              {language === 'en' 
+            <h3 className="text-2xl font-bold mb-4 text-white">
+              {language === 'en'
                 ? 'Ready to Apply?'
                 : 'Siap Mendaftar?'}
             </h3>

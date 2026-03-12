@@ -80,11 +80,11 @@ export function About() {
     <section id="about" className="py-20 lg:py-28 bg-white border-t border-[#E5E7EB]">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16 lg:mb-20">
-          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
+          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3">
             I
           </span>
           <MaskText type="lines">
-            <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
+            <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-bold">
               {t('about.page.title')}
             </h2>
           </MaskText>
@@ -98,8 +98,8 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
           <div>
             <MaskText type="lines" delay={0.1}>
-              <p className="text-xl leading-normal text-slate-700 mb-8 font-[Plus_Jakarta_Sans]">
-                <span className="text-7xl font-[Inter] font-bold text-[#0b3f82] float-left mr-3 leading-[0.8]">
+              <p className="text-xl leading-normal text-slate-700 mb-8">
+                <span className="text-7xl font-bold text-[#0b3f82] float-left mr-3 leading-[0.8]">
                   S
                 </span>
                 ekolah Tinggi Teologi Bandung hadir sebagai lembaga pendidikan
@@ -118,10 +118,10 @@ export function About() {
                 >
                   <div className="absolute top-2 left-2 w-4 h-4 border-l border-t border-transparent group-hover:border-[#0b3f82] transition-all" />
                   <div className="absolute bottom-2 right-2 w-4 h-4 border-r border-b border-transparent group-hover:border-[#0b3f82] transition-all" />
-                  <div className="text-3xl lg:text-4xl font-bold text-[#0b3f82] mb-2 font-[Inter]">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#0b3f82] mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-xs lg:text-sm text-gray-600 uppercase tracking-wide font-[Plus_Jakarta_Sans] font-bold">
+                  <div className="text-xs lg:text-sm text-gray-600 uppercase tracking-wide font-bold">
                     {stat.label}
                   </div>
                 </div>
@@ -181,12 +181,12 @@ export function About() {
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
                   <Eye className="w-6 h-6 text-[#1E3A8A]" strokeWidth={2} aria-hidden="true" />
-                  <h3 className="text-2xl font-bold text-[#1E3A8A] font-[Plus_Jakarta_Sans]">
+                  <h3 className="text-2xl font-bold text-[#1E3A8A]">
                     Visi
                   </h3>
                 </div>
 
-                <p className="text-slate-700 mb-6 font-[Inter]">
+                <p className="text-slate-700 mb-6">
                   {visionIntro}
                 </p>
 
@@ -194,10 +194,10 @@ export function About() {
                   <div className="space-y-3">
                     {visionItems.map(item => (
                       <div key={item.title}>
-                        <h4 className="font-semibold text-[#1E3A8A] font-[Plus_Jakarta_Sans]">
+                        <h4 className="font-semibold text-[#1E3A8A]">
                           {item.title}
                         </h4>
-                        <p className="text-sm text-slate-600 font-[Inter]">
+                        <p className="text-sm text-slate-600">
                           {item.description}
                         </p>
                       </div>
@@ -237,12 +237,12 @@ export function About() {
                 {/* Icon + Title */}
                 <div className="flex items-center gap-3 mb-4">
                   <Flag className="w-6 h-6 text-[#1E3A8A]" strokeWidth={2} aria-hidden="true" />
-                  <h3 className="text-2xl font-bold text-[#1E3A8A] font-[Plus_Jakarta_Sans]">
+                  <h3 className="text-2xl font-bold text-[#1E3A8A]">
                     Misi
                   </h3>
                 </div>
 
-                <p className="text-slate-700 mb-6 font-[Inter]">
+                <p className="text-slate-700 mb-6">
                   {missionIntro}
                 </p>
 
@@ -251,7 +251,7 @@ export function About() {
                     {missionBullets.map(bullet => (
                       <li key={bullet} className="flex gap-3">
                         <span className="mt-2 h-2 w-2 rounded-full bg-[#3B82F6] flex-shrink-0" />
-                        <span className="text-sm text-slate-600 font-[Inter]">
+                        <span className="text-sm text-slate-600">
                           {bullet}
                         </span>
                       </li>

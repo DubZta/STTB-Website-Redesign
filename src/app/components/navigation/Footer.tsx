@@ -174,7 +174,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-gray-400 mb-2 text-xs uppercase tracking-wider">No. Rekening</p>
-                <p className="text-white font-mono text-xl font-bold">282.300.5555</p>
+                <p className="text-white text-xl font-bold">282.300.5555</p>
               </div>
               <div>
                 <p className="text-gray-400 mb-2 text-xs uppercase tracking-wider">Atas Nama</p>

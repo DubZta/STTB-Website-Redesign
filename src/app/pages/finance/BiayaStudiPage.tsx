@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
 const FinanceTable = ({ title, data, note, subTableTitle, subTableData, subTableNote }: any) => (
   <div className="mt-6 animate-fadeIn">
 
-    <h3 className="text-xl font-bold text-slate-900 mb-6 font-[Plus_Jakarta_Sans] uppercase tracking-tight">
+    <h3 className="text-xl font-bold text-slate-900 mb-6 uppercase tracking-tight">
       {title}
     </h3>
 
@@ -247,7 +247,7 @@ export default function BiayaStudiPage() {
           </span>
 
           <MaskText type="lines">
-            <h1 className="text-7xl md:text-8xl font-black text-[#0b3f82] leading-[0.85] font-[Plus_Jakarta_Sans] tracking-tight">
+            <h1 className="text-7xl md:text-8xl font-black text-[#0b3f82] leading-[0.85] tracking-tight">
               STUDI
             </h1>
           </MaskText>

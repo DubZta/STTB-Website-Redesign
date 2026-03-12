@@ -79,24 +79,40 @@ const translations: Record<Language, Record<string, string>> = {
     'media.view_all': 'Lihat Semua Media',
 
     // Footer
-    'footer.contact': 'KONTAK KAMI',
+    'footer.description': 'Sekolah Tinggi Teologi Bandung berdedikasi untuk mempersiapkan pelayan Tuhan yang setia pada kebenaran Firman.',
+    'footer.contact': 'HUBUNGI KAMI',
     'footer.address': 'Jl. Durian No. 16, Bandung 40264',
     'footer.phone': 'Telepon',
     'footer.email': 'Email',
-    'footer.quick_links': 'Sumber Daya',
+    'footer.quick_links': 'SUMBER DAYA',
     'footer.library': 'Perpustakaan',
     'footer.digital_library': 'Perpustakaan Digital',
     'footer.journal': 'Jurnal Transformatio',
     'footer.podcast': 'Podcast',
     'footer.video': 'Video',
     'footer.bulletin': 'Buletin',
-    'footer.help_links': 'Link Bantuan',
-    'footer.copyright': '© 2026 Sekolah Tinggi Teologi Bandung. Hak Cipta Dilindungi.',
+    'footer.help_links': 'LINK BANTUAN',
+    'footer.copyright': 'Copyright © 2026 Sekolah Tinggi Teologi Bandung. All Rights Reserved.',
 
     // Programs
     'programs.title': 'PROGRAM STUDI',
+    'programs.subtitle': 'Pilihan Program Studi Terbaik',
     'programs.undergraduate': 'Program Sarjana',
     'programs.graduate': 'Program Magister',
+    'programs.learn_more': 'Selengkapnya',
+    'programs.view_all': 'Lihat Semua Program Studi',
+    'programs.accredited': 'Semua program terakreditasi BAN-PT',
+
+    // Program Items
+    'programs.sth.title': 'Sarjana Teologi',
+    'programs.sth.desc': 'Program studi mendalam tentang Alkitab, dogmatika, dan praktika untuk mempersiapkan calon gembala sidang yang kompeten.',
+    'programs.spdk.title': 'Sarjana Pendidikan Kristen',
+    'programs.spdk.desc': 'Program studi yang mempersiapkan guru Pendidikan Kristen kompeten untuk melayani di sekolah dan gereja.',
+    'programs.mpdk.title': 'Magister Pendidikan Kristen',
+    'programs.mpdk.desc': 'Program pascasarjana yang mempersiapkan pendidik Kristen profesional dengan kompetensi pedagogik, kepribadian, sosial, dan profesional.',
+
+    'programs.duration.8sem': '8 Semester',
+    'programs.duration.4sem': '4 Semester',
 
     // About Page
     'about.page.title': 'Tentang STTB',
@@ -180,22 +196,60 @@ const translations: Record<Language, Record<string, string>> = {
     // Admissions Page
     'admissions.page.title': 'Admisi',
     'admissions.page.subtitle': 'Bergabunglah dengan Komunitas STTB',
+    'admissions.cta.title': 'Bergabunglah Dengan Kami',
+    'admissions.cta.subtitle': 'Mulai perjalanan Anda menjadi pelayan Tuhan yang diperlengkapi dengan kebenaran dan kasih.',
+    'admissions.step': 'STEP',
+    'admissions.online': 'Daftar Online',
+    'admissions.online_desc': 'Isi formulir pendaftaran secara online dan mulai proses seleksi Anda.',
+    'admissions.test': 'Tes Masuk',
+    'admissions.test_desc': 'Ikuti ujian tertulis dan wawancara sesuai jadwal yang ditetapkan.',
+    'admissions.announcement': 'Pengumuman',
+    'admissions.announcement_desc': 'Cek hasil penerimaan dan informasi lanjutan setelah tes seleksi.',
+    'admissions.registration.period': 'Pendaftaran: 1 Maret - 31 Mei 2026',
+    'admissions.scholarship.info': 'Beasiswa tersedia hingga 50% untuk calon mahasiswa berprestasi',
+    'admissions.alumni.info': 'Lebih dari 1.000 alumni STTB melayani di berbagai gereja dan institusi.',
 
     // Finance Page
     'finance.page.title': 'Keuangan & Beasiswa',
     'finance.page.subtitle': 'Informasi Biaya dan Bantuan Keuangan',
+    'finance.biaya.title': 'Biaya Studi',
+    'finance.biaya.subtitle': 'Investasi Pendidikan untuk Masa Depan Pelayanan Anda',
+    'finance.beasiswa.title': 'Beasiswa & Bantuan',
+    'finance.beasiswa.subtitle': 'Dukungan Finansial untuk Mahasiswa Berprestasi dan Terpanggil',
+    'finance.beasiswa.hero_desc1': 'STTB menyediakan beasiswa bagi mereka yang membutuhkannya sesuai dengan kriteria dan persyaratan yang berlaku. STTB menyediakan 3 (tiga) kategori beasiswa, yaitu beasiswa Pastor Scholar, beasiswa Formatio, dan beasiswa Transformative Leadership.',
+    'finance.beasiswa.hero_desc2': 'Jika Anda memerlukannya, Anda dapat mengajukan sesuai persyaratan yang berlaku.',
+    'finance.dukung.title': 'Dukung STTB',
+    'finance.dukung.subtitle': 'Berinvestasi dalam Pembentukan Hamba Tuhan yang Transformatif',
+    'finance.dukung.cta': 'CARA DONASI',
 
     // Campus Life Page
     'campuslife.page.title': 'Kehidupan Kampus',
     'campuslife.page.subtitle': 'Pengalaman Mahasiswa di STTB',
 
     // News Page
-    'newspage.title': 'Berita Terbaru',
-    'newspage.subtitle': 'Informasi dan Berita dari STTB',
+    'newspage.title': 'BERITA',
+    'newspage.documentation': 'DOKUMENTASI',
+    'newspage.subtitle': 'Ikuti perkembangan terkini dari Sekolah Tinggi Teologi Bandung',
 
     // Activities Page
     'activities.page.title': 'Kegiatan & Acara',
     'activities.page.subtitle': 'Acara dan Program di STTB',
+    'activities.view_all': 'Lihat Semua Fasilitas',
+    'activities.campus_tour_desc': 'Jelajahi kampus STTB dan lihat fasilitas modern kami yang mendukung pembentukan pastor-scholar yang transformatif.',
+
+    // Activity Items (Homepage)
+    'activity.chapel.title': 'Ibadah Chapel',
+    'activity.chapel.desc': 'Ibadah mingguan Senin, Selasa, Jumat pukul 11.00–12.00 sebagai pusat kehidupan spiritual mahasiswa STTB.',
+    'activity.library.title': 'Perpustakaan',
+    'activity.library.desc': 'Koleksi literatur teologi lengkap dengan ruang baca nyaman dan fasilitas hybrid learning.',
+    'activity.senate.title': 'Senat Mahasiswa',
+    'activity.senate.desc': 'Wadah representasi mahasiswa yang mengkoordinasikan berbagai kegiatan kampus dan kemahasiswaan.',
+    'activity.hybrid.title': 'Ruang Hybrid Learning',
+    'activity.hybrid.desc': 'Ruang kelas modern dengan fasilitas teleconference untuk pembelajaran onsite maupun online.',
+    'activity.sports.title': 'Sports Day & Event',
+    'activity.sports.desc': 'Kegiatan tahunan seperti Sports Day, Urban Youth Summit, dan berbagai aktivitas mahasiswa.',
+    'activity.mentoring.title': 'Pembinaan & Pemuridan',
+    'activity.mentoring.desc': 'Program retreat awal studi, pemuridan kelompok kecil dan besar untuk pembentukan karakter mahasiswa.',
 
     // Media Page
     'mediapage.title': 'Media & Galeri',
@@ -253,6 +307,31 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.programs.description': 'Sarjana dan Magister teologi yang terakreditasi',
     'stats.faculty.label': 'Dosen',
     'stats.faculty.description': 'Pengajar berpengalaman dengan kualifikasi tinggi',
+
+    // Activities
+    'activities.upcoming': 'Mendatang',
+    'activities.past': 'Selesai',
+    'activities.featured': 'Unggulan',
+    'activities.ongoing': 'Sedang Berlangsung',
+    'activities.expired': 'Berakhir',
+    'activities.details': 'Lihat Detail',
+    'activities.load_more': 'Muat Lebih Banyak',
+
+    // Programs Details
+    'programs.sth.full': 'Sarjana Teologi',
+    'programs.spdk.full': 'Sarjana Pendidikan Kristen',
+    'programs.mth.full': 'Magister Teologi',
+    'programs.mpdk.full': 'Magister Pendidikan Kristen',
+    'programs.mdiv.full': 'Master of Divinity',
+    'programs.mmin.full': 'Magister Ministri',
+
+    // Common
+    'common.read_more': 'Baca Selengkapnya',
+    'common.learn_more': 'Pelajari Lebih Lanjut',
+    'common.view_all': 'Lihat Semua',
+    'common.back': 'Kembali',
+    'common.submit': 'Kirim',
+    'common.register': 'Daftar',
   },
   en: {
     // Navigation
@@ -321,24 +400,40 @@ const translations: Record<Language, Record<string, string>> = {
     'media.view_all': 'View All Media',
 
     // Footer
-    'footer.contact': 'Contact Us',
+    'footer.description': 'Bandung School of Theology is dedicated to preparing servants of God who are faithful to the truth of the Word.',
+    'footer.contact': 'CONTACT US',
     'footer.address': 'Jl. Durian No. 16, Bandung 40264',
     'footer.phone': 'Phone',
     'footer.email': 'Email',
-    'footer.quick_links': 'Resources',
+    'footer.quick_links': 'RESOURCES',
     'footer.library': 'Library',
     'footer.digital_library': 'Digital Library',
     'footer.journal': 'Transformatio Journal',
     'footer.podcast': 'Podcast',
     'footer.video': 'Videos',
     'footer.bulletin': 'Bulletin',
-    'footer.help_links': 'Help Links',
-    'footer.copyright': '© 2026 Bandung School of Theology. All Rights Reserved.',
+    'footer.help_links': 'HELP LINKS',
+    'footer.copyright': 'Copyright © 2026 Bandung School of Theology. All Rights Reserved.',
 
     // Programs
     'programs.title': 'STUDY PROGRAMS',
+    'programs.subtitle': 'Choice of Best Study Programs',
     'programs.undergraduate': 'Undergraduate Programs',
     'programs.graduate': 'Graduate Programs',
+    'programs.learn_more': 'Read More',
+    'programs.view_all': 'View All Study Programs',
+    'programs.accredited': 'All programs are BAN-PT accredited',
+
+    // Program Items
+    'programs.sth.title': 'Bachelor of Theology',
+    'programs.sth.desc': 'In-depth study of the Bible, dogmatics, and practices to prepare competent candidate pastors.',
+    'programs.spdk.title': 'Bachelor of Christian Education',
+    'programs.spdk.desc': 'Study programs that prepare competent Christian Education teachers to serve in schools and churches.',
+    'programs.mpdk.title': 'Master of Christian Education',
+    'programs.mpdk.desc': 'Postgraduate programs that prepare professional Christian educators with pedagogical, personality, social, and professional competencies.',
+
+    'programs.duration.8sem': '8 Semesters',
+    'programs.duration.4sem': '4 Semesters',
 
     // About Page
     'about.page.title': 'About STTB',
@@ -422,22 +517,60 @@ const translations: Record<Language, Record<string, string>> = {
     // Admissions Page
     'admissions.page.title': 'Admissions',
     'admissions.page.subtitle': 'Join the STTB Community',
+    'admissions.cta.title': 'Join Us',
+    'admissions.cta.subtitle': 'Start your journey to become a servant of God equipped with truth and love.',
+    'admissions.step': 'STEP',
+    'admissions.online': 'Apply Online',
+    'admissions.online_desc': 'Fill out the online application form and start your selection process.',
+    'admissions.test': 'Entrance Test',
+    'admissions.test_desc': 'Take written exams and interviews according to the established schedule.',
+    'admissions.announcement': 'Announcement',
+    'admissions.announcement_desc': 'Check admission results and further information after the selection test.',
+    'admissions.registration.period': 'Registration: March 1 - May 31, 2026',
+    'admissions.scholarship.info': 'Scholarships available up to 50% for high-achieving candidates',
+    'admissions.alumni.info': 'Over 1,000 STTB alumni serve in various churches and institutions.',
 
     // Finance Page
     'finance.page.title': 'Finance & Scholarships',
     'finance.page.subtitle': 'Cost Information and Financial Aid',
+    'finance.biaya.title': 'Study Costs',
+    'finance.biaya.subtitle': 'Educational Investment for Your Future Ministry',
+    'finance.beasiswa.title': 'Scholarships & Aid',
+    'finance.beasiswa.subtitle': 'Financial Support for Qualified and Called Students',
+    'finance.beasiswa.hero_desc1': 'STTB provides scholarships for those who need them in accordance with the applicable criteria and requirements. STTB provides 3 (three) scholarship categories, namely the Pastor Scholar scholarship, the Formatio scholarship, and the Transformative Leadership scholarship.',
+    'finance.beasiswa.hero_desc2': 'If you need it, you can apply according to the applicable requirements.',
+    'finance.dukung.title': 'Support STTB',
+    'finance.dukung.subtitle': 'Investing in the Formation of Transformative Servants of God',
+    'finance.dukung.cta': 'HOW TO DONATE',
 
     // Campus Life Page
     'campuslife.page.title': 'Campus Life',
     'campuslife.page.subtitle': 'Student Experience at STTB',
 
     // News Page
-    'newspage.title': 'Latest News',
-    'newspage.subtitle': 'Information and News from STTB',
+    'newspage.title': 'NEWS',
+    'newspage.documentation': 'DOCUMENTATION',
+    'newspage.subtitle': 'Follow the latest developments from Bandung School of Theology',
 
     // Activities Page
     'activities.page.title': 'Events & Activities',
     'activities.page.subtitle': 'Events and Programs at STTB',
+    'activities.view_all': 'View All Facilities',
+    'activities.campus_tour_desc': 'Explore STTB campus and see our modern facilities that support the formation of transformative pastor-scholars.',
+
+    // Activity Items (Homepage)
+    'activity.chapel.title': 'Chapel Service',
+    'activity.chapel.desc': 'Weekly worship Monday, Tuesday, Friday at 11:00–12:00 as the center of STTB students spiritual life.',
+    'activity.library.title': 'Library',
+    'activity.library.desc': 'Complete collection of theological literature with comfortable reading rooms and hybrid learning facilities.',
+    'activity.senate.title': 'Student Senate',
+    'activity.senate.desc': 'A student representation body that coordinates various campus and student activities.',
+    'activity.hybrid.title': 'Hybrid Learning Room',
+    'activity.hybrid.desc': 'Modern classrooms with teleconference facilities for onsite and online learning.',
+    'activity.sports.title': 'Sports Day & Event',
+    'activity.sports.desc': 'Annual activities such as Sports Day, Urban Youth Summit, and various student activities.',
+    'activity.mentoring.title': 'Coaching & Discipleship',
+    'activity.mentoring.desc': 'Initial study retreat program, small and large group discipleship for student character building.',
 
     // Media Page
     'mediapage.title': 'Media & Gallery',
@@ -495,6 +628,31 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.programs.description': 'Accredited Bachelor and Master of Theology programs',
     'stats.faculty.label': 'Faculty',
     'stats.faculty.description': 'Experienced teachers with high qualifications',
+
+    // Activities
+    'activities.upcoming': 'Upcoming',
+    'activities.past': 'Past',
+    'activities.featured': 'Featured',
+    'activities.ongoing': 'Ongoing',
+    'activities.expired': 'Expired',
+    'activities.details': 'View Details',
+    'activities.load_more': 'Load More',
+
+    // Programs Details
+    'programs.sth.full': 'Bachelor of Theology',
+    'programs.spdk.full': 'Bachelor of Christian Education',
+    'programs.mth.full': 'Master of Theology',
+    'programs.mpdk.full': 'Master of Christian Education',
+    'programs.mdiv.full': 'Master of Divinity',
+    'programs.mmin.full': 'Master of Ministry',
+
+    // Common
+    'common.read_more': 'Read More',
+    'common.learn_more': 'Learn More',
+    'common.view_all': 'View All',
+    'common.back': 'Back',
+    'common.submit': 'Submit',
+    'common.register': 'Register',
   },
 };
 
