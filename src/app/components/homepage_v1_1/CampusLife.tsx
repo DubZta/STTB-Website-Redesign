@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Play, ChevronRight, BookOpen, Church, Users, Monitor, Trophy, Heart } from "lucide-react";
 import { useLanguage } from '../../contexts/LanguageContext';
+import MaskText from '../animations/MaskText';
 
 export function CampusLife() {
   const { t } = useLanguage();
@@ -13,7 +14,7 @@ export function CampusLife() {
       description:
         "Ibadah mingguan Senin, Selasa, Jumat pukul 11.00–12.00 sebagai pusat kehidupan spiritual mahasiswa STTB.",
       image:
-        "https://lh3.googleusercontent.com/p/AF1QipO8PKP6whwn9Gs75cfGLXBkAIH4ZGGcVRZpxwnh=s680-w680-h510-rw",
+        "/chapel.png",
       icon: Church,
     },
     {
@@ -21,7 +22,7 @@ export function CampusLife() {
       description:
         "Koleksi literatur teologi lengkap dengan ruang baca nyaman dan fasilitas hybrid learning.",
       image:
-        "https://lh3.googleusercontent.com/p/AF1QipPR4MYCqIEXJYD-ii23JVa4l_9PpL4EhcfXBIOe=w243-h174-n-k-no-nu",
+        "/perpus.jpg",
       icon: BookOpen,
     },
     {
@@ -29,7 +30,7 @@ export function CampusLife() {
       description:
         "Wadah representasi mahasiswa yang mengkoordinasikan berbagai kegiatan kampus dan kemahasiswaan.",
       image:
-        "https://lh3.googleusercontent.com/p/AF1QipOqw6L0qz8eLXEV0mugUjUmUrkQlBRDig6WnHSn=w243-h174-n-k-no-nu",
+        "/meeting.JPG",
       icon: Users,
     },
     {
@@ -59,19 +60,21 @@ export function CampusLife() {
     <section id="campus-life" className="py-24 bg-[#F8FAFC]">
       <div className="container mx-auto px-6 lg:px-12">
 
-        {/* Section Header */}
         <div className="text-center mb-20">
-          <span className="block text-2xl text-[#0B3F82] font-bold tracking-[0.25em] mb-3 font-[Cormorant_Garamond]">
+          <span className="block text-2xl text-[#0B3F82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
             IV
           </span>
 
-          <h2 className="text-4xl lg:text-5xl text-[#0B3F82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
-            {t('nav.campus_life')}
-          </h2>
-
-          <p className="text-lg lg:text-xl text-slate-500 max-w-3xl mx-auto font-[Inter]">
-            Sekolah Tinggi Teologi Bandung
-          </p>
+          <MaskText type="lines">
+            <h2 className="text-4xl lg:text-5xl text-[#0B3F82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
+              {t('nav.campus_life')}
+            </h2>
+          </MaskText>
+          <MaskText type="lines" delay={0.1}>
+            <p className="text-lg lg:text-xl text-slate-500 max-w-3xl mx-auto font-[Inter]">
+              Sekolah Tinggi Teologi Bandung
+            </p>
+          </MaskText>
 
           <div className="flex items-center justify-center gap-4 mt-6">
             <div className="h-px w-16 bg-[#D4AF37]" />
@@ -140,42 +143,33 @@ export function CampusLife() {
             return (
               <div
                 key={index}
-                className="group bg-white border border-gray-200 rounded-xl overflow-hidden transition duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="group bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(11,63,130,0.15)] hover:-translate-y-2 relative"
               >
-
-                {/* Image */}
                 <div className="relative h-52 overflow-hidden">
-
                   <img
                     src={activity.image}
                     alt={activity.title}
-                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B3F82]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
-
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                    <Icon size={18} className="text-[#0B3F82]" />
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 relative">
+                  <div className="absolute top-0 left-0 w-0 h-1 bg-[#0B3F82] group-hover:w-full transition-all duration-700" />
 
-                  {/* Icon */}
-                  <div className="w-12 h-12 mb-3 rounded-lg bg-[#0B3F82]/10 flex items-center justify-center">
-                    <Icon size={20} className="text-[#0B3F82]" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg font-bold text-[#0B3F82] mb-2 font-[Plus_Jakarta_Sans]">
+                  <h3 className="text-lg font-bold text-[#0B3F82] mb-2 font-[Plus_Jakarta_Sans] group-hover:text-[#E31D1A] transition-colors">
                     {activity.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-slate-600 text-sm leading-relaxed mb-4 font-[Inter]">
                     {activity.description}
                   </p>
                 </div>
-
               </div>
             );
           })}

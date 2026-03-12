@@ -1,5 +1,6 @@
 import { Calendar } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import MaskText from '../animations/MaskText';
 
 export function News() {
   const { t } = useLanguage();
@@ -7,7 +8,7 @@ export function News() {
     title: 'Wisuda Tahun Akademik 2025/2026',
     date: '15 Juni 2026',
     image:
-      'https://images.unsplash.com/photo-1591218214141-45545921d2d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFkdWF0aW9uJTIwY2VyZW1vbnklMjBzdHVkZW50cyUyMGNlbGVicmF0aW5nfGVufDF8fHx8MTc3MzExNTIzOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      '/wisuda.jpg',
     excerpt:
       'STTB dengan sukacita mengumumkan wisuda ke-53 untuk lulusan program Sarjana Teologi, Magister Divinitas, dan Magister Teologi.',
   };
@@ -42,14 +43,15 @@ export function News() {
   return (
     <section id="news" className="py-20 lg:py-28 bg-white border-t border-[#E2E8F0]">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-serif">
+          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
             V
           </span>
-          <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
-            {t('newspage.title')}
-          </h2>
+          <MaskText type="lines">
+            <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
+              {t('newspage.title')}
+            </h2>
+          </MaskText>
           <div className="flex items-center justify-center gap-4 text-gray-400">
             <div className="h-px w-16 bg-[#D4AF37]" />
             <div className="w-2 h-2 bg-[#D4AF37] rounded-full" />
@@ -60,19 +62,21 @@ export function News() {
         {/* News Grid */}
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Main Event */}
-          <div className="lg:col-span-2 bg-white border border-gray-200 overflow-hidden">
-            <div className="relative">
+          <div className="lg:col-span-2 bg-white border border-gray-200 overflow-hidden group transition-all duration-500 hover:shadow-[0_20px_50px_rgba(11,63,130,0.15)] hover:-translate-y-2">
+            <div className="relative overflow-hidden">
               <img
                 src={mainEvent.image}
                 alt={mainEvent.title}
-                className="w-full h-80 object-cover"
+                className="w-full h-80 object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute top-4 left-4 bg-[#0b3f82] text-white px-4 py-1 text-xs uppercase tracking-wide font-[Plus_Jakarta_Sans]">
+              <div className="absolute top-4 left-4 bg-[#0b3f82] text-white px-4 py-1 text-xs uppercase tracking-wide font-[Plus_Jakarta_Sans] z-10 transition-transform group-hover:scale-110">
                 {mainEvent.date}
               </div>
+              <div className="absolute inset-0 bg-[#0b3f82]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
-            <div className="p-8">
-              <h3 className="text-2xl text-slate-900 mb-4 leading-tight font-[Plus_Jakarta_Sans] font-bold">
+            <div className="p-8 relative">
+              <div className="absolute top-0 left-0 w-0 h-1 bg-[#E31D1A] group-hover:w-full transition-all duration-700" />
+              <h3 className="text-2xl text-slate-900 mb-4 leading-tight font-[Plus_Jakarta_Sans] font-bold group-hover:text-[#0b3f82] transition-colors">
                 {mainEvent.title}
               </h3>
               <p className="text-gray-600 leading-relaxed font-[Inter]">{mainEvent.excerpt}</p>
@@ -84,18 +88,22 @@ export function News() {
             {newsItems.map((item, index) => (
               <div
                 key={index}
-                className="bg-white p-5 pt-6 first:pt-0 border-l-4 border-gray-200 hover:border-[#c9161e] hover:bg-slate-50 transition-all cursor-pointer"
+                className="group bg-white p-5 pt-6 first:pt-0 border-l-4 border-gray-200 hover:border-[#E31D1A] hover:bg-slate-50 transition-all duration-300 cursor-pointer relative overflow-hidden"
               >
-                <div className="flex items-center gap-2 text-[#0b3f82] text-sm font-semibold mb-2">
-                  <Calendar size={14} />
-                  <span className="font-[Plus_Jakarta_Sans]">{item.date}</span>
+                <div className="absolute inset-0 bg-[#0b3f82]/5 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 text-[#0b3f82] text-sm font-semibold mb-2 group-hover:text-[#E31D1A] transition-colors">
+                    <Calendar size={14} />
+                    <span className="font-[Plus_Jakarta_Sans]">{item.date}</span>
+                  </div>
+                  <h4 className="text-lg text-slate-900 mb-2 font-[Plus_Jakarta_Sans] font-bold group-hover:translate-x-1 transition-transform">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 font-[Inter]">
+                    {item.excerpt}
+                  </p>
                 </div>
-                <h4 className="text-lg text-slate-900 mb-2 font-[Plus_Jakarta_Sans] font-bold">
-                  {item.title}
-                </h4>
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 font-[Inter]">
-                  {item.excerpt}
-                </p>
               </div>
             ))}
           </div>

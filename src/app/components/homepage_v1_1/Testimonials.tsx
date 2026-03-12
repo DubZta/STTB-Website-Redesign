@@ -1,6 +1,7 @@
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
-
+import MaskText from '../animations/MaskText';
+import { AuroraBackground } from "./ui/aurora-background";
 export function Testimonials() {
 
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -93,20 +94,24 @@ export function Testimonials() {
 
     return (
 
-        <section className="py-24 bg-[#EFF6FF] overflow-hidden">
+        <section className="py-24 overflow-hidden relative">
+            <AuroraBackground className="absolute inset-0 z-0" showRadialGradient={true}>
+                <div />
+            </AuroraBackground>
 
-            <div className="container mx-auto px-6 lg:px-12">
-
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-16">
 
-                    <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-serif">
+                    <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
                         VI
                     </span>
 
-                    <h2 className="text-4xl lg:text-5xl text-slate-900 mb-4 font-bold">
-                        Testimoni Alumni
-                    </h2>
+                    <MaskText type="lines">
+                        <h2 className="text-4xl lg:text-5xl mb-4 font-bold text-[#0b3f82] font-[Plus_Jakarta_Sans]">
+                            Testimoni Alumni
+                        </h2>
+                    </MaskText>
 
                     <div className="flex items-center justify-center gap-4 text-gray-400">
                         <div className="h-px w-16 bg-[#D4AF37]" />
@@ -116,7 +121,6 @@ export function Testimonials() {
 
                 </div>
 
-                {/* Carousel Controls */}
                 <div className="flex justify-end gap-3 mb-6">
 
                     <button
@@ -135,26 +139,24 @@ export function Testimonials() {
 
                 </div>
 
-                {/* Horizontal Wall */}
                 <div
                     ref={scrollRef}
-                    className="flex gap-8 overflow-x-auto scroll-smooth no-scrollbar pb-6"
+                    className="flex gap-12 overflow-x-auto scroll-smooth no-scrollbar pb-6"
                 >
 
                     {testimonials.map((t, index) => (
 
                         <div
                             key={index}
-                            className="group min-w-[520px] min-h-[320px] h-auto bg-white border border-gray-200 rounded-xl p-8
+                            className="group min-w-[700px] min-h-[420px] h-auto bg-white border border-gray-200 rounded-xl p-8
 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-[#E31D1A] flex flex-col justify-between"
                         >
 
                             {/* Quote icon */}
-                            <div className="text-[#0b3f82] opacity-20 mb-3">
+                            <div className="text-[#0b3f82] opacity-25 mb-3">
                                 <Quote size={38} />
                             </div>
 
-                            {/* Scrollable quote */}
                             <div className="relative flex-1 overflow-hidden">
 
                                 <div className="h-full overflow-y-auto pr-2 scrollbar-thin">
@@ -165,7 +167,6 @@ transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-[
 
                                 </div>
 
-                                {/* Fade hint */}
                                 <div className="pointer-events-none absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent" />
 
                             </div>
@@ -190,7 +191,6 @@ transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-[
                 </div>
 
             </div>
-
         </section>
 
     );
