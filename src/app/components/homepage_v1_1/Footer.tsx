@@ -47,7 +47,7 @@ export function Footer() {
               {t('footer.contact')}
             </h3>
             <p className="text-white/70 leading-relaxed max-w-xs text-[14px] font-[Inter] mt-3">
-              Sekolah Tinggi Teologi Bandung berdedikasi untuk mempersiapkan pelayan Tuhan yang setia pada kebenaran Firman.
+              {t('footer.description')}
             </p>
             <ul className="space-y-3 mt-6">
               <li className="flex items-start gap-3 text-white/70 text-sm">

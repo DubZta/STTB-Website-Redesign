@@ -109,12 +109,12 @@ export default function RequirementsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-gradient-to-r from-sttb-navy to-blue-900 text-white rounded-xl p-8 mb-12 shadow-xl"
           >
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-white">
               {t('lang') === 'id' ? 'Informasi Umum' : 'General Information'}
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <h4 className="font-bold mb-2">
+                <h4 className="font-bold mb-2 text-white">
                   {t('lang') === 'id' ? 'Dokumen Wajib' : 'Required Documents'}
                 </h4>
                 <p className="text-sm text-blue-100">
@@ -124,7 +124,7 @@ export default function RequirementsPage() {
                 </p>
               </div>
               <div>
-                <h4 className="font-bold mb-2">
+                <h4 className="font-bold mb-2 text-white">
                   {t('lang') === 'id' ? 'Formulir' : 'Forms'}
                 </h4>
                 <p className="text-sm text-blue-100">
@@ -134,7 +134,7 @@ export default function RequirementsPage() {
                 </p>
               </div>
               <div>
-                <h4 className="font-bold mb-2">
+                <h4 className="font-bold mb-2 text-white">
                   {t('lang') === 'id' ? 'Biaya' : 'Fee'}
                 </h4>
                 <p className="text-sm text-blue-100">

@@ -1,7 +1,9 @@
 import React from 'react';
 import MaskText from '../../components/animations/MaskText';
 import { Button } from '../../components/homepage_v1_1/ui/button';
+import { AuroraBackground } from '../../components/homepage_v1_1/ui/aurora-background';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../../components/homepage_v1_1/ui/accordion';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { ChevronRight, GraduationCap, Users, Trophy } from 'lucide-react';
 
 const ScholarshipCard = ({ category, title, description, benefits, image, icon: Icon, reverse }: any) => (
@@ -24,11 +26,11 @@ const ScholarshipCard = ({ category, title, description, benefits, image, icon: 
     {/* TEXT */}
     <div className="lg:w-1/2 flex flex-col justify-start pt-2">
 
-      <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase mb-3 font-[Plus_Jakarta_Sans]">
+      <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase mb-3">
         {category}
       </span>
 
-      <h3 className="text-4xl font-bold text-[#0b3f82] mb-6 font-[Plus_Jakarta_Sans] tracking-tight">
+      <h3 className="text-4xl font-bold text-[#0b3f82] mb-6 tracking-tight">
         {title}
       </h3>
 
@@ -37,7 +39,7 @@ const ScholarshipCard = ({ category, title, description, benefits, image, icon: 
           {benefits.map((benefit: string, idx: number) => (
             <li key={idx} className="flex items-start gap-3 transition-all duration-300 group-hover:translate-x-1">
               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#E31D1A]" />
-              <span className="text-sm text-slate-700 font-[Inter]">{benefit}</span>
+              <span className="text-sm text-slate-700">{benefit}</span>
             </li>
           ))}
         </ul>
@@ -50,6 +52,7 @@ const ScholarshipCard = ({ category, title, description, benefits, image, icon: 
 );
 
 export default function BeasiswaPage() {
+  const { t } = useLanguage();
 
   const scholarships = [
     {
@@ -106,9 +109,9 @@ export default function BeasiswaPage() {
     <div className="bg-white min-h-screen">
 
       {/* HERO */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <AuroraBackground className="h-[80vh] min-h-[600px] overflow-hidden">
 
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0">
           <img
             src="/ngajar.png"
             alt="Students"
@@ -122,24 +125,24 @@ export default function BeasiswaPage() {
           <div className="max-w-2xl">
 
             <MaskText type="lines">
-              <h1 className="text-7xl lg:text-8xl font-bold mb-6 font-[Plus_Jakarta_Sans] leading-none tracking-tighter">
-                BEASISWA <br /><span className="text-[#E31D1A]">STTB</span>
+              <h1 className="text-7xl lg:text-8xl font-bold mb-6 leading-none tracking-tighter">
+                {t('finance.beasiswa.title')}
               </h1>
             </MaskText>
 
-            <p className="text-lg text-white/90 font-[Inter] leading-relaxed mb-6 max-w-xl">
-              STTB menyediakan beasiswa bagi mereka yang membutuhkannya sesuai dengan kriteria dan persyaratan yang berlaku. STTB menyediakan 3 (tiga) kategori beasiswa, yaitu beasiswa Pastor Scholar, beasiswa Formatio, dan beasiswa Transformative Leadership.
+            <p className="text-lg text-white/90 leading-relaxed mb-6 max-w-xl">
+              {t('finance.beasiswa.hero_desc1')}
             </p>
 
-            <p className="text-lg text-white/90 font-[Inter] leading-relaxed mb-8 max-w-xl">
-              Jika Anda memerlukannya, Anda dapat mengajukan sesuai persyaratan yang berlaku.
+            <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-xl">
+              {t('finance.beasiswa.hero_desc2')}
             </p>
 
           </div>
 
         </div>
 
-      </section>
+      </AuroraBackground>
 
       {/* SCHOLARSHIPS */}
       <section className="py-28 bg-gradient-to-b from-slate-50 to-white">
@@ -164,11 +167,11 @@ export default function BeasiswaPage() {
             {/* LEFT */}
             <div className="space-y-4 border border-[#0b3f82] rounded-3xl p-10 bg-white shadow-sm">
 
-              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4 font-[Plus_Jakarta_Sans]">
+              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4">
                 FAQ Calon Penerima
               </span>
 
-              <h2 className="text-5xl font-bold text-[#0b3f82] mb-6 font-[Plus_Jakarta_Sans] tracking-tight">
+              <h2 className="text-5xl font-bold text-[#0b3f82] mb-6 tracking-tight">
                 BEASISWA
               </h2>
 
@@ -176,7 +179,7 @@ export default function BeasiswaPage() {
 
                 <h4 className="text-xl font-bold mb-3 text-white">Punya Pertanyaan Lain?</h4>
 
-                <p className="text-white/70 text-sm mb-6 font-[Inter]">
+                <p className="text-white/70 text-sm mb-6">
                   Hubungi kantor admisi kami untuk informasi lebih lanjut.
                 </p>
 
@@ -211,10 +214,10 @@ export default function BeasiswaPage() {
                 ].map((item, idx) => (
 
                   <AccordionItem key={idx} value={`item-${idx}`} className="border border-gray-100 rounded-2xl px-6 mb-4 bg-slate-50 overflow-hidden">
-                    <AccordionTrigger className="text-left font-bold text-slate-800 hover:no-underline font-[Plus_Jakarta_Sans]">
+                    <AccordionTrigger className="text-left font-bold text-slate-800 hover:no-underline">
                       {item.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-slate-600 font-[Inter] leading-relaxed">
+                    <AccordionContent className="text-slate-600 leading-relaxed">
                       {item.a}
                     </AccordionContent>
                   </AccordionItem>
@@ -241,11 +244,11 @@ export default function BeasiswaPage() {
             {/* SYARAT */}
             <div className="border border-slate-200 hover:border-[#0b3f82] rounded-3xl p-10 bg-white shadow-sm transition-all duration-300">
 
-              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4 font-[Plus_Jakarta_Sans]">
+              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4">
                 Syarat & Ketentuan
               </span>
 
-              <h3 className="text-3xl font-bold text-[#0b3f82] mb-6 font-[Plus_Jakarta_Sans]">
+              <h3 className="text-3xl font-bold text-[#0b3f82] mb-6">
                 BEASISWA
               </h3>
 
@@ -274,11 +277,11 @@ export default function BeasiswaPage() {
             {/* SANKSI */}
             <div className="border border-slate-200 hover:border-[#0b3f82] rounded-3xl p-10 bg-white shadow-sm transition-all duration-300">
 
-              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4 font-[Plus_Jakarta_Sans]">
+              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4">
                 Sanksi Bagi Penerima
               </span>
 
-              <h3 className="text-3xl font-bold text-[#0b3f82] mb-6 font-[Plus_Jakarta_Sans]">
+              <h3 className="text-3xl font-bold text-[#0b3f82] mb-6">
                 BEASISWA
               </h3>
 

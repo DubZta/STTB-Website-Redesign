@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Calendar, Users, MapPin, Clock, Search, ChevronLeft, ChevronRight, Filter, Grid, List } from 'lucide-react';
+import { GlowCard } from '../components/ui/spotlight-card';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ActivitiesPage() {
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState('GRID');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedOrganizer, setSelectedOrganizer] = useState('');
@@ -307,7 +310,12 @@ export default function ActivitiesPage() {
   const renderGridView = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {activities.map((activity) => (
-        <div key={activity.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow cursor-pointer">
+        <GlowCard
+          key={activity.id}
+          className="bg-white p-6 group cursor-pointer"
+          customSize
+          glowColor="rgba(11, 63, 130, 0.3)"
+        >
           <div className="flex items-start justify-between mb-3">
             {getStatusBadge(activity.status, activity.featured)}
             <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{activity.category}</span>
@@ -330,7 +338,7 @@ export default function ActivitiesPage() {
           <button className="mt-4 w-full py-2 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
             VIEW DETAILS
           </button>
-        </div>
+        </GlowCard>
       ))}
     </div>
   );

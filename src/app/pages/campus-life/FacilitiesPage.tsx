@@ -115,12 +115,12 @@ export default function FacilitiesPage() {
 
               {/* Description */}
               <div className="space-y-4">
-                <p className="text-sm font-semibold text-sttb-navy leading-relaxed">
+                <p className="text-sm font-semibold text-sttb-navy leading-relaxed text-justify">
                   {language === 'en'
                     ? 'STTB is a Bible school that forms and equips servants of God for ministry within the body of Christ and in the world.'
                     : 'STTB merupakan sekolah Alkitab yang membentuk dan memperlengkapi para pelayan Tuhan bagi pelayanan di dalam tubuh Kristus dan di tengah dunia.'}
                 </p>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-gray-600 leading-relaxed text-justify">
                   {language === 'en'
                     ? 'All aspects of life on campus and in the dormitory, including study, formation, community interaction, service practice, and rest, are always directed to form a heart that loves God and others for the glory of God.'
                     : 'Seluruh aspek kehidupan di dalam kampus dan asrama, yang meliputi studi, pembinaan, interaksi dalam komunitas, praktik pelayanan, maupun istirahat, senantiasa diarahkan untuk membentuk hati yang mengasihi Tuhan dan sesama bagi kemuliaan Tuhan.'}
@@ -153,7 +153,7 @@ export default function FacilitiesPage() {
                     </div>
                     <h4 className="text-sm font-bold text-sttb-red">{facility.title}</h4>
                   </div>
-                  <p className="text-xs text-gray-700 leading-relaxed">{facility.description}</p>
+                  <p className="text-xs text-gray-700 leading-relaxed text-justify">{facility.description}</p>
                 </motion.div>
               );
             })}

@@ -44,11 +44,11 @@ export function CoreValues() {
     <section className="py-20 lg:py-28 bg-[#F8FAFC]">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16 lg:mb-20">
-          <span className="block text-2xl text-[#1E3A8A] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
+          <span className="block text-2xl text-[#1E3A8A] font-bold tracking-[0.25em] mb-3">
             II
           </span>
           <MaskText type="lines">
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#1E3A8A] mb-4 font-[Plus_Jakarta_Sans] tracking-wide">
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#1E3A8A] mb-4 tracking-wide">
               {t('about.corevalues.title')}
             </h2>
           </MaskText>
@@ -73,7 +73,7 @@ export function CoreValues() {
                   <Icon size={28} />
                 </div>
 
-                <h3 className="text-xl font-bold mb-4 font-[Plus_Jakarta_Sans] text-[#1E3A8A]">
+                <h3 className="text-xl font-bold mb-4 text-[#1E3A8A]">
                   {value.title}
                 </h3>
 

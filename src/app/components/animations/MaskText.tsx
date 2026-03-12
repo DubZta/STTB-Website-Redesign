@@ -77,7 +77,7 @@ const MaskText: React.FC<MaskTextProps> = ({
     }, containerRef);
 
     return () => ctx.revert();
-  }, [type, delay, once]);
+  }, [type, delay, once, children]);
 
   return (
     <div

@@ -1,8 +1,11 @@
 import { Calendar, ArrowRight, Search, ChevronDown, Clock } from 'lucide-react';
 import { Link } from 'react-router';
 import { useState } from 'react';
+import { AuroraBackground } from '../components/homepage_v1_1/ui/aurora-background';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function NewsPage() {
+  const { t } = useLanguage();
 
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -112,21 +115,21 @@ export default function NewsPage() {
     <div className="min-h-screen bg-gray-50">
 
       {/* HERO */}
-      <div className="bg-white py-20 border-b">
+      <AuroraBackground className="py-20 border-b">
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           <h1 className="text-6xl font-extrabold mb-4 tracking-tight">
-            BERITA & <span className="text-red-500">DOKUMENTASI</span>
+            {t('newspage.title')} & <span className="text-red-500">{t('newspage.documentation')}</span>
           </h1>
 
           <div className="w-20 h-1 bg-blue-900 mx-auto mb-6"></div>
 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ikuti perkembangan terkini dari Sekolah Tinggi Teologi Bandung
+            {t('newspage.subtitle')}
           </p>
 
         </div>
-      </div>
+      </AuroraBackground>
 
       {/* FEATURED */}
       <div className="bg-white border-b">

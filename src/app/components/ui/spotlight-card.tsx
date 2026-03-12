@@ -7,6 +7,7 @@ interface GlowCardProps {
   width?: string | number;
   height?: string | number;
   customSize?: boolean;
+  glowColor?: string;
 }
 
 const sizeMap = {
@@ -22,14 +23,15 @@ const GlowCard: React.FC<GlowCardProps> = ({
   width,
   height,
   customSize = false,
+  glowColor = "rgba(30,64,175,0.50)",
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
 
-  const NAVY_NEON = "rgba(30,64,175,0.50)";
-  const NAVY_SOFT = "rgba(30,64,175,0.8)";
+  const SOFT_OPACITY = 0.8;
+  const NEON_OPACITY = 1;
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
@@ -90,7 +92,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           opacity: opacity * 0.8,
           background: `radial-gradient(
             circle at ${position.x}px ${position.y}px,
-            ${NAVY_SOFT},
+            ${glowColor.replace(/0\.\d+\)$/, '0.8)')},
             transparent 60%
           )`,
         }}
@@ -102,7 +104,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           opacity,
           background: `radial-gradient(
             circle at ${position.x}px ${position.y}px,
-            ${NAVY_NEON},
+            ${glowColor},
             transparent 45%
           )`,
         }}
@@ -115,7 +117,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           padding: "1px",
           background: `radial-gradient(
             circle at ${position.x}px ${position.y}px,
-            ${NAVY_NEON},
+            ${glowColor},
             transparent 35%
           )`,
           WebkitMask:

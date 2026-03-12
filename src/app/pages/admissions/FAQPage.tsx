@@ -342,7 +342,7 @@ export default function FAQPage() {
               className="text-center py-12"
             >
               <p className="text-gray-500 text-lg">
-                {t('lang') === 'id' 
+                {t('lang') === 'id'
                   ? 'Tidak ada hasil yang ditemukan. Coba kata kunci lain.'
                   : 'No results found. Try different keywords.'}
               </p>
@@ -357,7 +357,7 @@ export default function FAQPage() {
             transition={{ duration: 0.6 }}
             className="mt-12 bg-gradient-to-br from-sttb-navy to-blue-900 rounded-xl p-8 text-white text-center"
           >
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-white">
               {t('lang') === 'id' ? 'Masih Ada Pertanyaan?' : 'Still Have Questions?'}
             </h3>
             <p className="text-blue-100 mb-6">

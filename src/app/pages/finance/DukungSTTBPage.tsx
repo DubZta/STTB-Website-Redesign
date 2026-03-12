@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import MaskText from '../../components/animations/MaskText';
 import { Button } from '../../components/homepage_v1_1/ui/button';
+import { AuroraBackground } from '../../components/homepage_v1_1/ui/aurora-background';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { ChevronRight, Heart, BookOpen, UserPlus, Phone } from 'lucide-react';
 
 const DonationPriorityCard = ({ icon: Icon, title, description, phone, color }: any) => (
@@ -8,8 +10,8 @@ const DonationPriorityCard = ({ icon: Icon, title, description, phone, color }: 
     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-${color}-50 text-${color}-600 group-hover:scale-110 transition-transform duration-500`}>
       <Icon size={32} />
     </div>
-    <h3 className="text-2xl font-bold text-slate-900 mb-3 font-[Plus_Jakarta_Sans] uppercase tracking-tight">{title}</h3>
-    <p className="text-slate-600 text-sm leading-relaxed font-[Inter] mb-6 flex-grow text-justify">
+    <h3 className="text-2xl font-bold text-slate-900 mb-3 uppercase tracking-tight">{title}</h3>
+    <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow text-justify">
       {description}
     </p>
     <div className="space-y-3 w-full">
@@ -31,15 +33,16 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
         className="flex justify-between items-center w-full text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-bold text-lg text-[#0b3f82] font-[Plus_Jakarta_Sans]">{question}</span>
+        <span className="font-bold text-lg text-[#0b3f82]">{question}</span>
         <span className="text-2xl text-[#E31D1A]">{isOpen ? '−' : '+'}</span>
       </button>
-      {isOpen && <p className="mt-3 text-slate-600 font-[Inter]">{answer}</p>}
+      {isOpen && <p className="mt-3 text-slate-600">{answer}</p>}
     </div>
   );
 };
 
 export default function DukungSTTBPage() {
+  const { t } = useLanguage();
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -346,19 +349,19 @@ export default function DukungSTTBPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Header Banner */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-[#0b3f82]">
-        <div className="absolute inset-0 opacity-20">
+      <AuroraBackground className="h-[60vh] overflow-hidden bg-[#0b3f82]">
+        <div className="absolute inset-0 opacity-20 z-0">
           <div className="absolute top-0 right-0 w-[800px] h-full bg-gradient-to-l from-white/30 to-transparent skew-x-12 translate-x-24" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <span className="text-[#D4AF37] font-bold tracking-[0.4em] text-sm uppercase block mb-6 font-[Plus_Jakarta_Sans]">
+          <span className="text-[#D4AF37] font-bold tracking-[0.4em] text-sm uppercase block mb-6">
             SUPPORT US
           </span>
           <MaskText type="lines">
-            <h1 className="text-7xl lg:text-[100px] font-bold text-white mb-8 font-[Plus_Jakarta_Sans] leading-none tracking-tighter">
-              DUKUNG <span className="text-[#D4AF37]">STTB</span>
+            <h1 className="text-7xl lg:text-[100px] font-bold text-white mb-8 leading-none tracking-tighter">
+              {t('finance.dukung.title')}
             </h1>
           </MaskText>
           <div className="mt-8 flex justify-center">
@@ -366,12 +369,12 @@ export default function DukungSTTBPage() {
               className="bg-[#E31D1A] text-white hover:!bg-[#b91815] px-12 py-5 h-auto text-sm uppercase font-bold tracking-widest rounded-full shadow-2xl shadow-red-500/30 group"
               onClick={() => formSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
             >
-              CARA DONASI
+              {t('finance.dukung.cta')}
               <ChevronRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
-      </section>
+      </AuroraBackground>
 
       {/* KONTRIBUSI ANDA */}
       <section className="py-24 relative">
@@ -389,13 +392,13 @@ export default function DukungSTTBPage() {
             </div>
 
             <div className="lg:w-1/2">
-              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4 font-[Plus_Jakarta_Sans]">
+              <span className="text-[#E31D1A] font-bold tracking-widest text-sm uppercase block mb-4">
                 KONTRIBUSI ANDA
               </span>
-              <h2 className="text-6xl font-bold text-[#0b3f82] mb-8 font-[Plus_Jakarta_Sans] tracking-tighter leading-none">
+              <h2 className="text-6xl font-bold text-[#0b3f82] mb-8 tracking-tighter leading-none">
                 MEMBANGUN <br />BERSAMA
               </h2>
-              <div className="space-y-6 text-slate-600 leading-relaxed font-[Inter] text-justify">
+              <div className="space-y-6 text-slate-600 leading-relaxed text-justify">
                 <p>
                   Dapat menolong STTB melanjutkan amanat Kristus untuk mempersiapkan dan mendidik pelayan-pelayan Tuhan yang sangat dibutuhkan untuk menjawab tantangan jaman agar menjadi pelayan-pelayan Tuhan yang berdampak bagi masyarakat.
                 </p>
@@ -417,8 +420,8 @@ export default function DukungSTTBPage() {
       {/* PRIORITAS PENGGUNAAN DONASI */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6 lg:px-12 text-center mb-20">
-          <h2 className="text-5xl font-bold text-[#0b3f82] mb-6 font-[Plus_Jakarta_Sans] tracking-tight">PRIORITAS PENGGUNAAN DONASI</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto font-[Inter]">Tiga cara utama Anda dapat berkontribusi dan mendapatkan informasi.</p>
+          <h2 className="text-5xl font-bold text-[#0b3f82] mb-6 tracking-tight">PRIORITAS PENGGUNAAN DONASI</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">Tiga cara utama Anda dapat berkontribusi dan mendapatkan informasi.</p>
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-8">
@@ -446,8 +449,8 @@ export default function DukungSTTBPage() {
       {/* KESEDIAAN MENDUKUNG */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
-          <h2 className="text-5xl font-bold text-[#0b3f82] mb-8 font-[Plus_Jakarta_Sans] tracking-tight">KESEDIAAN MENDUKUNG</h2>
-          <p className="text-xl text-slate-700 leading-relaxed font-[Inter] italic border-l-4 border-[#E31D1A] pl-8">
+          <h2 className="text-5xl font-bold text-[#0b3f82] mb-8 tracking-tight">KESEDIAAN MENDUKUNG</h2>
+          <p className="text-xl text-slate-700 leading-relaxed italic border-l-4 border-[#E31D1A] pl-8">
             "Dengan segala kerendahan hati, kami mengundang Bapak/Ibu untuk menjadi rekan bagi pengembangan Kerajaan Allah dengan menginvestasikan pemimpin-pemimpin masa depan yang dapat mentransformasi kehidupan dan komunitas."
           </p>
         </div>
@@ -456,7 +459,7 @@ export default function DukungSTTBPage() {
       {/* FAQ */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold text-[#0b3f82] mb-12 text-center font-[Plus_Jakarta_Sans]">FAQ CALON PENERIMA BEASISWA</h2>
+          <h2 className="text-4xl font-bold text-[#0b3f82] mb-12 text-center">FAQ CALON PENERIMA BEASISWA</h2>
           <div className="space-y-2">
             <FAQItem
               question="Apakah STTB memiliki program beasiswa?"
@@ -492,7 +495,7 @@ export default function DukungSTTBPage() {
                   {step}/4 Page {step}
                 </span>
               </div>
-              <h3 className="text-3xl font-bold text-[#0b3f82] mb-8 font-[Plus_Jakarta_Sans]">FORMULIR DUKUNGAN</h3>
+              <h3 className="text-3xl font-bold text-[#0b3f82] mb-8">FORMULIR DUKUNGAN</h3>
 
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 {renderStepFields()}
@@ -535,8 +538,8 @@ export default function DukungSTTBPage() {
               <div className="bg-slate-50 p-8 rounded-[40px] mb-8 shadow-inner">
                 <img src="/qris.png" alt="QRIS STTB" className="w-100 h-100 object-contain" />
               </div>
-              <h4 className="text-2xl font-bold text-[#0b3f82] mb-2 font-[Plus_Jakarta_Sans]">PINDAI UNTUK DONASI</h4>
-              <p className="text-slate-500 font-[Inter] mb-8 italic">QRIS STT Bandung | Yayasan STT Bandung</p>
+              <h4 className="text-2xl font-bold text-[#0b3f82] mb-2">PINDAI UNTUK DONASI</h4>
+              <p className="text-slate-500 mb-8 italic">QRIS STT Bandung | Yayasan STT Bandung</p>
             </div>
           </div>
         </div>

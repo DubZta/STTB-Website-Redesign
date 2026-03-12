@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Play, ChevronRight, BookOpen, Church, Users, Monitor, Trophy, Heart } from "lucide-react";
 import { useLanguage } from '../../contexts/LanguageContext';
+import { GlowCard } from '../ui/spotlight-card';
 import MaskText from '../animations/MaskText';
+import { Link } from 'react-router';
 
 export function CampusLife() {
   const { t } = useLanguage();
@@ -10,47 +12,38 @@ export function CampusLife() {
 
   const activities = [
     {
-      title: "Ibadah Chapel",
-      description:
-        "Ibadah mingguan Senin, Selasa, Jumat pukul 11.00–12.00 sebagai pusat kehidupan spiritual mahasiswa STTB.",
-      image:
-        "/chapel.png",
+      title: t('activity.chapel.title'),
+      description: t('activity.chapel.desc'),
+      image: "/chapel.png",
       icon: Church,
     },
     {
-      title: "Perpustakaan",
-      description:
-        "Koleksi literatur teologi lengkap dengan ruang baca nyaman dan fasilitas hybrid learning.",
-      image:
-        "/perpus.jpg",
+      title: t('activity.library.title'),
+      description: t('activity.library.desc'),
+      image: "/perpus.jpg",
       icon: BookOpen,
     },
     {
-      title: "Senat Mahasiswa",
-      description:
-        "Wadah representasi mahasiswa yang mengkoordinasikan berbagai kegiatan kampus dan kemahasiswaan.",
-      image:
-        "/meeting.JPG",
+      title: t('activity.senate.title'),
+      description: t('activity.senate.desc'),
+      image: "/meeting.JPG",
       icon: Users,
     },
     {
-      title: "Ruang Hybrid Learning",
-      description:
-        "Ruang kelas modern dengan fasilitas teleconference untuk pembelajaran onsite maupun online.",
+      title: t('activity.hybrid.title'),
+      description: t('activity.hybrid.desc'),
       image: "/ruang.png",
       icon: Monitor,
     },
     {
-      title: "Sports Day & Event",
-      description:
-        "Kegiatan tahunan seperti Sports Day, Urban Youth Summit, dan berbagai aktivitas mahasiswa.",
+      title: t('activity.sports.title'),
+      description: t('activity.sports.desc'),
       image: "/games.png",
       icon: Trophy,
     },
     {
-      title: "Pembinaan & Pemuridan",
-      description:
-        "Program retreat awal studi, pemuridan kelompok kecil dan besar untuk pembentukan karakter mahasiswa.",
+      title: t('activity.mentoring.title'),
+      description: t('activity.mentoring.desc'),
       image: "/pembinaan.png",
       icon: Heart,
     },
@@ -61,17 +54,17 @@ export function CampusLife() {
       <div className="container mx-auto px-6 lg:px-12">
 
         <div className="text-center mb-20">
-          <span className="block text-2xl text-[#0B3F82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
+          <span className="block text-2xl text-[#0B3F82] font-bold tracking-[0.25em] mb-3">
             IV
           </span>
 
           <MaskText type="lines">
-            <h2 className="text-4xl lg:text-5xl text-[#0B3F82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
+            <h2 className="text-4xl lg:text-5xl text-[#0B3F82] mb-4 font-bold">
               {t('nav.campus_life')}
             </h2>
           </MaskText>
           <MaskText type="lines" delay={0.1}>
-            <p className="text-lg lg:text-xl text-slate-500 max-w-3xl mx-auto font-[Inter]">
+            <p className="text-lg lg:text-xl text-slate-500 max-w-3xl mx-auto">
               Sekolah Tinggi Teologi Bandung
             </p>
           </MaskText>
@@ -126,9 +119,8 @@ export function CampusLife() {
 
           </div>
 
-          <p className="text-center text-slate-500 mt-6 max-w-2xl mx-auto font-[Inter]">
-            Jelajahi kampus STTB dan lihat fasilitas modern kami yang mendukung
-            pembentukan pastor-scholar yang transformatif.
+          <p className="text-center text-slate-500 mt-6 max-w-2xl mx-auto">
+            {t('activities.campus_tour_desc')}
           </p>
 
         </div>
@@ -141,9 +133,11 @@ export function CampusLife() {
             const Icon = activity.icon;
 
             return (
-              <div
+              <GlowCard
                 key={index}
-                className="group bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(11,63,130,0.15)] hover:-translate-y-2 relative"
+                className="bg-white border border-gray-200 overflow-hidden group relative"
+                customSize
+                glowColor="rgba(11, 63, 130, 0.3)"
               >
                 <div className="relative h-52 overflow-hidden">
                   <img
@@ -162,15 +156,15 @@ export function CampusLife() {
                 <div className="p-6 relative">
                   <div className="absolute top-0 left-0 w-0 h-1 bg-[#0B3F82] group-hover:w-full transition-all duration-700" />
 
-                  <h3 className="text-lg font-bold text-[#0B3F82] mb-2 font-[Plus_Jakarta_Sans] group-hover:text-[#E31D1A] transition-colors">
+                  <h3 className="text-lg font-bold text-[#0B3F82] mb-2 group-hover:text-[#E31D1A] transition-colors">
                     {activity.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4 font-[Inter]">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     {activity.description}
                   </p>
                 </div>
-              </div>
+              </GlowCard>
             );
           })}
 
@@ -178,15 +172,13 @@ export function CampusLife() {
 
         {/* CTA */}
         <div className="text-center mt-14">
-          <a
-            href="https://sttb.ac.id/fasilitas/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/campus-life/facilities"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#0B3F82] text-white font-semibold rounded-lg hover:bg-[#E31D1A] transition"
           >
-            Lihat Semua Fasilitas
+            {t('activities.view_all')}
             <ChevronRight size={18} />
-          </a>
+          </Link>
         </div>
 
       </div>
