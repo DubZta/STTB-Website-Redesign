@@ -4,17 +4,21 @@ import { useLanguage } from '../../contexts/LanguageContext';
 export function Footer() {
   const { t } = useLanguage();
   const quickLinks = [
-    { label: 'Tentang Kami', href: '#about' },
-    { label: 'Visi & Misi', href: '#about' },
-    { label: 'Sejarah', href: '#about' },
-    { label: 'Akreditasi', href: '#about' },
+    { label: 'Perpustakaan', href: '#' },
+    { label: 'Perpustakaan Digital', href: '#' },
+    { label: 'Jurnal Transformatio', href: '#' },
+    { label: 'Podcast', href: '#' },
+    { label: 'Video', href: '#' },
+    { label: 'Buletin', href: '#' }
   ];
 
   const academicLinks = [
-    { label: 'Program Sarjana', href: '#programs' },
-    { label: 'Program Magister', href: '#programs' },
-    { label: 'Perpustakaan', href: '#' },
-    { label: 'Kalender Akademik', href: '#' },
+    { label: 'Sistem Informasi Akademik', href: '#' },
+    { label: 'Sistem E-Learning', href: '#' },
+    { label: 'Sistem Perpustakaan', href: '#' },
+    { label: 'Sistem Kolaborasi Terpadu', href: '#' },
+    { label: 'Portal Alumni', href: '#' },
+    { label: 'Mail Server', href: '#' },
   ];
 
   const admissionLinks = [
@@ -29,7 +33,6 @@ export function Footer() {
       <div className="container mx-auto px-6 lg:px-12">
         {/* Main Footer Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* About Column */}
           <div>
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center border-2 border-white">

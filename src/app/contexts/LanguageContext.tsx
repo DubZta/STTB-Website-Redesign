@@ -79,7 +79,7 @@ const translations: Record<Language, Record<string, string>> = {
     'media.view_all': 'Lihat Semua Media',
 
     // Footer
-    'footer.contact': 'Kontak Kami',
+    'footer.contact': 'KONTAK KAMI',
     'footer.address': 'Jl. Durian No. 16, Bandung 40264',
     'footer.phone': 'Telepon',
     'footer.email': 'Email',

@@ -1,6 +1,7 @@
 import { useEffect, useState, type KeyboardEvent } from 'react';
 import { Eye, Flag } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import MaskText from '../animations/MaskText';
 
 export function About() {
   const { t } = useLanguage();
@@ -78,14 +79,15 @@ export function About() {
   return (
     <section id="about" className="py-20 lg:py-28 bg-white border-t border-[#E5E7EB]">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Cormorant_Garamond]">
+          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
             I
           </span>
-          <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
-            {t('about.page.title')}
-          </h2>
+          <MaskText type="lines">
+            <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
+              {t('about.page.title')}
+            </h2>
+          </MaskText>
           <div className="flex items-center justify-center gap-4 text-gray-400">
             <div className="h-px w-16 bg-[#D4AF37]" />
             <div className="w-2 h-2 bg-[#D4AF37] rounded-full" />
@@ -93,19 +95,21 @@ export function About() {
           </div>
         </div>
 
-        {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
-          {/* Text Content */}
           <div>
-            <p className="text-xl leading-relaxed text-slate-700 mb-8 first-letter:text-7xl first-letter:font-serif first-letter:font-bold first-letter:text-[#0b3f82] first-letter:float-left first-letter:mr-3 first-letter:leading-[0.8] font-[Plus_Jakarta_Sans]">
-              Sekolah Tinggi Teologi Bandung hadir sebagai lembaga pendidikan
-              teologi yang berkomitmen pada kebenaran Alkitab dan warisan iman
-              Reformatoris. Kami berdedikasi untuk mempersiapkan pastor-scholar
-              yang transformatif yang tidak hanya cerdas secara intelektual, tetapi juga 
-              memiliki hati yang berkobar untuk melayani dalam konteks masyarakat urban, gereja, dan masyarakat.
-            </p>
+            <MaskText type="lines" delay={0.1}>
+              <p className="text-xl leading-normal text-slate-700 mb-8 font-[Plus_Jakarta_Sans]">
+                <span className="text-7xl font-[Inter] font-bold text-[#0b3f82] float-left mr-3 leading-[0.8]">
+                  S
+                </span>
+                ekolah Tinggi Teologi Bandung hadir sebagai lembaga pendidikan
+                teologi yang berkomitmen pada kebenaran Alkitab dan warisan iman
+                Reformatoris. Kami berdedikasi untuk mempersiapkan pastor-scholar
+                yang transformatif yang tidak hanya cerdas secara intelektual, tetapi juga
+                memiliki hati yang berkobar untuk melayani dalam konteks masyarakat urban, gereja, dan masyarakat.
+              </p>
+            </MaskText>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-4 lg:gap-6">
               {stats.map((stat, index) => (
                 <div
@@ -125,13 +129,15 @@ export function About() {
             </div>
           </div>
 
-          {/* Image */}
-          <div className="relative">
-            <img
-              src="https://lh3.googleusercontent.com/p/AF1QipPz-R6gnl9ZHeitqsqpGaIf1EVFwL-7AB1Redwg=s680-w680-h510-rw"
-              alt="STTB Library"
-              className="w-full h-[500px] lg:h-[600px] object-cover object-right rounded-t-[40%_20%] border-8 border-white shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
-            />
+          <div className="relative group perspective-1000">
+            <div className="relative overflow-hidden rounded-t-[40%_20%] border-8 border-white shadow-2xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(11,63,130,0.3)] group-hover:-translate-y-4 group-hover:rotate-x-2">
+              <img
+                src="/about.png"
+                alt="STTB Library"
+                className="w-full h-[500px] lg:h-[600px] object-cover object-right grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out"
+              />
+              <div className="absolute inset-0 bg-[#0b3f82]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
           </div>
         </div>
 
@@ -146,7 +152,6 @@ export function About() {
             onMouseLeave={() => !isMobile && setActiveSide(null)}
           >
 
-            {/* VISI CARD */}
             <div
               role="button"
               tabIndex={0}
@@ -159,26 +164,21 @@ export function About() {
               hover:shadow-2xl hover:-translate-y-1
               cursor-pointer
 
-              ${
-                activeSide === 'visi'
+              ${activeSide === 'visi'
                   ? 'lg:w-[65%]'
                   : activeSide === 'misi'
-                  ? 'lg:w-[35%]'
-                  : 'lg:w-1/2'
-              }`}
+                    ? 'lg:w-[35%]'
+                    : 'lg:w-1/2'
+                }`}
             >
 
-              {/* Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0b3f82]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0b3f82]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Border animation */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#0b3f82]/30 rounded-xl transition-all"/>
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#0b3f82]/30 rounded-xl transition-all" />
 
-              {/* Corner accent */}
-              <div className="absolute top-4 right-4 w-10 h-10 border-t-2 border-r-2 border-[#0b3f82]/30 opacity-0 group-hover:opacity-100 transition"/>
+              <div className="absolute top-4 right-4 w-10 h-10 border-t-2 border-r-2 border-[#0b3f82]/30 opacity-0 group-hover:opacity-100 transition" />
 
               <div className="relative z-10">
-                {/* Icon + Title */}
                 <div className="flex items-center gap-3 mb-4">
                   <Eye className="w-6 h-6 text-[#1E3A8A]" strokeWidth={2} aria-hidden="true" />
                   <h3 className="text-2xl font-bold text-[#1E3A8A] font-[Plus_Jakarta_Sans]">
@@ -207,7 +207,6 @@ export function About() {
               </div>
             </div>
 
-            {/* MISI CARD */}
             <div
               role="button"
               tabIndex={0}
@@ -220,20 +219,19 @@ export function About() {
               hover:shadow-2xl hover:-translate-y-1
               cursor-pointer
 
-              ${
-                activeSide === 'misi'
+              ${activeSide === 'misi'
                   ? 'lg:w-[65%]'
                   : activeSide === 'visi'
-                  ? 'lg:w-[35%]'
-                  : 'lg:w-1/2'
-              }`}
+                    ? 'lg:w-[35%]'
+                    : 'lg:w-1/2'
+                }`}
             >
 
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0b3f82]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0b3f82]/5 to-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#0b3f82]/30 rounded-xl transition-all"/>
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#0b3f82]/30 rounded-xl transition-all" />
 
-              <div className="absolute top-4 right-4 w-10 h-10 border-t-2 border-r-2 border-[#0b3f82]/30 opacity-0 group-hover:opacity-100 transition"/>
+              <div className="absolute top-4 right-4 w-10 h-10 border-t-2 border-r-2 border-[#0b3f82]/30 opacity-0 group-hover:opacity-100 transition" />
 
               <div className="relative z-10">
                 {/* Icon + Title */}
@@ -252,7 +250,7 @@ export function About() {
                   <ul className="space-y-3">
                     {missionBullets.map(bullet => (
                       <li key={bullet} className="flex gap-3">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-[#3B82F6] flex-shrink-0"/>
+                        <span className="mt-2 h-2 w-2 rounded-full bg-[#3B82F6] flex-shrink-0" />
                         <span className="text-sm text-slate-600 font-[Inter]">
                           {bullet}
                         </span>

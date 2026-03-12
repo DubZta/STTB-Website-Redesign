@@ -1,6 +1,7 @@
 import { Button } from './ui/button';
 import { ArrowRight, FileText, Calendar, HelpCircle } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import MaskText from '../animations/MaskText';
 
 export function AdmissionsCTA() {
   const { t } = useLanguage();
@@ -22,15 +23,19 @@ export function AdmissionsCTA() {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <span className="block text-2xl text-[#D4AF37] font-bold tracking-[0.25em] mb-3 font-serif">
+            <span className="block text-2xl text-[#D4AF37] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
               VII
             </span>
-            <h2 className="text-4xl lg:text-5xl mb-6 font-[Plus_Jakarta_Sans] font-bold text-white">
-              Bergabunglah Dengan Kami
-            </h2>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-[Inter]">
-              Mulai perjalanan Anda untuk menjadi pelayan Tuhan yang diperlengkapi dengan kebenaran dan kasih.
-            </p>
+            <MaskText type="lines">
+              <h2 className="text-4xl lg:text-5xl mb-6 font-[Plus_Jakarta_Sans] font-bold text-white">
+                Bergabunglah Dengan Kami
+              </h2>
+            </MaskText>
+            <MaskText type="lines" delay={0.1}>
+              <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-[Inter]">
+                Mulai perjalanan Anda menjadi pelayan Tuhan yang diperlengkapi dengan kebenaran dan kasih.
+              </p>
+            </MaskText>
           </div>
 
           <div className="flex flex-col items-center gap-10">

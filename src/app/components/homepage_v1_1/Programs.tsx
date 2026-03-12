@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../../contexts/LanguageContext';
+import MaskText from '../animations/MaskText';
 
 export function Programs() {
   const { t } = useLanguage();
@@ -10,7 +11,7 @@ export function Programs() {
       description:
         'Program studi mendalam tentang Alkitab, dogmatika, dan praktika untuk mempersiapkan calon gembala sidang yang kompeten.',
       image:
-        'https://lh3.googleusercontent.com/p/AF1QipNi17wgWZWLPSqTny-UGxXRHIGJIIHSXSDjg0zt=w243-h174-n-k-no-nu',
+        '/sth.JPG',
       duration: '8 Semester',
       level: 'S1',
       degreeBadge: 'S.Th',
@@ -21,7 +22,7 @@ export function Programs() {
       description:
         'Program studi yang mempersiapkan guru Pendidikan Kristen kompeten untuk melayani di sekolah dan gereja.',
       image:
-        'https://lh3.googleusercontent.com/p/AF1QipN6_1xl5fA8klz1kmT7UiWHnR13xiXvCSJCwH7y=s680-w680-h510-rw',
+        '/spd.png',
       duration: '8 Semester',
       level: 'S1',
       degreeBadge: 'S.Pd.',
@@ -32,7 +33,7 @@ export function Programs() {
       description:
         'Program pascasarjana yang mempersiapkan pendidik Kristen profesional dengan kompetensi pedagogik, kepribadian, sosial, dan profesional.',
       image:
-        'https://sttb.ac.id/storage/2024/05/IMG_6385-1080x675.jpg',
+        '/mpd.jpg',
       duration: '4 Semester',
       level: 'S2',
       degreeBadge: 'M.Pd.',
@@ -42,28 +43,30 @@ export function Programs() {
 
   return (
     <section id="programs" className="py-20 lg:py-28 bg-[#F1F5F9] relative overflow-hidden">
-      {/* Background Gradient */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: 'linear-gradient(180deg, transparent 0%, rgba(203,213,225,0.1) 100%)' 
-          }} 
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, transparent 0%, rgba(203,213,225,0.1) 100%)'
+          }}
         />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Cormorant_Garamond]">
+          <span className="block text-2xl text-[#0b3f82] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
             III
           </span>
-          <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
-            {t('programs.title')}
-          </h2>
-          <p className="text-lg lg:text-xl text-[#64748B] max-w-3xl mx-auto font-[Inter]">
-            Sekolah Tinggi Teologi Bandung
-          </p>
+          <MaskText type="lines">
+            <h2 className="text-4xl lg:text-5xl text-[#0b3f82] mb-4 font-[Plus_Jakarta_Sans] font-bold">
+              {t('programs.title')}
+            </h2>
+          </MaskText>
+          <MaskText type="lines" delay={0.1}>
+            <p className="text-lg lg:text-xl text-[#64748B] max-w-3xl mx-auto font-[Inter]">
+              Sekolah Tinggi Teologi Bandung
+            </p>
+          </MaskText>
           <div className="flex items-center justify-center gap-4 mt-6">
             <div className="h-px w-16 bg-[#D4AF37]" />
             <div className="w-2 h-2 bg-[#D4AF37] rounded-full" />
@@ -78,7 +81,6 @@ export function Programs() {
               key={index}
               className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl group min-h-[520px] flex flex-col"
             >
-              {/* Image Container */}
               <div className="relative overflow-hidden">
                 <img
                   src={program.image}
@@ -89,44 +91,37 @@ export function Programs() {
                     (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=STTB+Program';
                   }}
                 />
-                
-                {/* Degree Badge */}
+
                 <div className="absolute top-4 left-4 bg-[#0b3f82] text-white px-3 py-1 text-xs uppercase tracking-wide font-[Plus_Jakarta_Sans] font-bold rounded">
                   {program.degreeBadge}
                 </div>
 
-                {/* Level Badge */}
                 <div className="absolute top-4 right-4 bg-[#E31D1A] text-white px-3 py-1 text-xs uppercase tracking-wide font-[Plus_Jakarta_Sans] font-bold rounded">
                   {program.level}
                 </div>
 
-                {/* Optional Badge (Populer, etc.) */}
               </div>
 
-              {/* Content */}
               <div className="p-6 text-center flex flex-col flex-1">
                 <h3 className="text-2xl text-slate-900 mb-3 font-[Plus_Jakarta_Sans] font-bold">
                   {program.title}
                 </h3>
-                
-                {/* Duration Badge */}
+
                 <div className="inline-block bg-[#F3F4F6] text-[#374151] px-4 py-1.5 text-sm rounded-full mb-4 font-[Inter] font-medium">
                   {program.duration}
                 </div>
 
-                {/* Description */}
                 <p className="text-gray-600 leading-relaxed mb-6 text-sm font-[Inter]">
                   {program.description}
                 </p>
 
-                {/* CTA Button */}
                 <Button
                   className="mt-auto bg-[#0B3F82] text-white hover:!bg-[#0a2f63] px-4 py-2 text-xs uppercase tracking-wider font-[Inter] font-semibold inline-flex items-center justify-center"
                   asChild
                 >
-                  <a 
-                    href={program.link} 
-                    target="_blank" 
+                  <a
+                    href={program.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center"
                   >
@@ -139,7 +134,6 @@ export function Programs() {
           ))}
         </div>
 
-        {/* View All Programs CTA */}
         <div className="text-center mt-12">
           <a
             href="https://sttb.ac.id/akademik/"
@@ -152,9 +146,8 @@ export function Programs() {
           </a>
         </div>
 
-        {/* Accreditation Note */}
         <div className="text-center mt-8">
-          <p className="text-[#000000] text-xs font-[Inter] font-bold">
+          <p className="text-[#000000] text-xs font-[Inter] font-bold opacity-75">
             Semua program terakreditasi BAN-PT
           </p>
         </div>

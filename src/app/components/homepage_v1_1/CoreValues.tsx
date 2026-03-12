@@ -1,5 +1,7 @@
 import { Cross, BookOpen, HandHeart, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { GlowCard } from '../ui/spotlight-card';
+import MaskText from '../animations/MaskText';
 
 export function CoreValues() {
   const { t } = useLanguage();
@@ -41,14 +43,15 @@ export function CoreValues() {
   return (
     <section className="py-20 lg:py-28 bg-[#F8FAFC]">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="block text-2xl text-[#1E3A8A] font-bold tracking-[0.25em] mb-3 font-[Cormorant_Garamond]">
+          <span className="block text-2xl text-[#1E3A8A] font-bold tracking-[0.25em] mb-3 font-[Plus_Jakarta_Sans]">
             II
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#1E3A8A] mb-4 font-[Plus_Jakarta_Sans] tracking-wide">
-            {t('about.corevalues.title')}
-          </h2>
+          <MaskText type="lines">
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#1E3A8A] mb-4 font-[Plus_Jakarta_Sans] tracking-wide">
+              {t('about.corevalues.title')}
+            </h2>
+          </MaskText>
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-16 bg-[#D4AF37]" />
             <div className="w-2 h-2 bg-[#D4AF37] rounded-full" />
@@ -61,8 +64,9 @@ export function CoreValues() {
           {values.map((value, index) => {
             const Icon = value.icon;
             return (
-              <div
+              <GlowCard
                 key={index}
+                customSize
                 className="group relative bg-white border border-[#E5E7EB] rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0B3F82]/30"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg mb-5 bg-[#0B3F82]/10 text-[#1E40AF]">
@@ -84,7 +88,7 @@ export function CoreValues() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </GlowCard>
             );
           })}
         </div>

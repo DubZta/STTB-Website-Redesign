@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import UnicornScene from "unicornstudio-react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import MaskText from "../animations/MaskText";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -27,20 +28,24 @@ export function Hero() {
               <div className="absolute -top-0.5 -left-0.5 w-6 h-6 border-t-2 border-l-2 border-[#D4AF37]" />
               <div className="absolute -bottom-0.5 -right-0.5 w-6 h-6 border-b-2 border-r-2 border-[#D4AF37]" />
 
-              <h1 className="text-white font-bold tracking-tight leading-tight whitespace-nowrap text-4xl sm:text-5xl md:text-6xl lg:text-[96px] font-[Plus_Jakarta_Sans]">
-                {t('hero.title2') === 'THEOLOGY' ? 'Domino, Optimo, Maximo' : 'Domino, Optimo, Maximo'}
-              </h1>
+              <MaskText type="lines">
+                <h1 className="text-white font-bold tracking-tight leading-tight whitespace-nowrap text-4xl sm:text-5xl md:text-6xl lg:text-[96px] font-[Plus_Jakarta_Sans]">
+                  {t('hero.title2') === 'THEOLOGY' ? 'Domino, Optimo, Maximo' : 'Domino, Optimo, Maximo'}
+                </h1>
+              </MaskText>
 
-              <p className="text-lg lg:text-xl xl:text-2xl text-white/90 mt-6 italic max-w-3xl mx-auto leading-relaxed font-[Inter]">
-                {t('hero.subtitle')}
-              </p>
+              <MaskText type="lines" delay={0.2}>
+                <p className="text-lg lg:text-xl xl:text-2xl text-white/90 mt-6 italic max-w-3xl mx-auto leading-relaxed font-[Inter]">
+                  {t('hero.subtitle')}
+                </p>
+              </MaskText>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-[#DC2626] text-white hover:!bg-[#B91C1C] border-2 border-[#DC2626] px-8 py-6 text-base uppercase tracking-wider shadow-[0_4px_6px_rgba(220,38,38,0.3)] font-serif transition-transform hover:-translate-y-0.5"
+              className="bg-[#DC2626] text-white hover:!bg-[#B91C1C] border-2 border-[#DC2626] px-8 py-6 text-base uppercase tracking-wider shadow-[0_4px_6px_rgba(220,38,38,0.3)] font-[Plus_Jakarta_Sans] transition-transform hover:-translate-y-0.5"
             >
               <span className="font-bold font-[Plus_Jakarta_Sans]">
                 {t('hero.cta')}
@@ -49,7 +54,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="bg-transparent text-white hover:!bg-white/10 border-2 border-white px-8 py-6 text-base uppercase tracking-wider font-serif"
+              className="bg-transparent text-white hover:!bg-white/10 border-2 border-white px-8 py-6 text-base uppercase tracking-wider font-[Plus_Jakarta_Sans]"
             >
               <span className="font-[Plus_Jakarta_Sans]">
                 {t('hero.learn_more')}

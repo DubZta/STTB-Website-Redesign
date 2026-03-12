@@ -37,6 +37,9 @@ import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
+import BiayaStudiPage from './pages/finance/BiayaStudiPage';
+import BeasiswaPage from './pages/finance/BeasiswaPage';
+import DukungSTTBPage from './pages/finance/DukungSTTBPage';
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +69,9 @@ export const router = createBrowserRouter([
       { path: "admissions/requirements", Component: RequirementsPage },
       { path: "admissions/faq", Component: FAQPage },
       { path: "finance", Component: FinancePage },
+      { path: "finance/biaya-studi", Component: BiayaStudiPage },
+      { path: "finance/beasiswa", Component: BeasiswaPage },
+      { path: "finance/dukung-sttb", Component: DukungSTTBPage },
       { path: "campus-life", Component: CampusLifePage },
       { path: "campus-life/facilities", Component: FacilitiesPage },
       { path: "campus-life/student-development", Component: StudentDevelopmentPage },
