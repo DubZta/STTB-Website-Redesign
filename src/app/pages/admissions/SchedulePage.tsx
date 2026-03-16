@@ -42,10 +42,10 @@ export default function SchedulePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 text-sttb-navy">
               {language === 'en' ? 'New Student Admission Schedule' : 'Jadwal Admisi Mahasiswa Baru'}
             </h1>
-            <p className="text-sm md:text-base text-gray-600">
+            <p className="text-sm md:text-base text-gray-600 text-sttb-navy font-semibold">
               {language === 'en'
                 ? 'Academic Year 2026/2027'
                 : 'Tahun Akademik 2026/2027'}
@@ -63,7 +63,7 @@ export default function SchedulePage() {
                 className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow"
               >
                 <div className="bg-gradient-to-br from-sttb-navy to-blue-900 p-6 text-white">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">{schedule.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">{schedule.title}</h3>
                   <p className="text-xs md:text-sm text-blue-100">{schedule.period}</p>
                 </div>
                 <div className="p-6 space-y-4">
@@ -158,13 +158,13 @@ export default function SchedulePage() {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
                 {language === 'en' ? 'New Student Registration 2026/2027' : 'Pendaftaran Mahasiswa Baru TA 2026/2027'}
               </h3>
-              
+
               <div className="grid md:grid-cols-5 gap-8 items-center mb-8">
                 {/* Left - Info */}
                 <div className="md:col-span-2">
                   <div className="space-y-4">
                     <div className="bg-gradient-to-br from-sttb-navy to-blue-900 text-white rounded-xl p-6">
-                      <h4 className="font-bold text-base md:text-lg mb-3">
+                      <h4 className="font-bold text-base md:text-lg mb-3 text-white">
                         {language === 'en' ? 'Registration Information' : 'Informasi Pendaftaran'}
                       </h4>
                       <ul className="space-y-3 text-xs md:text-sm">
@@ -226,7 +226,7 @@ export default function SchedulePage() {
               {/* Contact Info Bottom */}
               <div className="border-t border-gray-200 pt-6">
                 <p className="text-center text-gray-600 mb-4 text-xs md:text-sm">
-                  {language === 'en' 
+                  {language === 'en'
                     ? 'For more information, contact:'
                     : 'Untuk informasi lebih lanjut, hubungi:'}
                 </p>

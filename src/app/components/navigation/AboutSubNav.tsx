@@ -38,7 +38,7 @@ export default function AboutSubNav() {
   const nextLink = currentIndex < links.length - 1 ? links[currentIndex + 1] : links[0];
 
   return (
-    <div className="bg-white border-b border-gray-200 sticky top-0 z-30">
+    <div className="bg-white border-b border-gray-200 sticky top-[var(--header-height,80px)] z-30">
       {/* Desktop Navigation */}
       <div className="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center gap-2 py-4">
@@ -48,11 +48,10 @@ export default function AboutSubNav() {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${
-                  isActive
-                    ? 'bg-sttb-navy text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${isActive
+                  ? 'bg-sttb-navy text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 {link.name}
               </Link>

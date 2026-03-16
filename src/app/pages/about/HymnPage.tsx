@@ -64,32 +64,32 @@ export default function HymnPage() {
             animate={{ opacity: 1 }}
             className="relative py-16 mb-8 overflow-hidden flex flex-col items-center justify-center bg-gray-50"
           >
-            <div className="absolute inset-0 opacity-[0.03]" 
-                 style={{ backgroundImage: 'radial-gradient(#1e3a8a 1px, transparent 1px)', backgroundSize: '24px 24px' }} 
+            <div className="absolute inset-0 opacity-[0.03]"
+              style={{ backgroundImage: 'radial-gradient(#1e3a8a 1px, transparent 1px)', backgroundSize: '24px 24px' }}
             />
-            
-            <motion.div 
+
+            <motion.div
               initial={{ height: 0 }}
               animate={{ height: 32 }}
               className="w-1 bg-sttb-red mb-6"
             />
-    
+
             <div className="relative">
               <h1 className="text-5xl md:text-7xl font-black text-sttb-navy uppercase tracking-tighter leading-none relative z-10">
                 {t('about.hymn.title')}
               </h1>
               <h1 className="text-5xl md:text-7xl font-black text-transparent uppercase tracking-tighter leading-none absolute top-1 left-1 -z-0 opacity-20 whitespace-nowrap"
-                  style={{ WebkitTextStroke: '2px #1e3a8a' }}>
+                style={{ WebkitTextStroke: '2px #1e3a8a' }}>
                 {t('about.hymn.title')}
               </h1>
             </div>
-    
+
             <div className="flex items-center gap-4 mt-6">
               <div className="w-12 h-px bg-gray-300" />
               <span className="text-sttb-red font-bold text-xs tracking-[0.2em] uppercase">STTB Hymn</span>
               <div className="w-12 h-px bg-gray-300" />
             </div>
-    
+
             <p className="mt-6 text-gray-600 max-w-lg text-center font-medium italic text-sm">
               {t('about.hymn.subtitle')}
             </p>
@@ -109,12 +109,12 @@ export default function HymnPage() {
                   <Volume2 className="w-8 h-8 text-white" />
                 </div>
               </div>
-              
+
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-white mb-2">
                   Mars STTB
                 </h3>
-                
+
                 {/* Progress Bar */}
                 <div className="mb-2">
                   <input
@@ -129,7 +129,7 @@ export default function HymnPage() {
                     }}
                   />
                 </div>
-                
+
                 <div className="flex items-center justify-between text-sm text-blue-200">
                   <span>{formatTime(currentTime)}</span>
                   <span>{formatTime(duration)}</span>

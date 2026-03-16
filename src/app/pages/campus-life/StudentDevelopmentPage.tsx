@@ -12,7 +12,6 @@ export default function StudentDevelopmentPage() {
     const handleScroll = () => {
       setScrollY(window.scrollY);
 
-      // Update active section based on scroll position
       const sections = ['community', 'chapel', 'pastoral', 'discipleship', 'spiritual', 'mission', 'practice'];
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -73,7 +72,6 @@ export default function StudentDevelopmentPage() {
 
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Parallax Background - Fixed throughout the page */}
       <div
         className="fixed inset-0 z-0"
         style={{
@@ -85,11 +83,29 @@ export default function StudentDevelopmentPage() {
         }}
       />
 
-      {/* Hero Section */}
+      <div className="bg-white border-b border-gray-200 shadow-sm relative z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`group px-3 py-1.5 rounded text-[10px] font-bold transition-all relative font-[Inter] ${activeSection === item.id ? 'bg-sttb-navy text-white' : 'bg-gray-100 text-sttb-navy hover:bg-gray-200 border border-gray-200'
+                  }`}
+              >
+                <span>{item.label}</span>
+                {activeSection === item.id && (
+                  <ChevronDown className="w-3 h-3 absolute -bottom-2 left-1/2 -translate-x-1/2 text-sttb-navy" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <section className="relative z-10 bg-white/95 backdrop-blur-sm py-12 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left Side - Image with Red Border */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -98,14 +114,13 @@ export default function StudentDevelopmentPage() {
             >
               <div className="relative border-4 border-sttb-red rounded-sm overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070"
+                  src="/pray.jpg"
                   alt="Student Development"
                   className="w-full h-80 object-cover"
                 />
               </div>
             </motion.div>
 
-            {/* Right Side - Title & Description */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -113,80 +128,29 @@ export default function StudentDevelopmentPage() {
               className="space-y-4"
             >
               <div>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-sttb-red mb-2">
+                <h1 className="text-4xl md:text-5xl font-[Plus_Jakarta_Sans] font-extrabold text-sttb-red mb-2 uppercase tracking-tight">
                   {language === 'en' ? 'STUDENT' : 'PEMBINAAN'}
                 </h1>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-sttb-red">
+                <h1 className="text-4xl md:text-5xl font-[Plus_Jakarta_Sans] font-extrabold text-sttb-red uppercase tracking-tight">
                   {language === 'en' ? 'DEVELOPMENT' : 'MAHASISWA'}
                 </h1>
               </div>
-              <div className="space-y-2">
-                <p className="text-xs text-gray-700 leading-relaxed">
+              <div className="space-y-4">
+                <p className="text-sm text-gray-700 leading-relaxed font-[Inter] font-medium italic border-l-4 border-sttb-navy pl-4">
                   {language === 'en'
                     ? 'Holistic student formation through various programs and activities designed to develop servant leaders for ministry.'
                     : 'Pembentukan mahasiswa secara holistik melalui berbagai program dan kegiatan yang dirancang untuk mengembangkan pelayan Tuhan.'}
                 </p>
-                <ul className="space-y-1 text-[11px] text-gray-600">
-                  <li className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 bg-sttb-red rounded-full" />
-                    <span>{language === 'en' ? 'Community Life' : 'Kehidupan Komunitas'}</span>
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 bg-sttb-red rounded-full" />
-                    <span>{language === 'en' ? 'Chapel & Formation Forum' : 'Kapel & Forum Pembinaan'}</span>
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 bg-sttb-red rounded-full" />
-                    <span>{language === 'en' ? 'Pastoral & Discipleship Groups' : 'Kelompok Pastoral & Pemuridan'}</span>
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 bg-sttb-red rounded-full" />
-                    <span>{language === 'en' ? 'Spiritual & Missional Formation' : 'Formasi Spiritual & Misional'}</span>
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 bg-sttb-red rounded-full" />
-                    <span>{language === 'en' ? 'Ministry Practice' : 'Praktik Pelayanan'}</span>
-                  </li>
-                </ul>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Navigation Menu - Sticky */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="sticky top-20 z-30 bg-white border-b border-gray-200 shadow-sm"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`group px-3 py-1.5 rounded text-[10px] font-medium transition-all relative ${
-                  activeSection === item.id ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                <span>{item.label}</span>
-                {activeSection === item.id && (
-                  <ChevronDown className="w-3 h-3 absolute -bottom-2 left-1/2 -translate-x-1/2 text-gray-900" />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      </motion.div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* COMMUNITY LIFE */}
         <div id="community" className="mb-20 scroll-mt-32">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left - Content */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -194,32 +158,30 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <h2 className="text-2xl font-bold text-sttb-navy mb-3">
+              <h2 className="text-2xl font-extrabold text-sttb-navy mb-3 font-[Plus_Jakarta_Sans]">
                 {language === 'en' ? 'COMMUNITY LIFE' : 'KEHIDUPAN KOMUNITAS'}
               </h2>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'Throughout their studies, students will live together, learn together, grow together in community.'
-                  : 'Sepanjang masa studi, mahasiswa akan hidup bersama, belajar bersama, bertumbuh bersama dalam komunitas.'}
-              </p>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'All full-time students in the S.Th., S.Pd.K., and M.Th. matriculation programs who are unmarried must live in the dormitory.'
-                  : 'Semua mahasiswa penuh waktu dalam program S.Th., S.Pd.K., dan M.Th. matrikulasi yang belum menikah wajib tinggal di dalam asrama.'}
-              </p>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'As part of the community, each student needs to learn to love one another, help one another, and care for one another in managing and forming a conducive campus and dormitory life. The "STTB Student Life Guide" is created to help students learn and grow on campus and in the dormitory.'
-                  : 'Sebagai bagian dari komunitas, setiap mahasiswa perlu belajar saling mengasihi, saling menolong, dan saling menjaga dalam mengelola dan membentuk kehidupan kampus dan asrama yang kondusif. "Panduan Kehidupan Mahasiswa STTB" dibuat untuk membantu mahasiswa belajar dan bertumbuh di kampus dan asrama.'}
-              </p>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'The STTB student affairs department regulates everything related to the formation and daily life of all students. The student affairs department is led by Vice Rector III with the assistance of staff, dormitory heads, pastoral mentors, discipleship mentors, counselors, senate, hallway leaders, room leaders, class organizers, and kitchen staff.'
-                  : 'Bidang kemahasiswaan STTB mengatur segala sesuatu yang bersangkutan dengan pembinaan dan kehidupan sehari-hari seluruh mahasiswa. Bidang kemahasiswaan dipimpin oleh Waket III dengan dibantu oleh staf, kepala asrama, pembimbing pastoral, pembina pemuridan, konselor, senat, ketua lorong, ketua kamar, pengurus angkatan, dan bagian dapur.'}
-              </p>
+              <div className="space-y-3 font-[Inter] font-medium">
+                <p className="text-[11px] text-gray-700 leading-relaxed">
+                  {language === 'en'
+                    ? 'Throughout their studies, students will live together, learn together, grow together in community.'
+                    : 'Sepanjang masa studi, mahasiswa akan hidup bersama, belajar bersama, bertumbuh bersama dalam komunitas.'}
+                </p>
+                <p className="text-[11px] text-gray-700 leading-relaxed">
+                  {language === 'en'
+                    ? 'All full-time students in the S.Th., S.Pd.K., and M.Th. matriculation programs who are unmarried must live in the dormitory.'
+                    : 'Semua mahasiswa penuh waktu dalam program S.Th., S.Pd.K., dan M.Th. matrikulasi yang belum menikah wajib tinggal di dalam asrama.'}
+                </p>
+                <p className="text-[11px] text-gray-700 leading-relaxed">
+                  {language === 'en'
+                    ? 'As part of the community, each student needs to learn to love one another, help one another, and care for one another in managing and forming a conducive campus and dormitory life. The "STTB Student Life Guide" is created to help students learn and grow on campus and in the dormitory.'
+                    : 'Sebagai bagian dari komunitas, setiap mahasiswa perlu belajar saling mengasihi, saling menolong, dan saling menjaga dalam mengelola dan membentuk kehidupan kampus dan asrama yang kondusif. "Panduan Kehidupan Mahasiswa STTB" dibuat untuk membantu mahasiswa belajar dan bertumbuh di kampus dan asrama.'}
+                </p>
+                <p className="text-[11px] text-gray-700 leading-relaxed">
+                </p>
+              </div>
             </motion.div>
 
-            {/* Right - Image */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -227,7 +189,7 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2070"
+                src="https://sttb.ac.id/storage/2022/08/senat-10.png"
                 alt="Community Life"
                 className="w-full h-64 object-cover rounded-lg shadow-md"
               />
@@ -243,13 +205,12 @@ export default function StudentDevelopmentPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl font-bold text-sttb-navy mb-6">
+            <h2 className="text-2xl font-extrabold text-sttb-navy mb-6 font-[Plus_Jakarta_Sans]">
               {language === 'en' ? 'CHAPEL & FORMATION FORUM' : 'KAPEL & FORUM PEMBINAAN'}
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Left Column */}
-              <div className="space-y-3">
+              <div className="space-y-3 font-[Inter] font-medium">
                 <p className="text-[11px] text-gray-700 leading-relaxed">
                   {language === 'en'
                     ? 'Chapel is held several times each week with various formats, including:'
@@ -263,7 +224,7 @@ export default function StudentDevelopmentPage() {
                     language === 'en' ? 'Mission Prayer Fellowship' : 'Persekutuan Doa Misi',
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-2 text-[11px] text-gray-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sttb-red flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -277,14 +238,14 @@ export default function StudentDevelopmentPage() {
 
               {/* Right Column - Formation Areas */}
               <div className="bg-white rounded-lg p-5 shadow-sm">
-                <h4 className="font-bold text-sttb-red text-[11px] mb-3">
+                <h4 className="font-extrabold text-sttb-red text-[11px] mb-3 font-[Plus_Jakarta_Sans]">
                   {language === 'en' ? 'FOUR AREAS OF TRANSFORMATION' : 'EMPAT BIDANG TRANSFORMASI'}
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-3 font-[Inter]">
                   {formationAreas.map((area, index) => (
                     <div key={index} className="border-l-2 border-sttb-navy pl-3">
-                      <h5 className="font-bold text-sttb-navy text-[10px] mb-0.5">{area.title}</h5>
-                      <p className="text-[10px] text-gray-600">{area.desc}</p>
+                      <h5 className="font-extrabold text-sttb-navy text-[10px] mb-0.5">{area.title}</h5>
+                      <p className="text-[10px] text-gray-600 font-medium">{area.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -296,7 +257,6 @@ export default function StudentDevelopmentPage() {
         {/* PASTORAL GROUPS */}
         <div id="pastoral" className="mb-20 scroll-mt-32">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left - Image */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -304,13 +264,12 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070"
+                src="https://sttb.ac.id/storage/2022/08/senat-12.png"
                 alt="Pastoral Groups"
                 className="w-full h-72 object-cover rounded-lg shadow-md"
               />
             </motion.div>
 
-            {/* Right - Content */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -318,24 +277,21 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <h2 className="text-2xl font-bold text-sttb-navy mb-3">
+              <h2 className="text-2xl font-extrabold text-sttb-navy mb-3 font-[Plus_Jakarta_Sans]">
                 {language === 'en' ? 'PASTORAL GROUPS' : 'KELOMPOK PASTORAL'}
               </h2>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'Pastoral groups are a means to accompany students in learning-academic, spirituality-character, and ministry-vocational aspects.'
-                  : 'Kelompok pastoral merupakan sarana untuk mendampingi mahasiswa secara pembelajaran-akademik, kerohanian-karakter, dan pelayanan-vokasional.'}
-              </p>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'Each group will be led by a pastoral mentor, who becomes a spiritual parent accompanying a number of students in the same class throughout four years of study at STTB and one year of ministry practice.'
-                  : 'Setiap kelompok akan dipimpin oleh seorang pembimbing pastoral, yang menjadi orangtua rohani yang mendampingi sejumlah mahasiswa dalam satu angkatan yang sama sepanjang empat tahun studi di STTB dan satu tahun praktik pelayanan.'}
-              </p>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
-                {language === 'en'
-                  ? 'Group meetings are held every two weeks. Personal meetings are held as needed.'
-                  : 'Pertemuan kelompok dilakukan dua minggu sekali. Pertemuan pribadi-ke-pribadi dilakukan berdasarkan keperluan.'}
-              </p>
+              <div className="space-y-3 font-[Inter] font-medium">
+                <p className="text-[11px] text-gray-700 leading-relaxed">
+                  {language === 'en'
+                    ? 'Pastoral groups are a means to accompany students in learning-academic, spirituality-character, and ministry-vocational aspects.'
+                    : 'Kelompok pastoral merupakan sarana untuk mendampingi mahasiswa secara pembelajaran-akademik, kerohanian-karakter, dan pelayanan-vokasional.'}
+                </p>
+                <p className="text-[11px] text-gray-700 leading-relaxed">
+                  {language === 'en'
+                    ? 'Group meetings are held every two weeks. Personal meetings are held as needed.'
+                    : 'Pertemuan kelompok dilakukan dua minggu sekali. Pertemuan pribadi-ke-pribadi dilakukan berdasarkan keperluan.'}
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -349,11 +305,10 @@ export default function StudentDevelopmentPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-2xl font-bold text-sttb-navy mb-4">
+            <h2 className="text-2xl font-extrabold text-sttb-navy mb-4 font-[Plus_Jakarta_Sans]">
               {language === 'en' ? 'DISCIPLESHIP GROUPS' : 'KELOMPOK PEMURIDAN'}
             </h2>
 
-            {/* Circular Images Layout */}
             <div className="flex justify-center items-center gap-4 mb-6">
               <img
                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070"
@@ -372,13 +327,13 @@ export default function StudentDevelopmentPage() {
               />
             </div>
 
-            <p className="text-[11px] font-semibold text-sttb-navy mb-3 uppercase">
+            <p className="text-[11px] font-[Inter] font-medium text-gray-700 leading-relaxed max-w-2xl mx-auto">
               {language === 'en'
                 ? 'Helping students learn and grow together in Christian faith foundations'
                 : 'Menolong mahasiswa belajar dan bertumbuh bersama mengenai dasar-dasar pertumbuhan iman Kristen'}
             </p>
 
-            <div className="grid md:grid-cols-2 gap-4 text-left">
+            <div className="grid md:grid-cols-2 gap-4 text-left font-[Inter] font-medium">
               <div className="bg-white rounded-lg p-4 shadow-sm">
                 <p className="text-[11px] text-gray-700 leading-relaxed">
                   {language === 'en'
@@ -400,7 +355,6 @@ export default function StudentDevelopmentPage() {
         {/* SPIRITUAL & MISSIONAL FORMATION */}
         <div id="spiritual" className="mb-20 scroll-mt-32">
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Spiritual Formation */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -408,7 +362,7 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <h2 className="text-xl font-bold text-sttb-navy mb-3">
+              <h2 className="text-xl font-extrabold text-sttb-navy mb-3 font-[Plus_Jakarta_Sans]">
                 {language === 'en' ? 'SPIRITUAL FORMATION' : 'FORMASI SPIRITUAL'}
               </h2>
               <p className="text-[11px] text-gray-700 leading-relaxed">
@@ -443,16 +397,16 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-3"
             >
-              <h2 id="mission" className="text-xl font-bold text-sttb-navy mb-3">
+              <h2 id="mission" className="text-xl font-extrabold text-sttb-navy mb-3 font-[Plus_Jakarta_Sans]">
                 {language === 'en' ? 'MISSIONAL FORMATION' : 'FORMASI MISIONAL'}
               </h2>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
+              <p className="text-[11px] text-gray-700 leading-relaxed font-[Inter] font-medium">
                 {language === 'en'
                   ? 'Missional Formation is conducted to help students gain insights and skills for mission, direct experience in the mission field, and formation of a missionary lifestyle.'
                   : 'Formasi Misional dilaksanakan untuk menolong mahasiswa mendapatkan wawasan dan keterampilan untuk bermisi, pengalaman langsung di ladang misi, dan pembentukan gaya hidup misioner.'}
               </p>
-              <div className="bg-gray-50 rounded-lg p-4">
-                <p className="font-semibold text-[10px] text-sttb-navy mb-2">
+              <div className="bg-gray-50 rounded-lg p-4 font-[Inter] font-medium">
+                <p className="font-extrabold text-[10px] text-sttb-navy mb-2">
                   {language === 'en' ? 'MEET PROGRAM:' : 'PROGRAM MEET:'}
                 </p>
                 <p className="text-[10px] text-gray-700 leading-relaxed">
@@ -468,7 +422,6 @@ export default function StudentDevelopmentPage() {
         {/* MINISTRY PRACTICE */}
         <div id="practice" className="mb-12 scroll-mt-32">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left - Content */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -476,16 +429,16 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <h2 className="text-2xl font-bold text-sttb-navy mb-3">
+              <h2 className="text-2xl font-extrabold text-sttb-navy mb-3 font-[Plus_Jakarta_Sans]">
                 {language === 'en' ? 'MINISTRY PRACTICE' : 'PRAKTIK PELAYANAN'}
               </h2>
-              <p className="text-[11px] text-gray-700 leading-relaxed">
+              <p className="text-[11px] text-gray-700 leading-relaxed font-[Inter] font-medium">
                 {language === 'en'
                   ? 'Ministry practice aims to help students become better equipped in insights and skills and sharpened in heart and burden to be able to serve effectively through direct experience serving in churches, schools, or ministry organizations.'
                   : 'Praktik pelayanan bertujuan agar mahasiswa semakin diperlengkapi dalam wawasan dan keterampilan serta semakin diasah dalam hati dan keterbebanan untuk dapat melayani dengan efektif melalui pengalaman melayani secara langsung di gereja, sekolah, atau lembaga pelayanan.'}
               </p>
-              <div className="bg-gray-50 rounded-lg p-4">
-                <p className="font-semibold text-[10px] text-sttb-navy mb-2">
+              <div className="bg-gray-50 rounded-lg p-4 font-[Inter] font-medium">
+                <p className="font-extrabold text-[10px] text-sttb-navy mb-2">
                   {language === 'en' ? 'TYPES OF MINISTRY PRACTICE:' : 'JENIS PRAKTIK PELAYANAN:'}
                 </p>
                 <ul className="space-y-1.5">
@@ -504,7 +457,6 @@ export default function StudentDevelopmentPage() {
               </div>
             </motion.div>
 
-            {/* Right - Image */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -512,9 +464,9 @@ export default function StudentDevelopmentPage() {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070"
+                src="https://sttb.ac.id/storage/2022/08/senat-4.png"
                 alt="Ministry Practice"
-                className="w-full h-72 object-cover rounded-lg shadow-md"
+                className="w-full h-72 object-cover rounded-lg shadow-md object-center"
               />
             </motion.div>
           </div>

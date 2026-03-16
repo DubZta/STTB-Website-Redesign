@@ -1,17 +1,17 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import AcademicSubNav from '../../components/navigation/AcademicSubNav';
-import { BookOpen, Users, Calendar, Clock, CheckCircle, GraduationCap, ShieldCheck, FileText, ChevronDown, ChevronUp, Target, Briefcase, Info, UserCheck, Heart, FileCheck } from 'lucide-react';
+import { BookOpen, Users, Clock, Award, CheckCircle, GraduationCap, ShieldCheck, FileText, ChevronDown, ChevronUp, Target, Briefcase, Info, UserCheck, Heart, FileCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
-export default function MagisterMinistriMarketplacePage() {
+export default function MagisterMinistriTeologiPelayananGerejawiPage() {
   const { t, language } = useLanguage();
   const [expandedCourses, setExpandedCourses] = useState<string[]>([]);
 
   const programInfo = {
     code: 'M.Min.',
-    name: language === 'id' ? 'Magister Ministri Marketplace' : 'Master of Ministry in Marketplace',
-    nameEn: 'Master of Ministry in Marketplace',
+    name: language === 'id' ? 'Magister Ministri Teologi Pelayanan Gerejawi' : 'Master of Ministry in Ecclesial Ministry Theology',
+    nameEn: 'Master of Ministry in Ecclesial Ministry Theology',
     duration: language === 'id' ? '2 Tahun (4 Semester)' : '2 Years (4 Semesters)',
     credits: '60 SKS',
     accreditation: language === 'id' ? 'Terakreditasi B (BAN-PT)' : 'Accredited B (BAN-PT)',
@@ -20,40 +20,40 @@ export default function MagisterMinistriMarketplacePage() {
   const programOverview = {
     title: language === 'id' ? 'Gambaran Program' : 'Program Overview',
     description: language === 'id'
-      ? 'Program Magister Ministri (Marketplace) secara khusus membekali para profesional Kristen untuk melayani sebagai garam and terang di dunia kerja. Program ini mengintegrasikan teologi dengan praktik bisnis and profesionalisme, memberdayakan lulusan untuk membawa nilai-nilai kerajaan Allah ke dalam ranah ekonomi and industri.'
-      : 'The Master of Ministry program (Marketplace) specifically equips Christian professionals to serve as salt and light in the working world. This program integrates theology with business practices and professionalism, empowering graduates to bring Kingdom of God values into economic and industrial spheres.',
+      ? 'Program Magister Ministri (Teologi Pelayanan Gerejawi) dirancang untuk memperdalam pemahaman teologis praktis bagi para pelayan gereja. Fokus utama program ini adalah integrasi antara doktrin teologi yang sehat dengan implementasi pelayanan yang efektif di dalam berbagai departemen pelayanan gerejawi.'
+      : 'The Master of Ministry program (Ecclesial Ministry Theology) is designed to deepen practical theological understanding for church ministers. The program\'s primary focus is the integration of sound theological doctrine with effective ministry implementation within various church ministry departments.',
   };
 
   const programObjectives = {
     title: language === 'id' ? 'Tujuan Program' : 'Program Objectives',
     objectives: language === 'id' ? [
-      'Menghasilkan hamba Tuhan di marketplace yang memiliki fondasi teologi Reformed yang kokoh',
-      'Mengembangkan etika kepemimpinan Kristen dalam lingkungan profesional',
-      'Memperlengkapi lulusan dengan kemampuan misiologi marketplace and transformasi budaya kerja',
-      'Membentuk integritas spiritual yang tangguh bagi praktisi Kristen di dunia sekular',
+      'Membekali pelayan gereja dengan perspektif teologi Reformed yang kontekstual',
+      'Mengembangkan variasi metode pelayanan yang inovatif sesuai kebutuhan jemaat',
+      'Meningkatkan kapasitas kepemimpinan dalam pelayanan kategorial gereja',
+      'Membentuk spiritualitas pelayan yang berakar pada firman Tuhan and integritas pelayanan',
     ] : [
-      'Produce marketplace servants of God with a solid Reformed theological foundation',
-      'Develop Christian leadership ethics in professional environments',
-      'Equip graduates with marketplace missiological skills and work culture transformation',
-      'Form resilient spiritual integrity for Christian practitioners in the secular world',
+      'Equip church ministers with a contextual Reformed theological perspective',
+      'Develop various innovative ministry methods according to congregational needs',
+      'Increase leadership capacity in categorical church ministries',
+      'Form servant spirituality rooted in God\'s word and ministry integrity',
     ],
   };
 
   const careerProspects = {
     title: 'Prospek Karir',
     careers: [
-      'Profesional/Bisnis di berbagai sektor',
-      'Wirausahawan Kristen',
-      'Konsultan Bisnis dan Manajemen',
-      'Pemimpin Organisasi/Perusahaan',
-      'Pembina/Pengajar di bidang etika kerja Kristen',
-      'Pelayan Gereja di bidang marketplace ministry',
+      'Pendeta/Gembala Sidang',
+      'Staf Pengajar Sekolah Teologi',
+      'Pembina/Pemimpin Pelayanan Gereja',
+      'Konselor Pastoral',
+      'Penulis/Peneliti Teologi',
+      'Pelayan Gereja dalam berbagai konteks pelayanan',
     ],
   };
 
   const requirements = {
     academic: [
-      'Minimal lulusan S1 dari semua jurusan',
+      'Minimal lulusan S1 Umum/Teologi',
     ],
     spiritual: [
       'Sudah baptis dewasa/sidi',
@@ -63,7 +63,7 @@ export default function MagisterMinistriMarketplacePage() {
       'Pernah bekerja minimal 2 tahun',
     ],
     administrative: [
-      'Memenuhi syarat dan prosedur admisi STTB',
+      'Memenuhi seluruh prosedur pendaftaran yang berlaku di STTB',
       'Menyerahkan book review',
     ],
   };
@@ -71,15 +71,15 @@ export default function MagisterMinistriMarketplacePage() {
   const profilLulusan = [
     {
       title: 'Informed',
-      desc: 'Profesional Kristen yang memiliki fondasi biblika-teologis yang kokoh untuk memahami kehidupan di dunia kerja dan misi Allah melalui dunia kerja.'
+      desc: 'Pelayan gerejawi yang memiliki fondasi teologis yang solid untuk pelayanan gereja dalam konteks masyarakat Indonesia.'
     },
     {
       title: 'Transformed',
-      desc: 'Profesional Kristen yang hidupnya mengalami transformasi dan tumbuh dalam spiritualitas yang utuh.'
+      desc: 'Pelayan gerejawi yang hidupnya mengalami transformasi dan berpusatkan kepada Kristus dalam setiap aspek kehidupannya.'
     },
     {
       title: 'Transformative',
-      desc: 'Profesional Kristen yang tumbuh dalam semangat dan kompetensi untuk menghadirkan shalom melalui hidup dan karyanya di dunia kerja.'
+      desc: 'Pelayan gerejawi yang mampu merancang dan melakukan pelayanan yang integral dan transformatif dalam konteks gereja masa kini.'
     }
   ];
 
@@ -88,57 +88,52 @@ export default function MagisterMinistriMarketplacePage() {
       title: 'Fondasi Biblika',
       totalSks: 9,
       courses: [
-        { code: 'FB1', name: 'Fondasi Perjanjian Lama', sks: 3, description: 'Studi kitab-kitab Perjanjian Lama dengan penekanan khusus atas latar belakang sejarah dan budaya, penulis, pembaca pertama, dan tema-tema utama kitab-kitab Perjanjian Lama, sebagai landasan bagi pengembangan sudut pandang Alkitabiah (biblical worldview) dalam menyikapi berbagai tantangan dalam kehidupan Kristen konteks dunia kerja.' },
-        { code: 'FB2', name: 'Fondasi Perjanjian Baru', sks: 3, description: 'Studi kitab-kitab Perjanjian Baru dengan penekanan pada konteks sejarah, teologi, dan aplikasi untuk kehidupan profesional Kristen.' },
-        { code: 'FB3', name: 'Hermeneutika', sks: 3, description: 'Prinsip-prinsip penafsiran Alkitab yang bertanggung jawab untuk aplikasi dalam konteks dunia kerja.' },
+        { code: 'FB1', name: 'Fondasi Perjanjian Lama - Kitab Taurat', sks: 3, description: 'Studi komprehensif terhadap kitab Kejadian sampai Ulangan. Penekanan secara khusus diberikan pada aspek historis, teologis, hermeneutis, eksegesis dan aplikasi praktis dari studi ini dalam kehidupan rohani dan pelayanan.' },
+        { code: 'FB2', name: 'Fondasi Perjanjian Baru - Kitab Injil', sks: 3, description: 'Penafsiran mendalam terhadap kitab-kitab Injil dengan fokus pada kehidupan dan pelayanan Yesus Kristus.' },
+        { code: 'FB3', name: 'Hermeneutika', sks: 3, description: 'Prinsip-prinsip penafsiran Alkitab yang bertanggung jawab untuk aplikasi dalam pelayanan gerejawi.' },
       ]
     },
     fondasiSistematika: {
       title: 'Fondasi Sistematika - Historika',
       totalSks: 12,
       courses: [
-        { code: 'FSH1', name: 'Allah, Alkitab & Penciptaan', sks: 3, description: 'Mata kuliah ini merupakan pengantar kepada teologi sistematika yang mempelajari inisiasi dan doktrin dasar kekristenan dalam kerangka metanarasi Alkitab tentang penciptaan yang mencakup: Doktrin Allah, dan Alkitab; serta implikasi doktrin-doktrin tersebut dalam konteks dunia kerja masa kini.' },
-        { code: 'FSH2', name: 'Kristus & Keselamatan', sks: 3, description: 'Doktrin tentang pribadi dan karya Yesus Kristus serta keselamatan dalam konteks pelayanan profesional.' },
-        { code: 'FSH3', name: 'Roh Kudus & Gereja', sks: 3, description: 'Pemahaman tentang peran Roh Kudus dan gereja dalam kehidupan profesional Kristen.' },
-        { code: 'FSH4', name: 'Gereja Dalam Konteks Sosio-Historis', sks: 3, description: 'Kajian tentang gereja dalam konteks sosial dan historis untuk aplikasi dalam dunia kerja.' },
+        { code: 'FSH1', name: 'Allah, Alkitab dan Penciptaan', sks: 3, description: 'Suatu studi sistematis yang mempelajari pengantar teologi yang membahas mengenai pengertian teologi, metode teologi, dogmatika, pernyataan Allah, dan sistem-sistem teologi, serta implikasinya dalam kehidupan dan pelayanan mahasiswa.' },
+        { code: 'FSH2', name: 'Kristus dan Keselamatan', sks: 3, description: 'Doktrin tentang pribadi dan karya Yesus Kristus serta keselamatan dalam konteks pelayanan gerejawi.' },
+        { code: 'FSH3', name: 'Roh Kudus dan Gereja', sks: 3, description: 'Pemahaman tentang peran Roh Kudus dan gereja dalam pelayanan Kristen.' },
+        { code: 'FSH4', name: 'Gereja dalam Konteks Sosio - Historis', sks: 3, description: 'Kajian tentang gereja dalam konteks sosial dan historis untuk aplikasi dalam pelayanan.' },
       ]
     },
     mataKuliahInti: {
       title: 'Mata Kuliah Inti',
       totalSks: 12,
       courses: [
-        { code: 'MKI1', name: 'Spiritualitas Dunia Kerja', sks: 3, description: 'Mata kuliah ini dimaksudkan agar peserta kuliah memiliki kerangka teologis mengenai spiritualitas Kristen yang dapat diterapkan dalam keseharian di dunia kerja sebagai bagian dari pekerjaan Allah di tengah dunia. Materi pembelajaran meliputi tiga arah spiritualitas Kristen yang mempengaruhi perjalanan transformasional seseorang untuk hidup menjadi seperti Kristus serta implementasinya dalam dunia kerja.' },
-        { code: 'MKI2', name: 'Pemuridan Dunia Kerja', sks: 3, description: 'Prinsip dan praktik pemuridan dalam konteks dunia kerja dan profesi.' },
-        { code: 'MKI3', name: 'Misi Integral Dunia Kerja', sks: 3, description: 'Pemahaman dan aplikasi misi integral Allah dalam konteks dunia kerja dan bisnis.' },
-        { code: 'MKI4', name: 'Kepemimpinan Transformasional Dunia Kerja', sks: 3, description: 'Prinsip kepemimpinan Kristen yang transformatif dalam konteks organisasi dan bisnis.' },
+        { code: 'MKI1', name: 'Transformasi Spiritualitas', sks: 3, description: 'Mata kuliah ini dirancang untuk mengeksplorasi dan memahami perubahan dan pengembangan spiritual dalam konteks individu maupun komunitas. Mata kuliah ini fokus pada teori, praktik, dan pengalaman yang mendorong transformasi spiritual, serta dampaknya terhadap kehidupan pribadi dan sosial. Tujuan utama dari mata kuliah ini adalah untuk membantu mahasiswa memahami proses-proses yang terlibat dalam transformasi spiritual dan bagaimana proses tersebut dapat diterapkan dalam kehidupan sehari-hari serta dalam konteks profesional.' },
+        { code: 'MKI2', name: 'Pemuridan', sks: 3, description: 'Prinsip dan praktik pemuridan dalam konteks gereja dan pelayanan.' },
+        { code: 'MKI3', name: 'Misi Integral', sks: 3, description: 'Pemahaman dan aplikasi misi integral Allah dalam konteks pelayanan gereja.' },
+        { code: 'MKI4', name: 'Kepemimpinan Transformasional', sks: 3, description: 'Prinsip kepemimpinan Kristen yang transformatif dalam konteks gereja dan organisasi Kristen.' },
       ]
     },
     mataKuliahKonsentrasi: {
       title: 'Mata Kuliah Konsentrasi',
-      totalSks: 6,
+      totalSks: 22,
       courses: [
-        { code: 'MKK1', name: 'Teologi Kerja', sks: 3, description: 'Mata kuliah Teologi Kerja dalam konteks profesional dimaksudkan agar peserta kuliah memiliki kerangka teologis yang solid untuk dapat menghayati pekerjaan sehari-hari sebagai profesional atau pengusaha Kristen sebagai bagian dari pekerjaan Allah di tengah dunia. Materi pembelajaran meliputi teologi kerja dan misi umat Allah melalui dunia kerja.' },
-        { code: 'MKK2', name: 'Etika Kerja', sks: 3, description: 'Prinsip-prinsip etika Kristen dalam konteks dunia kerja dan profesionalisme.' },
+        { code: 'MKK1', name: 'Studi Perjanjian Lama: Kitab Sejarah', sks: 3, description: 'Studi komprehensif terhadap kitab Hakim-Hakim sampai Ester. Penekanan secara khusus diberikan pada aspek historis, teologis, hermeneutis, eksegesis dan aplikasi praktis dari studi ini dalam kehidupan rohani dan pelayanan.' },
+        { code: 'MKK2', name: 'Studi Perjanjian Lama: Kitab Puisi/Nabi', sks: 3, description: 'Penafsiran kitab-kitab puisi dan nabi dalam Perjanjian Lama.' },
+        { code: 'MKK3', name: 'Studi Perjanjian Baru: Kisah Rasul dan Surat Paulus', sks: 3, description: 'Penafsiran Kisah Para Rasul dan surat-surat Paulus dengan fokus pada perkembangan gereja mula-mula.' },
+        { code: 'MKK4', name: 'Studi Perjanjian Baru: Kitab Umum dan Wahyu', sks: 3, description: 'Penafsiran surat-surat umum dan kitab Wahyu.' },
+        { code: 'MKK5', name: 'Homiletika', sks: 3, description: 'Prinsip dan praktik penyampaian khotbah yang alkitabiah dan relevan.' },
+        { code: 'MKK6', name: 'Teologi & Praktik Ibadah', sks: 3, description: 'Perancangan dan pelaksanaan ibadah yang transformatif.' },
+        { code: 'MKK7', name: 'Bahasa Ibrani', sks: 2, description: 'Pengenalan dasar bahasa Ibrani untuk studi Perjanjian Lama.' },
+        { code: 'MKK8', name: 'Bahasa Yunani', sks: 2, description: 'Pengenalan dasar bahasa Yunani Koine untuk studi Perjanjian Baru.' },
       ]
     },
-    mataKuliahElektif: {
-      title: 'Mata Kuliah Elektif',
-      totalSks: 6,
+    tugasAkhir: {
+      title: 'Tugas Akhir',
+      totalSks: 10,
       courses: [
-        { code: 'MKE1', name: 'Pilih 2 Mata Kuliah (tiap mata kuliah berbobot 3 SKS)', sks: 6, description: 'Mahasiswa memilih 2 mata kuliah dari pilihan yang tersedia.' },
-        { code: 'MKE1a', name: 'Kesehatan Mental Dalam Dunia Kerja', sks: 3, description: 'Pemahaman dan penanganan kesehatan mental dalam konteks dunia kerja.' },
-        { code: 'MKE1b', name: 'Konseling Dasar Untuk Dunia Kerja', sks: 3, description: 'Dasar-dasar konseling untuk aplikasi dalam dunia kerja dan organisasi.' },
-        { code: 'MKE1c', name: 'Isu-Isu Kontemporer Dalam Dunia Kerja', sks: 3, description: 'Pembahasan isu-isu kontemporer yang relevan dengan dunia kerja dan profesi.' },
-        { code: 'MKE1d', name: 'Perspektif Misi Dunia', sks: 3, description: 'Pemahaman tentang misi Allah dalam konteks global dan dunia kerja.' },
-        { code: 'MKE1e', name: 'Mata Kuliah Di Prodi S2 Lain', sks: 3, description: 'Mata kuliah pilihan dari program studi magister lain yang relevan.' },
-      ]
-    },
-    mataKuliahPenelitian: {
-      title: 'Mata Kuliah Penelitian',
-      totalSks: 9,
-      courses: [
-        { code: 'MKP1', name: 'Mentoring Profesi', sks: 3, description: 'Program ini dikembangkan dengan pendekatan mentoring dunia kerja, setiap mahasiswa akan dimentering secara langsung oleh profesional, pebisnis Kristen yang terpilih. Tujuannya untuk membentuk sebuah cara pandang Kristen yang aplikatif dalam pekerjaannya yang sedang dijalani, mengintegrasikan pembelajaran akademis dengan dunia nyata, memiliki wawasan berharga tentang beberapa isu seperti pilihan karier, jaringan bisnis, kepemimpinan dan pengembangan profesionalitas, dll. Mentor akan mendampingi setiap mentee selama 1-2 semester, bertemu setiap bulan melalui online atau onsite.' },
-        { code: 'MKP2', name: 'Proyek Tugas Akhir', sks: 6, description: 'Penyelesaian proyek tugas akhir sebagai syarat kelulusan.' },
+        { code: 'TA1', name: 'Mentoring Akademik', sks: 1, description: 'Mata kuliah ini dirancang untuk mendampingi mahasiswa dalam proses pertumbuhan akademis secara terarah dan berkelanjutan. Setiap mahasiswa akan dibimbing oleh seorang dosen melalui pertemuan berkala untuk mendiskusikan perkembangan studi, pengelolaan waktu, strategi belajar, serta integrasi antara panggilan akademis dan spiritualitas.' },
+        { code: 'TA2', name: 'Penulisan Akademik', sks: 3, description: 'Teknik penulisan akademis yang sesuai standar ilmiah untuk publikasi.' },
+        { code: 'TA3', name: 'Tugas Akhir: Praktik Pelayanan', sks: 6, description: 'Praktik pelayanan penuh sebagai syarat kelulusan.' },
       ]
     },
   };
@@ -272,7 +267,7 @@ export default function MagisterMinistriMarketplacePage() {
                     key={index}
                     className="flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg p-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-green-700 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                     <span className="text-sm font-semibold text-gray-900">{career}</span>
                   </div>
                 ))}
@@ -282,7 +277,7 @@ export default function MagisterMinistriMarketplacePage() {
 
           {/* Profil Lulusan Section */}
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-8">Profil Lulusan: <span className="text-red-700">Transformative Christian Professionals</span></h2>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-8">Profil Lulusan: <span className="text-red-700">Transformative Church Minister</span></h2>
             <div className="grid md:grid-cols-3 gap-8">
               {profilLulusan.map((item, index) => (
                 <div key={index} className="space-y-2">
@@ -387,7 +382,7 @@ export default function MagisterMinistriMarketplacePage() {
           >
             <div className="bg-gradient-to-r from-red-50 to-blue-50 rounded-xl p-6 shadow-md border border-red-100">
               <div className="flex items-center gap-3 mb-4">
-                <Calendar className="w-6 h-6 text-red-700" />
+                <Clock className="w-6 h-6 text-red-700" />
                 <h2 className="text-2xl font-extrabold text-gray-900">
                   Sistem Perkuliahan
                 </h2>
@@ -402,23 +397,23 @@ export default function MagisterMinistriMarketplacePage() {
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-gray-700">
-                    Kuliah dalam bentuk block teaching secara daring dan luring
+                    Kuliah dalam bentuk block teaching secara daring dan luring (tatap muka 1 mata kuliah akan dilakukan selama seminggu)
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-gray-700">
-                    <strong>Setiap Jumat 18.00 - 21.00 dan Sabtu 09.00 - 16.00 WIB</strong>
+                    Dalam 1 semester rata-rata terdapat 5 mata kuliah online dan 1 mata kuliah onsite di kampus STTB
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-gray-700">
-                    Dalam satu semester rata-rata terdapat 3 mata kuliah online dan 1 mata kuliah onsite di kampus STTB
+                    <strong>Setiap Senin-Jumat:</strong> Pukul 17.00 - 21.00 (Kelas Online/Onsite)
                   </span>
                 </li>
                 <li className="text-xs text-gray-500 italic pl-6">
-                  *Jadwal dapat berubah dengan pemberitahuan sebelumnya
+                  *Kelas dapat bergabung bersama M.Min. Marketplace
                 </li>
               </ul>
             </div>

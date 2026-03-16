@@ -86,26 +86,26 @@ export default function VisionMissionPage() {
             animate={{ opacity: 1 }}
             className="relative py-16 mb-8 overflow-hidden flex flex-col items-center justify-center bg-gray-50"
           >
-            <div className="absolute inset-0 opacity-[0.03]" 
-                 style={{ backgroundImage: 'radial-gradient(#1e3a8a 1px, transparent 1px)', backgroundSize: '24px 24px' }} 
+            <div className="absolute inset-0 opacity-[0.03]"
+              style={{ backgroundImage: 'radial-gradient(#1e3a8a 1px, transparent 1px)', backgroundSize: '24px 24px' }}
             />
-            
-            <motion.div 
+
+            <motion.div
               initial={{ height: 0 }}
               animate={{ height: 32 }}
               className="w-1 bg-sttb-red mb-6"
             />
-    
+
             <div className="relative">
               <h1 className="text-5xl md:text-7xl font-black text-sttb-navy uppercase tracking-tighter leading-none relative z-10">
                 Visi & Misi
               </h1>
               <h1 className="text-5xl md:text-7xl font-black text-transparent uppercase tracking-tighter leading-none absolute top-1 left-1 -z-0 opacity-20 whitespace-nowrap"
-                  style={{ WebkitTextStroke: '2px #1e3a8a' }}>
+                style={{ WebkitTextStroke: '2px #1e3a8a' }}>
                 Visi & Misi
               </h1>
             </div>
-    
+
             <div className="flex items-center gap-4 mt-6">
               <div className="w-12 h-px bg-gray-300" />
               <span className="text-sttb-red font-bold text-xs tracking-[0.2em] uppercase">STTB Vision & Mission</span>
@@ -152,11 +152,10 @@ export default function VisionMissionPage() {
                     <button
                       key={index}
                       onClick={() => setActiveTab(index)}
-                      className={`flex flex-col items-center gap-2 p-4 transition-all ${
-                        activeTab === index
-                          ? 'bg-sttb-navy text-white'
-                          : 'bg-white text-gray-600 hover:bg-gray-50'
-                      }`}
+                      className={`flex flex-col items-center gap-2 p-4 transition-all ${activeTab === index
+                        ? 'bg-sttb-navy text-white'
+                        : 'bg-white text-gray-600 hover:bg-gray-50'
+                        }`}
                     >
                       <Icon className="w-5 h-5" />
                       <span className="text-xs font-semibold text-center">
@@ -221,24 +220,24 @@ export default function VisionMissionPage() {
             className="py-16"
           >
             <div className="grid lg:grid-cols-12 gap-16 items-start">
-              
+
               {/* KIRI: Judul & Gambar */}
               <div className="lg:col-span-4 space-y-6">
                 <h2 className="text-3xl font-extrabold text-sttb-navy">
                   {t('about.corevalues.title')}
                 </h2>
                 <div className="w-16 h-1 bg-sttb-red" />
-                
+
                 {/* Container Gambar (Tanpa Border) */}
                 <div className="rounded-2xl overflow-hidden shadow-xl h-64 lg:h-96">
-                  <img 
-                    src="URL_GAMBAR_KAMU_DISINI" 
-                    alt="Core Values" 
+                  <img
+                    src="/pie.png"
+                    alt="Core Values"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
-          
+
               {/* KANAN: 4 Card Tanpa Border/Shadow */}
               <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-8 gap-y-10">
                 {coreValues.map((value, index) => (
@@ -259,7 +258,7 @@ export default function VisionMissionPage() {
                   </div>
                 ))}
               </div>
-          
+
             </div>
           </motion.div>
         </div>

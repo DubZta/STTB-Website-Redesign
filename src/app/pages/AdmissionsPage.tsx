@@ -5,36 +5,36 @@ import { motion } from 'motion/react';
 import AdmissionsFooter from '../components/admissions/AdmissionsFooter';
 
 export default function AdmissionsPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const quickLinks = [
     {
       icon: Calendar,
-      title: t('lang') === 'id' ? 'Jadwal Admisi' : 'Admission Schedule',
-      description: t('lang') === 'id' ? 'Lihat tanggal penting dan batas waktu' : 'View important dates and deadlines',
+      title: language === 'id' ? 'Jadwal Admisi' : 'Admission Schedule',
+      description: language === 'id' ? 'Lihat tanggal penting dan batas waktu' : 'View important dates and deadlines',
       link: '/admissions/schedule',
-      color: 'from-blue-600 to-blue-400',
+      color: 'from-sttb-navy to-blue-400',
     },
     {
       icon: FileText,
-      title: t('lang') === 'id' ? 'Prosedur' : 'Procedure',
-      description: t('lang') === 'id' ? 'Langkah-langkah proses pendaftaran' : 'Step-by-step application process',
+      title: language === 'id' ? 'Prosedur' : 'Procedure',
+      description: language === 'id' ? 'Langkah-langkah proses pendaftaran' : 'Step-by-step application process',
       link: '/admissions/procedure',
-      color: 'from-green-600 to-green-400',
+      color: 'from-sttb-navy to-blue-400',
     },
     {
       icon: Users,
-      title: t('lang') === 'id' ? 'Persyaratan' : 'Requirements',
-      description: t('lang') === 'id' ? 'Cek persyaratan pendaftaran' : 'Check admission requirements',
+      title: language === 'id' ? 'Persyaratan' : 'Requirements',
+      description: language === 'id' ? 'Cek persyaratan pendaftaran' : 'Check admission requirements',
       link: '/admissions/requirements',
-      color: 'from-purple-600 to-purple-400',
+      color: 'from-sttb-navy to-blue-400',
     },
     {
       icon: HelpCircle,
       title: 'FAQ',
-      description: t('lang') === 'id' ? 'Temukan jawaban untuk pertanyaan umum' : 'Find answers to common questions',
+      description: language === 'id' ? 'Temukan jawaban untuk pertanyaan umum' : 'Find answers to common questions',
       link: '/admissions/faq',
-      color: 'from-red-600 to-red-400',
+      color: 'from-sttb-navy to-blue-400',
     },
   ];
 
@@ -49,11 +49,11 @@ export default function AdmissionsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-              {t('lang') === 'id' ? 'Admisi STTB' : 'STTB Admissions'}
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 text-sttb-navy">
+              {language === 'id' ? 'Admisi STTB' : 'STTB Admissions'}
             </h1>
-            <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto">
-              {t('lang') === 'id'
+            <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto text-sttb-navy font-semibold">
+              {language === 'id'
                 ? 'Mulai perjalanan teologis Anda bersama STTB. Kami membuka kesempatan bagi Anda untuk mengembangkan pelayanan dan akademis dalam iman Reformed.'
                 : 'Start your theological journey with STTB. We open opportunities for you to develop your ministry and academics in the Reformed faith.'}
             </p>
@@ -85,7 +85,7 @@ export default function AdmissionsPage() {
                     {item.description}
                   </p>
                   <div className="flex items-center gap-2 text-sttb-red font-medium text-xs">
-                    {t('lang') === 'id' ? 'Lihat Detail' : 'View Details'}
+                    {language === 'id' ? 'Lihat Detail' : 'View Details'}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </motion.div>
@@ -102,18 +102,18 @@ export default function AdmissionsPage() {
             className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              {t('lang') === 'id' ? 'Mengapa Memilih STTB?' : 'Why Choose STTB?'}
+              {language === 'id' ? 'Mengapa Memilih STTB?' : 'Why Choose STTB?'}
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-sttb-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-sttb-red" />
+                  <Award className="w-8 h-8 text-sttb-navy" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-sm md:text-base">
-                  {t('lang') === 'id' ? 'Akreditasi Unggul' : 'Excellent Accreditation'}
+                  {language === 'id' ? 'Akreditasi Unggul' : 'Excellent Accreditation'}
                 </h3>
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                  {t('lang') === 'id'
+                  {language === 'id'
                     ? 'Program studi terakreditasi BAN-PT dan ATA untuk jaminan kualitas pendidikan'
                     : 'Study programs accredited by BAN-PT and ATA for quality education assurance'}
                 </p>
@@ -121,13 +121,13 @@ export default function AdmissionsPage() {
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-sttb-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="w-8 h-8 text-sttb-red" />
+                  <BookOpen className="w-8 h-8 text-sttb-navy" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-sm md:text-base">
-                  {t('lang') === 'id' ? 'Teologi Reformed' : 'Reformed Theology'}
+                  {language === 'id' ? 'Teologi Reformed' : 'Reformed Theology'}
                 </h3>
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                  {t('lang') === 'id'
+                  {language === 'id'
                     ? 'Fondasi teologi Reformed Injili yang kuat dengan pengajaran berkualitas'
                     : 'Strong Reformed Evangelical theological foundation with quality teaching'}
                 </p>
@@ -135,13 +135,13 @@ export default function AdmissionsPage() {
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-sttb-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-sttb-red" />
+                  <Users className="w-8 h-8 text-sttb-navy" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-sm md:text-base">
-                  {t('lang') === 'id' ? 'Komunitas Pelayanan' : 'Ministry Community'}
+                  {language === 'id' ? 'Komunitas Pelayanan' : 'Ministry Community'}
                 </h3>
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                  {t('lang') === 'id'
+                  {language === 'id'
                     ? 'Komunitas mahasiswa dan dosen yang mendukung pertumbuhan spiritual dan akademis'
                     : 'Community of students and lecturers supporting spiritual and academic growth'}
                 </p>

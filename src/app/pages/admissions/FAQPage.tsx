@@ -5,11 +5,11 @@ import { ChevronDown, Search, HelpCircle } from 'lucide-react';
 import AdmissionsFooter from '../../components/admissions/AdmissionsFooter';
 
 export default function FAQPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const faqs = t('lang') === 'id' ? [
+  const faqs = language === 'id' ? [
     {
       category: 'Pendaftaran',
       questions: [
@@ -243,14 +243,14 @@ export default function FAQPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-sttb-red to-red-600 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-sttb-navy to-blue-900 rounded-full mb-6">
               <HelpCircle className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
-              {t('lang') === 'id' ? 'Pertanyaan yang Sering Diajukan' : 'Frequently Asked Questions'}
+            <h1 className="text-5xl font-extrabold text-gray-900 mb-4 text-sttb-navy">
+              {language === 'id' ? 'Pertanyaan yang Sering Diajukan' : 'Frequently Asked Questions'}
             </h1>
-            <p className="text-xl text-gray-600">
-              {t('lang') === 'id'
+            <p className="text-xl text-gray-600 text-sttb-navy font-semibold">
+              {language === 'id'
                 ? 'Temukan jawaban untuk pertanyaan umum seputar admisi'
                 : 'Find answers to common questions about admissions'}
             </p>
@@ -264,13 +264,13 @@ export default function FAQPage() {
             className="mb-12"
           >
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 text-sttb-navy" />
               <input
                 type="text"
-                placeholder={t('lang') === 'id' ? 'Cari pertanyaan...' : 'Search questions...'}
+                placeholder={language === 'id' ? 'Cari pertanyaan...' : 'Search questions...'}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-gray-200 focus:border-sttb-red focus:outline-none transition-colors"
+                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-navy-200 focus:border-sttb-navy focus:outline-none transition-colors text-sttb-navy font-semibold"
               />
             </div>
           </motion.div>
@@ -284,7 +284,7 @@ export default function FAQPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: catIndex * 0.1 }}
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3 text-red-600">
                   <span className="w-1.5 h-8 bg-gradient-to-b from-sttb-red to-red-600 rounded-full" />
                   {category.category}
                 </h2>
@@ -342,7 +342,7 @@ export default function FAQPage() {
               className="text-center py-12"
             >
               <p className="text-gray-500 text-lg">
-                {t('lang') === 'id'
+                {language === 'id'
                   ? 'Tidak ada hasil yang ditemukan. Coba kata kunci lain.'
                   : 'No results found. Try different keywords.'}
               </p>
@@ -358,10 +358,10 @@ export default function FAQPage() {
             className="mt-12 bg-gradient-to-br from-sttb-navy to-blue-900 rounded-xl p-8 text-white text-center"
           >
             <h3 className="text-2xl font-bold mb-4 text-white">
-              {t('lang') === 'id' ? 'Masih Ada Pertanyaan?' : 'Still Have Questions?'}
+              {language === 'id' ? 'Masih Ada Pertanyaan?' : 'Still Have Questions?'}
             </h3>
             <p className="text-blue-100 mb-6">
-              {t('lang') === 'id'
+              {language === 'id'
                 ? 'Tim admisi kami siap membantu Anda. Jangan ragu untuk menghubungi kami!'
                 : 'Our admissions team is ready to help you. Don\'t hesitate to contact us!'}
             </p>

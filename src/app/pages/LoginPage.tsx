@@ -21,7 +21,7 @@ export default function LoginPage() {
           <div className="hidden lg:block">
             <div className="bg-gradient-to-br from-sttb-navy to-blue-800 rounded-3xl p-12 text-white shadow-2xl">
               <div className="mb-8">
-                <h1 className="text-4xl font-extrabold mb-4">
+                <h1 className="text-4xl font-extrabold mb-4 text-white">
                   {t('login.page.title')}
                 </h1>
                 <p className="text-xl text-blue-100">
@@ -35,7 +35,7 @@ export default function LoginPage() {
                     <LogIn className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Single Sign-On</h3>
+                    <h3 className="font-bold text-lg mb-1 text-white">Single Sign-On</h3>
                     <p className="text-blue-100 text-sm">
                       Satu akun untuk mengakses semua layanan kampus
                     </p>
@@ -47,7 +47,7 @@ export default function LoginPage() {
                     <Lock className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Aman & Terpercaya</h3>
+                    <h3 className="font-bold text-lg mb-1 text-white">Aman & Terpercaya</h3>
                     <p className="text-blue-100 text-sm">
                       Data Anda terlindungi dengan enkripsi tingkat enterprise
                     </p>
@@ -59,7 +59,7 @@ export default function LoginPage() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">24/7 Support</h3>
+                    <h3 className="font-bold text-lg mb-1 text-white">24/7 Support</h3>
                     <p className="text-blue-100 text-sm">
                       Tim kami siap membantu kapan saja Anda membutuhkan
                     </p>
@@ -96,11 +96,10 @@ export default function LoginPage() {
                   <button
                     key={type.value}
                     onClick={() => setUserType(type.value as any)}
-                    className={`py-3 px-4 rounded-xl font-semibold text-sm transition-all ${
-                      userType === type.value
-                        ? 'bg-sttb-navy text-white shadow-lg scale-105'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
+                    className={`py-3 px-4 rounded-xl font-semibold text-sm transition-all ${userType === type.value
+                      ? 'bg-sttb-navy text-white shadow-lg scale-105'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      }`}
                   >
                     {type.label}
                   </button>

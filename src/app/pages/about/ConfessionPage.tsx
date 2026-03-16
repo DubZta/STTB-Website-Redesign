@@ -4,9 +4,9 @@ import { Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function ConfessionPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  const confessions = [
+  const confessions = language === 'id' ? [
     {
       number: 1,
       content:
@@ -47,6 +47,47 @@ export default function ConfessionPage() {
       content:
         'bahwa kepastian kedatangan kembali Yesus Kristus secara nyata dan pribadi akan terjadi pada akhir zaman untuk menjemput umat-Nya untuk menghakimi seluruh umat manusia, baik yang hidup maupun yang mati. Pada kedatangan-Nya kedua kali itulah setiap orang mati akan dibangkitkan, orang percaya masuk ke dalam kehidupan yang kekal, orang yang tidak percaya masuk ke dalam kebinasaan yang kekal.',
     },
+  ] : [
+    {
+      number: 1,
+      content:
+        'that the Bible as a whole, both the Old and New Testaments, is the revealed and inspired word of God, without error. Therefore, the Bible is the source of the highest authority for the faith and life of believers in every age and place.',
+    },
+    {
+      number: 2,
+      content:
+        'that God is One and eternal, All-Holy, and full of grace. He is the creator, ruler, and sustainer of the universe and all that is in it, the Trinity as Father, Son, and Holy Spirit. Each is an uncreated Person, of the same essence, and equal in power and glory. He is sovereign both in salvation and in the judgment of mankind.',
+    },
+    {
+      number: 3,
+      content:
+        'that humans, male and female, were created by God after His image, crowned by Him with glory and the mandate to fill the earth, manage and maintain all His creation. But humans fell into sin, were separated from God, and lost the ability to live according to their image as God\'s creation, thus being unable to save themselves.',
+    },
+    {
+      number: 4,
+      content:
+        'that Jesus Christ is the Only Begotten Son of God, true God and true Man, the redeemer and the only way of salvation for all mankind. He was conceived of the Holy Spirit, born of the virgin Mary, lived without sin, perfect in sacrifice and love. He died on the cross, rose again from the dead in a real resurrection body, ascended to heaven, sits at the right hand of God the Father, became the Great High Priest for believers, and the sole mediator between God and man, as well as King of kings.',
+    },
+    {
+      number: 5,
+      content:
+        'that the Holy Spirit is the living God, who convicts humans of sin, righteousness, and judgment. He regenerates believing sinners, indwells, sanctifies, and empowers and gives gifts to every believer according to His will for the sake of testimony, fellowship, and ministry for the building up of the body of Christ.',
+    },
+    {
+      number: 6,
+      content:
+        'that humans can only be saved by grace through redemption by the Lord Jesus Christ and justified through faith, without merit, effort, or piety on the part of humans. Through God\'s salvation in Christ, God\'s image in humans is restored. Thus, humans are enabled to lead a life of full responsibility in devotion and love before God and man.',
+    },
+    {
+      number: 7,
+      content:
+        'that the Church as the salt and light of the world is the assembly of all believers from every age and nation. It is the holy and Universal body of Christ, with Christ as its Head. The Church proclaims the Kingdom of God through worship, teaching, the sacraments of baptism and holy communion, and the proclamation of the Gospel and the mission of the whole people of God in the midst of the world.',
+    },
+    {
+      number: 8,
+      content:
+        'that the certainty of the second coming of Jesus Christ visibly and personally will occur at the end of time to fetch His people and to judge all humanity, both the living and the dead. At His second coming, every dead person will be resurrected, believers will enter into eternal life, and unbelievers will enter into eternal destruction.',
+    },
   ];
 
   return (
@@ -61,26 +102,26 @@ export default function ConfessionPage() {
             animate={{ opacity: 1 }}
             className="relative py-16 mb-8 overflow-hidden flex flex-col items-center justify-center bg-gray-50"
           >
-            <div className="absolute inset-0 opacity-[0.03]" 
-                 style={{ backgroundImage: 'radial-gradient(#1e3a8a 1px, transparent 1px)', backgroundSize: '24px 24px' }} 
+            <div className="absolute inset-0 opacity-[0.03]"
+              style={{ backgroundImage: 'radial-gradient(#1e3a8a 1px, transparent 1px)', backgroundSize: '24px 24px' }}
             />
-            
-            <motion.div 
+
+            <motion.div
               initial={{ height: 0 }}
               animate={{ height: 32 }}
               className="w-1 bg-sttb-red mb-6"
             />
-    
+
             <div className="relative">
               <h1 className="text-5xl md:text-7xl font-black text-sttb-navy uppercase tracking-tighter leading-none relative z-10">
-                Pengakuan Iman
+                {language === 'id' ? 'Pengakuan Iman' : 'Statement of Faith'}
               </h1>
               <h1 className="text-5xl md:text-7xl font-black text-transparent uppercase tracking-tighter leading-none absolute top-1 left-1 -z-0 opacity-20 whitespace-nowrap"
-                  style={{ WebkitTextStroke: '2px #1e3a8a' }}>
-                Pengakuan Iman
+                style={{ WebkitTextStroke: '2px #1e3a8a' }}>
+                {language === 'id' ? 'Pengakuan Iman' : 'Statement of Faith'}
               </h1>
             </div>
-    
+
             <div className="flex items-center gap-4 mt-6">
               <div className="w-12 h-px bg-gray-300" />
               <span className="text-sttb-red font-bold text-xs tracking-[0.2em] uppercase">STTB Confession</span>
@@ -109,7 +150,7 @@ export default function ConfessionPage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-base font-bold text-sttb-navy mb-2 uppercase tracking-wide">
-                      Kami Percaya
+                      {language === 'id' ? 'Kami Percaya' : 'We Believe'}
                     </h3>
                     <p className="text-sm text-gray-700 leading-relaxed text-justify">
                       {confession.content}
@@ -130,7 +171,7 @@ export default function ConfessionPage() {
           >
             <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               <div className="grid md:grid-cols-2">
-                
+
                 {/* Sisi Kiri: Moto dengan Aksen Garis Tradisional */}
                 <div className="p-10 bg-gray-50/50 flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100">
                   <div className="space-y-6">
@@ -140,7 +181,7 @@ export default function ConfessionPage() {
                       { latin: 'MAXIMO', eng: 'THE GREATEST' }
                     ].map((item, i) => (
                       <div key={i} className="flex items-baseline gap-4">
-                        <h3 
+                        <h3
                           className="text-2xl font-serif font-bold text-gray-800 tracking-widest"
                           style={{ fontFamily: 'Georgia, serif' }}
                         >
@@ -153,7 +194,7 @@ export default function ConfessionPage() {
                     ))}
                   </div>
                 </div>
-          
+
                 {/* Sisi Kanan: Filosofi Minimalis */}
                 <div className="p-10 flex flex-col justify-center relative">
                   {/* Aksen Kecil Identitas Univ */}
@@ -161,15 +202,17 @@ export default function ConfessionPage() {
                     <div className="w-12 h-1 bg-sttb-red"></div>
                     <div className="w-12 h-1 bg-sttb-navy"></div>
                   </div>
-          
+
                   <div className="max-w-sm">
                     <h4 className="text-sm font-bold text-sttb-navy uppercase tracking-widest mb-3">
-                      Visi Pengabdian
+                      {language === 'id' ? 'Visi Pengabdian' : 'Devotional Vision'}
                     </h4>
                     <p className="text-gray-600 leading-relaxed text-sm italic">
-                      "Segala bentuk pengajaran dan pelayanan kami dedikasikan seutuhnya bagi kemuliaan Tuhan sebagai wujud bakti yang terbaik dan tertinggi."
+                      {language === 'id'
+                        ? '"Segala bentuk pengajaran dan pelayanan kami dedikasikan seutuhnya bagi kemuliaan Tuhan sebagai wujud bakti yang terbaik dan tertinggi."'
+                        : '"All forms of teaching and service are fully dedicated to God\'s glory as a form of the best and highest devotion."'}
                     </p>
-                    
+
                     <div className="mt-6 flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-sttb-red"></div>
                       <p className="text-[11px] text-gray-400 font-medium uppercase tracking-tighter">
@@ -178,7 +221,7 @@ export default function ConfessionPage() {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </motion.div>

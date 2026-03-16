@@ -1,31 +1,31 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Landmark } from 'lucide-react';
+import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Landmark, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const quickLinks = [
-    { label: 'Perpustakaan', href: '#' },
-    { label: 'Perpustakaan Digital', href: '#' },
-    { label: 'Jurnal Transformatio', href: '#' },
-    { label: 'Podcast', href: '#' },
-    { label: 'Video', href: '#' },
-    { label: 'Buletin', href: '#' }
+    { label: t('footer.library'), href: '/library' },
+    { label: t('footer.digital_library'), href: 'https://login.ebsco.com/' },
+    { label: t('footer.journal'), href: 'https://e-journal.sttb.ac.id/index.php/transformatio' },
+    { label: t('footer.podcast'), href: '/media' },
+    { label: t('footer.video'), href: '/media' },
+    { label: t('footer.bulletin'), href: '/media' }
   ];
 
   const academicLinks = [
-    { label: 'Sistem Informasi Akademik', href: '#' },
-    { label: 'Sistem E-Learning', href: '#' },
-    { label: 'Sistem Perpustakaan', href: '#' },
-    { label: 'Sistem Kolaborasi Terpadu', href: '#' },
-    { label: 'Portal Alumni', href: '#' },
-    { label: 'Mail Server', href: '#' },
+    { label: t('footer.academic_system'), href: 'https://lms.sttb.ac.id/' },
+    { label: t('footer.elearning'), href: 'https://lms.sttb.ac.id/' },
+    { label: t('footer.lib_system'), href: '/library' },
+    { label: t('footer.collaboration'), href: 'https://sinergi.sttb.ac.id/' },
+    { label: t('footer.alumni_portal'), href: 'https://sis.sttb.ac.id/' },
+    { label: t('footer.mail_server'), href: 'https://mail.sttb.ac.id/' },
   ];
 
   const admissionLinks = [
-    { label: 'Cara Mendaftar', href: '#admissions' },
-    { label: 'Biaya Kuliah', href: '#admissions' },
-    { label: 'Beasiswa', href: '#admissions' },
-    { label: 'FAQ', href: '#admissions' },
+    { label: t('footer.how_to_apply'), href: '/admissions/procedure' },
+    { label: t('footer.tuition_fees'), href: '/finance/biaya-studi' },
+    { label: t('footer.scholarships'), href: '/finance/beasiswa' },
+    { label: t('footer.faq'), href: '/admissions/faq' },
   ];
 
   return (
@@ -68,7 +68,7 @@ export function Footer() {
           {/* Sumber Daya */}
           <div>
             <h3 className="text-base font-bold mb-6 uppercase tracking-wide relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-8 after:h-px after:bg-[#D4AF37] font-[Plus_Jakarta_Sans] text-white">
-              {t('footer.quick_links')}
+              {t('footer.resources')}
             </h3>
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
@@ -106,30 +106,39 @@ export function Footer() {
           {/* Social + Newsletter + Rekening */}
           <div>
             <h3 className="text-base font-bold mb-6 uppercase tracking-wide relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-8 after:h-px after:bg-[#D4AF37] font-[Plus_Jakarta_Sans] text-white">
-              Social & Newsletter
+              {language === 'id' ? 'Sosial & Buletin' : 'Social & Newsletter'}
             </h3>
 
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com/sttbandung.bts/"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/sekolahtinggiteologibandung/?hl=en"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/c/SekolahTinggiTeologiBandung"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110"
                 aria-label="YouTube"
               >
                 <Youtube size={18} />
+              </a>
+              <a
+                href="https://wa.me/6281573360009"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-green-600/50 flex items-center justify-center transition-all duration-200 hover:scale-110"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={18} />
               </a>
             </div>
 
@@ -172,10 +181,6 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-white">
           <p className="font-[Plus_Jakarta_Sans] text-white">{t('footer.copyright')}</p>
-          <span className="hidden md:block text-[#D4AF37]">*</span>
-          <a href="#" className="hover:text-white transition-colors font-[Plus_Jakarta_Sans]">
-            Privacy Policy
-          </a>
         </div>
       </div>
     </footer>
