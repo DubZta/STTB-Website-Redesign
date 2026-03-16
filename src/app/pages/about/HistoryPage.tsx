@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, MotionValue } from 'motion/react';
 import { useRef } from 'react';
 
 export default function HistoryPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const timelineRef = useRef<HTMLDivElement>(null);
   
   // Track scroll progress of timeline section
@@ -16,7 +16,7 @@ export default function HistoryPage() {
   // Convert scroll progress to percentage height
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
-  const historyPeriods = [
+  const historyPeriods = language === 'id' ? [
     {
       year: '1992 - 1998',
       title: 'Pendiri & Dasar Fondasi',
@@ -42,6 +42,32 @@ export default function HistoryPage() {
       title: 'Transformasi Digital & Kolaborasi Global',
       content: 'Periode ini diwarnai oleh pembenahan kualitas dan penajaman arah pengembangan program-program studi formal dan non-formal sesuai visi dan keunikan panggilan STTB. Formasi spiritualitas yg berkualitas dan terintegrasi antara kelas, kapel, kelompok pastoral, asrama, pemuridan, hingga mentoring dalam praktek pelayanan mengokohkan proses pembentukan untuk mahasiswa STh dan SPd untuk kesiapan mereka melayani. Komitmen STTB kepada dunia pendidikan kristen makin mendapat apresiasi luas melalui perkembangan program studi Magister Pendidikan, inisiasi tumbuhnya komunitas Indonesian Forum for Christian Educators (IFCE), dan kontribusi para dosen STTB dalam berbagai forum nasional. Demikian juga komitmen STTB untuk mengembangkan pendidikan teologi yang aplikatif dan transformatif mendapatkan sambutan yg positif melalui perkembangan program studi MTh yang berfokus pada Transformasi Budaya dan Masyarakat dan program studi MMin Marketplace untuk memperlengkapi profesional Kristen bermisi di dunia kerja. Sementara itu dua program MMin juga berlangsung dalam periode ini, yaitu MMin Music Leadership (bekerja sama dengan Singapore Bible College) dan MMin Pastoral Leadership. Pendidikan nonformal makin berkembang dengan budaya digital yg tumbuh pesat selama masa pandemi. Melalui pengembangan pusat studi non-formal (LEAD Center) dikembangkan modul-modul pembinaan Vocatio (marketplace), Perspectives (misi), dan materi-materi pembinaan digital yg dapat diakses melalui media sosial. Pengembangan penelitian ditandai dengan publikasi ilmiah berupa seri webinar berkala Conversation That Matters (CTM) dan penerbitan monograf untuk tesis-tesis master yg terpilih karena kualitas dan relevansinya bagi pelayanan di lapangan. Mengingat besarnya dan luasnya pekerjaan yg harus dilakukan, maka kolaborasi dan sinergi dengan berbagai gereja dan lembaga secara nasional dan global yg sejalan dengan visi STTB makin dikembangkan dalam periode ini. Dalam periode ini kepemimpinan STTB mengalami beberapa kali peralihan, yaitu Pdt Chandra Koewoso sebagai Ketua sejak Agustus 2017, dan selanjutnya Sutrisna Harjanto PhD sebagai Ketua sejak Agustus 2019 hingga saat ini.',
     },
+  ] : [
+    {
+      year: '1992 - 1998',
+      title: 'Founders & Foundation',
+      content: 'Rev. Caleb Tong, Rev. Joseph Tong, and Rev. Dorothy I. Marx founded STTB in 1992 with the goal of producing Pastor-Scholars with a Reformed Evangelical theological framework in the context of God\'s work in Indonesia. Rev. Daniel Lucas Lukito as the first Academic Dean played a major role in laying the basic framework for STTB\'s development. The opening of STTB was very well prepared with a line of quality lecturers. The commitment to pursue high academic quality was also supported by a library with a very adequate collection of books and journals, as well as the publication of the STULOS Theological Journal in Indonesian and English versions. In the first years, a national-level event was held, namely Ferakristal (Christian Youth Bible Lovers Festival). The first graduation was held in 1996.',
+    },
+    {
+      year: '1999 - 2005',
+      title: 'Study Program Expansion',
+      content: 'STTB underwent changes in leadership and faculty. Dorothy I. Marx served as Rector and STTB continued its journey by God\'s grace by opening new study programs: M.A. (Master of Arts) to equip laypeople and M.Th. (Master of Theology) to equip servants of God who long to participate in the academic world. Faculty housing was built next to the student dormitory. STTB is committed to publishing the "Sola..." book series and organizing a national youth event called CYLF (Christian Youth Leadership Forum).',
+    },
+    {
+      year: '2006 - 2010',
+      title: 'Academic Quality Improvement',
+      content: 'STTB\'s development continued under the leadership of Rev. Joseph Tong who was committed to increasing the qualifications of teaching staff by sending several lecturers for further study in the USA. During this period, two books of the Sola Series were published, namely Sola Scriptura and Sola Fide. In this period STTB opened a Mandarin-language study program (S.Th., M.Div., and M.A.) as its contribution to mission services in China. For this purpose, 2 lecturers, namely Rev. Lee Ching Yen and Rev. Joseph Lin from Taiwan, were invited to teach students who came from China.',
+    },
+    {
+      year: '2011 - 2016',
+      title: 'New Building & Accreditation',
+      content: 'This period was marked by several significant developments. Rev. Agus Gunawan continued the leadership as Rector. In 2011, STTB appeared with a new face with the construction of a new seven-story building which is currently used for classrooms, faculty and staff offices, student dormitories, a hall, and a library. The third and fourth books of the Sola Series (Sola Gratia and Solus Christos) were published. In this period, several people in leadership continued doctoral studies in Asia and America. In 2012, new study programs were opened: S.Pd.K. (Bachelor of Christian Education) along with the M.Min. (Master of Ministry) program. Furthermore, in 2015, STTB also added the M.Pd.K. (Master of Christian Education) program, designed to equip Christian education leaders. In this period, several study programs began to be accredited by BAN-PT (National Accreditation Board for Higher Education) and ATA (Asian Theological Association). In addition, STTB expanded its global network marked by the presence of several lecturers from England, India, and the Philippines, who strongly supported the M.Th. program held in English.',
+    },
+    {
+      year: '2017 - 2022',
+      title: 'Digital Transformation & Global Collaboration',
+      content: 'This period was characterized by quality improvement and sharpening the direction of development of formal and non-formal study programs in accordance with STTB\'s vision and unique calling. Quality and integrated spiritual formation between classes, chapel, pastoral groups, dormitories, discipleship, and mentoring in service practice strengthens the formation process for S.Th and S.Pd students for their readiness to serve. STTB\'s commitment to the world of Christian education is increasingly receiving wide appreciation through the development of the Master of Education study program, the initiation of the growth of the Indonesian Forum for Christian Educators (IFCE) community, and the contribution of STTB lecturers in various national forums. Likewise, STTB\'s commitment to developing applicable and transformative theological education received a positive response through the development of the M.Th study program which focuses on Cultural and Societal Transformation and the MMin Marketplace study program to equip Christian professionals on missions in the world of work. Meanwhile, two MMin programs also took place during this period, namely MMin Music Leadership (in collaboration with Singapore Bible College) and MMin Pastoral Leadership. Non-formal education is growing with a digital culture that grew rapidly during the pandemic. Through the development of a non-formal study center (LEAD Center), Vocatio (marketplace), Perspectives (mission) development modules, and digital development materials were developed that can be accessed through social media. Research development is marked by scientific publications in the form of the regular webinar series Conversation That Matters (CTM) and the publication of monographs for selected master\'s theses for their quality and relevance for field service. Given the magnitude and breadth of work to be done, collaboration and synergy with various churches and institutions nationally and globally that are in line with STTB\'s vision are being further developed in this period. In this period, STTB leadership underwent several transitions, namely Rev. Chandra Koewoso as Chairman since August 2017, and subsequently Sutrisna Harjanto PhD as Chairman since August 2019 until now.',
+    },
   ];
 
   const historyImages = [
@@ -52,22 +78,22 @@ export default function HistoryPage() {
 
   const logoElements = [
     {
-      name: 'API',
+      name: language === 'id' ? 'API' : 'FIRE',
       image: 'https://sttb.ac.id/storage/2022/01/api.png',
       description: t('about.logo.fire'),
     },
     {
-      name: 'ALKITAB',
+      name: language === 'id' ? 'ALKITAB' : 'BIBLE',
       image: 'https://sttb.ac.id/storage/2022/01/alkitab.png',
       description: t('about.logo.bible'),
     },
     {
-      name: 'SALIB & MAHKOTA',
+      name: language === 'id' ? 'SALIB & MAHKOTA' : 'CROSS & CROWN',
       image: 'https://sttb.ac.id/storage/2022/01/salib.png',
       description: t('about.logo.cross'),
     },
     {
-      name: 'TONGKAT GEMBALA',
+      name: language === 'id' ? 'TONGKAT GEMBALA' : 'SHEPHERD\'S STAFF',
       image: 'https://sttb.ac.id/storage/2022/01/tongkat.png',
       description: t('about.logo.staff'),
     },
@@ -112,11 +138,11 @@ export default function HistoryPage() {
     
             <div className="relative">
               <h1 className="text-5xl md:text-7xl font-black text-sttb-navy uppercase tracking-tighter leading-none relative z-10">
-                Sejarah
+                {language === 'id' ? 'Sejarah' : 'History'}
               </h1>
               <h1 className="text-5xl md:text-7xl font-black text-transparent uppercase tracking-tighter leading-none absolute top-1 left-1 -z-0 opacity-20"
                   style={{ WebkitTextStroke: '2px #1e3a8a' }}>
-                Sejarah
+                {language === 'id' ? 'Sejarah' : 'History'}
               </h1>
             </div>
     

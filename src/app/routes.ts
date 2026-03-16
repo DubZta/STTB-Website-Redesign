@@ -9,14 +9,23 @@ import ConfessionPage from './pages/about/ConfessionPage';
 import FacultyPage from './pages/about/FacultyPage';
 import FoundationPage from './pages/about/FoundationPage';
 import AcademicsPage from './pages/AcademicsPage';
+
+// Undergraduate Programs
 import SarjanaTeologiPage from './pages/academics/SarjanaTeologiPage';
-import SarjanaPendidikanPage from './pages/academics/SarjanaPendidikanPage';
-import MagisterTeologiPage from './pages/academics/MagisterTeologiPage';
-import MagisterPendidikanPage from './pages/academics/MagisterPendidikanPage';
-import MasterDivinityPage from './pages/academics/MasterDivinityPage';
-import MagisterMinistriPastoralPage from './pages/academics/MagisterMinistriPastoralPage';
+import SarjanaPendidikanKristenPage from './pages/academics/SarjanaPendidikanKristenPage';
+
+// Graduate Programs - Magister Teologi
+import MagisterTeologiPelayananPastoralGerejaUrbanPage from './pages/academics/MagisterTeologiPelayananPastoralGerejaUrbanPage';
+import MagisterTeologiTransformasiBudayaMasyarakatPage from './pages/academics/MagisterTeologiTransformasiBudayaMasyarakatPage';
+
+// Graduate Programs - Magister Pendidikan
+import MagisterPendidikanKristenPage from './pages/academics/MagisterPendidikanKristenPage';
+
+// Graduate Programs - Magister Ministri
 import MagisterMinistriMarketplacePage from './pages/academics/MagisterMinistriMarketplacePage';
-import MasterArtsPage from './pages/academics/MasterArtsPage';
+import MagisterMinistriKepemimpinanPastoralPage from './pages/academics/MagisterMinistriKepemimpinanPastoralPage';
+import MagisterMinistriTeologiPelayananGerejawiPage from './pages/academics/MagisterMinistriTeologiPelayananGerejawiPage';
+
 import AdmissionsPage from './pages/AdmissionsPage';
 import SchedulePage from './pages/admissions/SchedulePage';
 import ProcedurePage from './pages/admissions/ProcedurePage';
@@ -54,34 +63,56 @@ export const router = createBrowserRouter([
       { path: "about/confession", Component: ConfessionPage },
       { path: "about/faculty", Component: FacultyPage },
       { path: "about/foundation", Component: FoundationPage },
+
+      // Academics Main
       { path: "academics", Component: AcademicsPage },
+
+      // Undergraduate Programs
       { path: "academics/sarjana-teologi", Component: SarjanaTeologiPage },
-      { path: "academics/sarjana-pendidikan", Component: SarjanaPendidikanPage },
-      { path: "academics/magister-teologi", Component: MagisterTeologiPage },
-      { path: "academics/magister-pendidikan", Component: MagisterPendidikanPage },
-      { path: "academics/master-divinity", Component: MasterDivinityPage },
-      { path: "academics/magister-ministri-pastoral", Component: MagisterMinistriPastoralPage },
+      { path: "academics/sarjana-pendidikan-kristen", Component: SarjanaPendidikanKristenPage },
+
+      // Graduate Programs - Magister Teologi
+      { path: "academics/magister-teologi-pelayanan-pastoral-gereja-urban", Component: MagisterTeologiPelayananPastoralGerejaUrbanPage },
+      { path: "academics/magister-teologi-transformasi-budaya-masyarakat", Component: MagisterTeologiTransformasiBudayaMasyarakatPage },
+
+      // Graduate Programs - Magister Pendidikan
+      { path: "academics/magister-pendidikan-kristen", Component: MagisterPendidikanKristenPage },
+
+      // Graduate Programs - Magister Ministri
       { path: "academics/magister-ministri-marketplace", Component: MagisterMinistriMarketplacePage },
-      { path: "academics/master-arts", Component: MasterArtsPage },
+      { path: "academics/magister-ministri-kepemimpinan-pastoral", Component: MagisterMinistriKepemimpinanPastoralPage },
+      { path: "academics/magister-ministri-teologi-pelayanan-gerejawi", Component: MagisterMinistriTeologiPelayananGerejawiPage },
+
+      // Admissions
       { path: "admissions", Component: AdmissionsPage },
       { path: "admissions/schedule", Component: SchedulePage },
       { path: "admissions/procedure", Component: ProcedurePage },
       { path: "admissions/requirements", Component: RequirementsPage },
       { path: "admissions/faq", Component: FAQPage },
+
+      // Finance
       { path: "finance", Component: FinancePage },
       { path: "finance/biaya-studi", Component: BiayaStudiPage },
       { path: "finance/beasiswa", Component: BeasiswaPage },
       { path: "finance/dukung-sttb", Component: DukungSTTBPage },
+
+      // Campus Life
       { path: "campus-life", Component: CampusLifePage },
       { path: "campus-life/facilities", Component: FacilitiesPage },
       { path: "campus-life/student-development", Component: StudentDevelopmentPage },
       { path: "campus-life/senate", Component: SenatePage },
+
+      // News & Media
       { path: "news", Component: NewsPage },
       { path: "events", Component: EventsPage },
       { path: "media", Component: MediaPage },
       { path: "activities", Component: ActivitiesPage },
+
+      // Special Programs
       { path: "lead", Component: LEADPage },
       { path: "library", Component: LibraryPage },
+
+      // Utility Pages
       { path: "contact", Component: ContactPage },
       { path: "login", Component: LoginPage },
       { path: "search", Component: SearchPage },

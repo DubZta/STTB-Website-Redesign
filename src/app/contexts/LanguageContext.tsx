@@ -23,6 +23,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.news': 'Berita',
     'nav.events': 'Kegiatan',
     'nav.media': 'Media',
+    'nav.contact': 'Kontak',
+    'nav.search': 'Cari',
+    'nav.login': 'Masuk',
 
     // About submenu
     'nav.about.history': 'Sejarah',
@@ -91,8 +94,20 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.podcast': 'Podcast',
     'footer.video': 'Video',
     'footer.bulletin': 'Buletin',
+    'footer.resources': 'SUMBER DAYA',
     'footer.help_links': 'LINK BANTUAN',
-    'footer.copyright': 'Copyright © 2026 Sekolah Tinggi Teologi Bandung. All Rights Reserved.',
+    'footer.admissions': 'ADMISI',
+    'footer.academic_system': 'Sistem Informasi Akademik',
+    'footer.elearning': 'Sistem E-Learning',
+    'footer.lib_system': 'Sistem Perpustakaan',
+    'footer.collaboration': 'Sistem Kolaborasi Terpadu',
+    'footer.alumni_portal': 'Portal Alumni',
+    'footer.mail_server': 'Mail Server',
+    'footer.how_to_apply': 'Cara Mendaftar',
+    'footer.tuition_fees': 'Biaya Kuliah',
+    'footer.scholarships': 'Beasiswa',
+    'footer.faq': 'FAQ',
+    'footer.copyright': 'Copyright © 2026 Sekolah Tinggi Teologi Bandung All Rights Reserved.',
 
     // Programs
     'programs.title': 'PROGRAM STUDI',
@@ -250,6 +265,11 @@ const translations: Record<Language, Record<string, string>> = {
     'activity.sports.desc': 'Kegiatan tahunan seperti Sports Day, Urban Youth Summit, dan berbagai aktivitas mahasiswa.',
     'activity.mentoring.title': 'Pembinaan & Pemuridan',
     'activity.mentoring.desc': 'Program retreat awal studi, pemuridan kelompok kecil dan besar untuk pembentukan karakter mahasiswa.',
+    'nav.faculties': 'Fasilitas',
+    'nav.student_development': 'Pembinaan Mahasiswa',
+    'nav.senate': 'Senat Mahasiswa',
+    'nav.quick_menu': 'Menu Cepat',
+    'nav.navigation': 'Navigasi',
 
     // Media Page
     'mediapage.title': 'Media & Galeri',
@@ -320,10 +340,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Programs Details
     'programs.sth.full': 'Sarjana Teologi',
     'programs.spdk.full': 'Sarjana Pendidikan Kristen',
-    'programs.mth.full': 'Magister Teologi',
+    'programs.mth_ppgu.full': 'Magister Teologi Pelayanan Pastoral Gereja Urban',
+    'programs.mth_tbm.full': 'Magister Teologi Transformasi Budaya & Masyarakat',
     'programs.mpdk.full': 'Magister Pendidikan Kristen',
-    'programs.mdiv.full': 'Master of Divinity',
-    'programs.mmin.full': 'Magister Ministri',
+    'programs.mmin_mp.full': 'Magister Ministri Marketplace',
+    'programs.mmin_kp.full': 'Magister Ministri Kepemimpinan Pastoral',
+    'programs.mmin_tpg.full': 'Magister Ministri Teologi Pelayanan Gerejawi',
 
     // Common
     'common.read_more': 'Baca Selengkapnya',
@@ -332,6 +354,19 @@ const translations: Record<Language, Record<string, string>> = {
     'common.back': 'Kembali',
     'common.submit': 'Kirim',
     'common.register': 'Daftar',
+
+    // Activities Categories
+    'activities.category': 'Kategori',
+    'activities.organizer': 'Penyelenggara',
+    'activities.search_placeholder': 'Cari kegiatan...',
+    'activities.select_month': 'Pilih Bulan',
+    'activities.select_year': 'Pilih Tahun',
+    'activities.view.yearly': 'TAHUNAN',
+    'activities.view.monthly': 'BULANAN',
+    'activities.view.weekly': 'MINGGUAN',
+    'activities.view.daily': 'HARIAN',
+    'activities.view.list': 'DAFTAR',
+    'activities.view.grid': 'KISI',
   },
   en: {
     // Navigation
@@ -344,6 +379,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.news': 'News',
     'nav.events': 'Events',
     'nav.media': 'Media',
+    'nav.contact': 'Contact',
+    'nav.search': 'Search',
+    'nav.login': 'Login',
 
     // About submenu
     'nav.about.history': 'History',
@@ -412,8 +450,20 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.podcast': 'Podcast',
     'footer.video': 'Videos',
     'footer.bulletin': 'Bulletin',
+    'footer.resources': 'RESOURCES',
     'footer.help_links': 'HELP LINKS',
-    'footer.copyright': 'Copyright © 2026 Bandung School of Theology. All Rights Reserved.',
+    'footer.admissions': 'ADMISSIONS',
+    'footer.academic_system': 'Academic Information System',
+    'footer.elearning': 'E-Learning System',
+    'footer.lib_system': 'Library System',
+    'footer.collaboration': 'Integrated Collaboration System',
+    'footer.alumni_portal': 'Alumni Portal',
+    'footer.mail_server': 'Mail Server',
+    'footer.how_to_apply': 'How to Apply',
+    'footer.tuition_fees': 'Tuition Fees',
+    'footer.scholarships': 'Scholarships',
+    'footer.faq': 'FAQ',
+    'footer.copyright': 'Copyright © 2026 Bandung School of Theology All Rights Reserved.',
 
     // Programs
     'programs.title': 'STUDY PROGRAMS',
@@ -571,6 +621,11 @@ const translations: Record<Language, Record<string, string>> = {
     'activity.sports.desc': 'Annual activities such as Sports Day, Urban Youth Summit, and various student activities.',
     'activity.mentoring.title': 'Coaching & Discipleship',
     'activity.mentoring.desc': 'Initial study retreat program, small and large group discipleship for student character building.',
+    'nav.faculties': 'Facilities',
+    'nav.student_development': 'Student Development',
+    'nav.senate': 'Student Senate',
+    'nav.quick_menu': 'Quick Menu',
+    'nav.navigation': 'Navigation',
 
     // Media Page
     'mediapage.title': 'Media & Gallery',
@@ -641,10 +696,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Programs Details
     'programs.sth.full': 'Bachelor of Theology',
     'programs.spdk.full': 'Bachelor of Christian Education',
-    'programs.mth.full': 'Master of Theology',
+    'programs.mth_ppgu.full': 'Master of Theology in Urban Pastoral Ministry',
+    'programs.mth_tbm.full': 'Master of Theology in Cultural & Societal Transformation',
     'programs.mpdk.full': 'Master of Christian Education',
-    'programs.mdiv.full': 'Master of Divinity',
-    'programs.mmin.full': 'Master of Ministry',
+    'programs.mmin_mp.full': 'Master of Ministry in Marketplace',
+    'programs.mmin_kp.full': 'Master of Ministry in Pastoral Leadership',
+    'programs.mmin_tpg.full': 'Master of Ministry in Church Service Theology',
 
     // Common
     'common.read_more': 'Read More',
@@ -653,6 +710,19 @@ const translations: Record<Language, Record<string, string>> = {
     'common.back': 'Back',
     'common.submit': 'Submit',
     'common.register': 'Register',
+
+    // Activities Categories
+    'activities.category': 'Category',
+    'activities.organizer': 'Organizer',
+    'activities.search_placeholder': 'Search events...',
+    'activities.select_month': 'Select Month',
+    'activities.select_year': 'Select Year',
+    'activities.view.yearly': 'YEARLY',
+    'activities.view.monthly': 'MONTHLY',
+    'activities.view.weekly': 'WEEKLY',
+    'activities.view.daily': 'DAILY',
+    'activities.view.list': 'LIST',
+    'activities.view.grid': 'GRID',
   },
 };
 

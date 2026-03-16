@@ -9,25 +9,25 @@ export default function ContactPage() {
       icon: MapPin,
       title: t('contact.address'),
       details: ['Jl. Durian No. 26', 'Bandung 40264', 'Jawa Barat, Indonesia'],
-      color: 'from-sttb-navy to-blue-600',
+      color: 'from-sttb-navy to-blue-400',
     },
     {
       icon: Phone,
       title: t('contact.phone'),
       details: ['+62 22 2500689', '+62 22 2501252', 'Fax: +62 22 2500689'],
-      color: 'from-sttb-red to-red-600',
+      color: 'from-sttb-navy to-blue-400',
     },
     {
       icon: Mail,
       title: t('contact.email'),
       details: ['info@sttb.ac.id', 'admissions@sttb.ac.id', 'academic@sttb.ac.id'],
-      color: 'from-green-600 to-green-400',
+      color: 'from-sttb-navy to-blue-400',
     },
     {
       icon: Clock,
       title: t('contact.hours'),
       details: ['Senin - Jumat: 08:00 - 16:00', 'Sabtu: 08:00 - 12:00', 'Minggu: Tutup'],
-      color: 'from-purple-600 to-purple-400',
+      color: 'from-sttb-navy to-blue-400',
     },
   ];
 

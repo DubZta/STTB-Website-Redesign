@@ -15,7 +15,7 @@ export default function CampusLifePage() {
           : 'Jelajahi fasilitas modern kami yang dirancang untuk pendidikan teologi holistik',
       icon: Building2,
       href: '/campus-life/facilities',
-      color: 'from-blue-600 to-blue-800',
+      color: 'from-sttb-navy to-sttb-navy-light',
     },
     {
       title: language === 'en' ? 'Student Development' : 'Pembinaan Mahasiswa',
@@ -25,7 +25,7 @@ export default function CampusLifePage() {
           : 'Temukan program pembinaan dan pendampingan mahasiswa yang komprehensif',
       icon: Users,
       href: '/campus-life/student-development',
-      color: 'from-sttb-navy to-blue-900',
+      color: 'from-sttb-navy to-sttb-navy-light',
     },
     {
       title: language === 'en' ? 'Senate' : 'Senat',
@@ -35,7 +35,7 @@ export default function CampusLifePage() {
           : 'Pelajari tentang kepemimpinan mahasiswa dan keterlibatan komunitas kampus',
       icon: Award,
       href: '/campus-life/senate',
-      color: 'from-sttb-red to-red-700',
+      color: 'from-sttb-navy to-sttb-navy-light',
     },
   ];
 
@@ -61,7 +61,7 @@ export default function CampusLifePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4 font-[Plus_Jakarta_Sans] font-extrabold"
           >
             {language === 'en' ? 'Campus Life' : 'Kehidupan Kampus'}
           </motion.h1>
@@ -69,7 +69,7 @@ export default function CampusLifePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base text-gray-200 max-w-3xl mx-auto"
+            className="text-base text-gray-200 max-w-3xl mx-auto font-[Inter] font-medium"
           >
             {language === 'en'
               ? 'Experience a holistic and meaningful campus life for forming servant leaders'
@@ -97,10 +97,10 @@ export default function CampusLifePage() {
                   >
                     <div className={`bg-gradient-to-br ${page.color} p-8 text-white`}>
                       <Icon className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform" />
-                      <h3 className="text-xl font-bold mb-2">{page.title}</h3>
+                      <h3 className="text-xl font-bold mb-2 text-white font-[Plus_Jakarta_Sans] font-extrabold">{page.title}</h3>
                     </div>
                     <div className="p-6">
-                      <p className="text-sm text-gray-700 leading-relaxed mb-4">{page.description}</p>
+                      <p className="text-sm text-gray-700 leading-relaxed mb-4 font-[Inter] font-medium">{page.description}</p>
                       <div className="flex items-center text-sttb-red font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
                         <span>{language === 'en' ? 'Learn More' : 'Pelajari Lebih Lanjut'}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

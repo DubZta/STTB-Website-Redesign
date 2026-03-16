@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Menu,
   X,
@@ -29,6 +29,8 @@ export function Header() {
     string | null
   >(null);
 
+  const headerRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -45,11 +47,29 @@ export function Header() {
       setLastScrollY(currentScrollY);
     };
 
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', `${height}px`);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, {
       passive: true,
     });
-    return () =>
+    
+    // Update height initially and on window resize
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+
+    // Also update height periodically or after a short delay since top bar visibility changes
+    const heightTimer = setInterval(updateHeaderHeight, 100);
+
+    return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateHeaderHeight);
+      clearInterval(heightTimer);
+    };
   }, [lastScrollY]);
 
   const navItems = [
@@ -70,20 +90,21 @@ export function Header() {
       label: t("nav.academics"),
       href: "/academics",
       dropdown: [
-        { name: t("academics.programs.sth"), href: "/academics/sarjana-teologi" },
-        { name: t("academics.programs.spdk"), href: "/academics/sarjana-pendidikan-kristen" },
-        { name: t("academics.programs.mth"), href: "/academics/magister-teologi" },
-        { name: t("academics.programs.mpdk"), href: "/academics/magister-pendidikan-kristen" },
-        { name: t("academics.programs.mdiv"), href: "/academics/master-divinity" },
-        { name: t("academics.programs.mmin_pastoral"), href: "/academics/magister-ministri-pastoral" },
-        { name: t("academics.programs.mmin_marketplace"), href: "/academics/magister-ministri-marketplace" },
+        { name: t("programs.sth.full"), href: "/academics/sarjana-teologi" },
+        { name: t("programs.spdk.full"), href: "/academics/sarjana-pendidikan-kristen" },
+        { name: t("programs.mth_ppgu.full"), href: "/academics/magister-teologi-pelayanan-pastoral-gereja-urban" },
+        { name: t("programs.mth_tbm.full"), href: "/academics/magister-teologi-transformasi-budaya-masyarakat" },
+        { name: t("programs.mpdk.full"), href: "/academics/magister-pendidikan-kristen" },
+        { name: t("programs.mmin_mp.full"), href: "/academics/magister-ministri-marketplace" },
+        { name: t("programs.mmin_kp.full"), href: "/academics/magister-ministri-kepemimpinan-pastoral" },
+        { name: t("programs.mmin_tpg.full"), href: "/academics/magister-ministri-teologi-pelayanan-gerejawi" },
       ],
     },
     {
       label: t("nav.admissions"),
       href: "/admissions",
       dropdown: [
-        { name: t("admissions.online"), href: "/admissions/schedule" }, // Using schedule or online? Check translations
+        { name: t("admissions.online"), href: "/admissions/schedule" },
         { name: t("admissions.test"), href: "/admissions/procedure" },
         { name: t("admissions.announcement"), href: "/admissions/requirements" },
         { name: "FAQ", href: "/admissions/faq" },
@@ -102,26 +123,26 @@ export function Header() {
       label: t("nav.campus_life"),
       href: "/campus-life",
       dropdown: [
-        { name: "Fasilitas", href: "/campus-life/facilities" },
+        { name: t("nav.faculties"), href: "/campus-life/facilities" },
         {
-          name: "Pembinaan Mahasiswa",
+          name: t("nav.student_development"),
           href: "/campus-life/student-development",
         },
-        { name: "Senat", href: "/campus-life/senate" },
+        { name: t("nav.senate"), href: "/campus-life/senate" },
       ],
     },
   ];
 
   const quickLinks = [
-    { name: "Kegiatan", href: "/activities", icon: Calendar },
-    { name: "Berita", href: "/news", icon: Newspaper },
-    { name: "Media", href: "/media", icon: Video },
+    { name: language === 'id' ? "Kegiatan" : "Activities", href: "/activities", icon: Calendar },
+    { name: language === 'id' ? "Berita" : "News", href: "/news", icon: Newspaper },
+    { name: language === 'id' ? "Media" : "Media", href: "/media", icon: Video },
     { name: "LEAD", href: "/lead", icon: Award },
-    { name: "Perpustakaan", href: "/library", icon: Library },
+    { name: language === 'id' ? "Perpustakaan" : "Library", href: "/library", icon: Library },
   ];
 
   const actionLinks = [
-    { name: "Kontak", href: "/contact", icon: Mail },
+    { name: language === 'id' ? "Kontak" : "Contact", href: "/contact", icon: Mail },
     { name: "Login", href: "/login", icon: LogIn },
   ];
 
@@ -139,7 +160,10 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 font-[Plus_Jakarta_Sans]">
+    <header 
+      ref={headerRef}
+      className="sticky top-0 z-50 font-[Plus_Jakarta_Sans]"
+    >
       <div
         className={`transition-all duration-300 ${isTopBarVisible
           ? "translate-y-0"
@@ -179,7 +203,7 @@ export function Header() {
                       onChange={(e) =>
                         setSearchQuery(e.target.value)
                       }
-                      placeholder="Cari..."
+                      placeholder={t('nav.search') + "..."}
                       className="px-3 py-1 text-xs rounded bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-1 focus:ring-white/50 w-48"
                       autoFocus
                     />
@@ -197,7 +221,7 @@ export function Header() {
                     className="flex items-center gap-1.5 text-[12px] font-medium text-blue-100 hover:text-white transition-colors"
                   >
                     <Search className="w-3.5 h-3.5" />
-                    <span>Cari</span>
+                    <span>{t('nav.search')}</span>
                   </button>
                 )}
 
@@ -205,14 +229,14 @@ export function Header() {
                 {actionLinks.map((link) => {
                   const Icon = link.icon;
                   return (
-                    <a
+                     <Link
                       key={link.name}
-                      href={link.href}
+                      to={link.href}
                       className="flex items-center gap-1.5 text-[12px] font-semibold text-blue-100 hover:text-white transition-colors"
                     >
                       <Icon className="w-3.5 h-3.5" />
                       <span>{link.name}</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
@@ -294,7 +318,7 @@ export function Header() {
                   to="/contact"
                   className="px-5 py-2.5 bg-[#1e3a8a] text-white rounded-md text-[13px] font-bold hover:bg-[#1e40af] transition-all shadow-sm hover:shadow-md active:transform active:scale-95"
                 >
-                  Kontak
+                  {t('nav.contact')}
                 </Link>
 
                 <Link
@@ -323,7 +347,7 @@ export function Header() {
                 <div className="space-y-4 max-h-[80vh] overflow-y-auto">
                   <div className="flex items-center justify-between px-4 pb-4 border-b border-gray-100">
                     <div className="flex items-center gap-2">
-                      <button 
+                      <button
                         className={`text-xs font-bold ${language === 'id' ? 'text-[#1e3a8a]' : 'text-slate-400'}`}
                         onClick={() => setLanguage('id')}
                       >
@@ -332,7 +356,7 @@ export function Header() {
                       <span className="text-xs text-gray-300">
                         |
                       </span>
-                      <button 
+                      <button
                         className={`text-xs font-bold ${language === 'en' ? 'text-[#1e3a8a]' : 'text-slate-400'}`}
                         onClick={() => setLanguage('en')}
                       >
@@ -343,21 +367,21 @@ export function Header() {
                       to="/login"
                       className="text-xs font-semibold text-slate-600 flex items-center gap-1"
                     >
-                      <LogIn size={14} /> Login
+                      <LogIn size={14} /> {t('nav.login')}
                     </Link>
                   </div>
 
                   <div className="px-4">
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                      Menu Cepat
+                      {t('nav.quick_menu')}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {quickLinks.map((link) => {
                         const Icon = link.icon;
-                        return (
-                          <a
+                         return (
+                          <Link
                             key={link.name}
-                            href={link.href}
+                            to={link.href}
                             onClick={() =>
                               setMobileMenuOpen(false)
                             }
@@ -365,7 +389,7 @@ export function Header() {
                           >
                             <Icon className="w-3 h-3" />
                             {link.name}
-                          </a>
+                          </Link>
                         );
                       })}
                     </div>
@@ -373,7 +397,7 @@ export function Header() {
 
                   <div className="px-4 space-y-1">
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                      Navigasi
+                      {t('nav.navigation')}
                     </p>
                     {navItems.map((item) => (
                       <div key={item.label}>
@@ -416,9 +440,9 @@ export function Header() {
                     <Link
                       to="/contact"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center w-full px-4 py-3 bg-[#1e3a8a] text-white rounded-md text-sm font-bold hover:bg-[#1e40af] transition-colors shadow-md"
+                      className="flex items-center justify-center w-full px-4 py-3 bg-[#1e3a8a] text-white rounded-md text-sm font-bold hover:bg-[#1e40af] transition-all shadow-md active:transform active:scale-95"
                     >
-                      Kontak
+                      {t('nav.contact')}
                     </Link>
                     <Link
                       to="/admissions"

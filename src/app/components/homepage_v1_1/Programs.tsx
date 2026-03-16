@@ -15,7 +15,7 @@ export function Programs() {
       duration: t('programs.duration.8sem'),
       level: 'S1',
       degreeBadge: 'S.Th',
-      link: 'https://sttb.ac.id/sarjana-teologi/',
+      link: '/academics/sarjana-teologi',
     },
     {
       title: t('programs.spdk.title'),
@@ -24,7 +24,7 @@ export function Programs() {
       duration: t('programs.duration.8sem'),
       level: 'S1',
       degreeBadge: 'S.Pd.',
-      link: 'https://sttb.ac.id/sarjana-pendidikan-kristen/',
+      link: '/academics/sarjana-pendidikan-kristen',
     },
     {
       title: t('programs.mpdk.title'),
@@ -33,7 +33,7 @@ export function Programs() {
       duration: t('programs.duration.4sem'),
       level: 'S2',
       degreeBadge: 'M.Pd.',
-      link: 'https://sttb.ac.id/magister-teologi/',
+      link: '/academics/magister-pendidikan-kristen',
     },
   ];
 
@@ -118,7 +118,7 @@ export function Programs() {
                   asChild
                 >
                   <Link
-                    to="/academics"
+                    to={program.link}
                     className="inline-flex items-center"
                   >
                     {t('programs.learn_more')}
