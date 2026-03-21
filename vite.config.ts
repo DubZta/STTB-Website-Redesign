@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   plugins: [
@@ -9,6 +13,17 @@ export default defineConfig({
     // Tailwind is not being actively used – do not remove them
     react(),
     tailwindcss(),
+    {
+      name: 'admin-routing',
+      configureServer(server) {
+        server.middlewares.use((req: any, _res, next) => {
+          if (req.url && req.url.startsWith('/admin') && !req.url.includes('.')) {
+            req.url = '/admin/index.html';
+          }
+          next();
+        });
+      },
+    },
   ],
   resolve: {
     alias: {
@@ -19,4 +34,13 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        admin: path.resolve(__dirname, 'admin/index.html'),
+      },
+    },
+  },
 })
+
