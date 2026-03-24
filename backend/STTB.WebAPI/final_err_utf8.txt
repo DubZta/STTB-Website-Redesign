@@ -1,0 +1,15 @@
+﻿  Determining projects to restore...
+  Restored D:\Accelist\STTB-Website-Redesign\backend\STTB.Entities\STTB.Entities.csproj (in 292 ms).
+  Restored D:\Accelist\STTB-Website-Redesign\backend\STTB.Commons\STTB.Commons.csproj (in 292 ms).
+  Restored D:\Accelist\STTB-Website-Redesign\backend\STTB.WebAPI\STTB.WebAPI.csproj (in 326 ms).
+  1 of 4 projects are up-to-date for restore.
+  STTB.Contracts -> D:\Accelist\STTB-Website-Redesign\backend\STTB.Contracts\bin\Debug\net10.0\STTB.Contracts.dll
+  STTB.Entities -> d:\Accelist\STTB-Website-Redesign\backend\STTB.Entities\bin\Debug\net10.0\STTB.Entities.dll
+  STTB.Commons -> D:\Accelist\STTB-Website-Redesign\backend\STTB.Commons\bin\Debug\net10.0\STTB.Commons.dll
+  STTB.WebAPI -> D:\Accelist\STTB-Website-Redesign\backend\STTB.WebAPI\bin\Debug\net10.0\STTB.WebAPI.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.68
