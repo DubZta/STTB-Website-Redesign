@@ -13,6 +13,7 @@ public class EventListItem
     public string Slug { get; set; } = string.Empty;
     public string Category { get; set; } = string.Empty;
     public DateTime EventDate { get; set; }
+    public DateTime? EventEndDate { get; set; }
     public string Status { get; set; } = string.Empty;
     public string ThumbnailUrl { get; set; } = string.Empty;
 }

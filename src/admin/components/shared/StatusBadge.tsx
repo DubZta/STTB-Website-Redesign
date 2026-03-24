@@ -10,31 +10,31 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
 
   const styles: Record<string, string> = {
     published:
-      'bg-blue-50 text-blue-700 border-blue-100',
+      'bg-sttb-navy text-white border-sttb-navy-dark shadow-sm',
     draft:
-      'bg-red-50 text-red-700 border-red-100',
+      'bg-white text-sttb-dark-slate border-slate-200 shadow-sm',
     archived:
-      'bg-slate-100 text-slate-600 border-slate-200',
+      'bg-slate-50 text-slate-400 border-slate-100 italic',
   };
 
   const labels: Record<string, string> = {
-    published: 'Live Publication',
-    draft: 'Internal Draft',
-    archived: 'Archived Trace',
+    published: 'PUBLISHED',
+    draft: 'DRAFT',
+    archived: 'ARCHIVED',
   };
 
-  const cls = styles[normalized] ?? 'bg-slate-50 text-slate-500 border-slate-100';
+  const cls = styles[normalized] ?? 'bg-white text-slate-500 border-slate-200';
   const label = labels[normalized] ?? status.toUpperCase();
 
   return (
-    <span className={`inline-flex items-center px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.15em] border ${cls} shadow-sm transition-all hover:scale-105 cursor-default`}>
+    <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[9px] font-black tracking-widest border ${cls} transition-all cursor-default`}>
       <span
-        className={`w-1.5 h-1.5 rounded-full mr-2 shadow-sm ${
+        className={`w-1 h-3 rounded-full mr-2 ${
           normalized === 'published' 
-            ? 'bg-blue-500 animate-pulse' 
+            ? 'bg-white/70' 
             : normalized === 'draft' 
-              ? 'bg-red-500' 
-              : 'bg-slate-400'
+              ? 'bg-sttb-red' 
+              : 'bg-slate-300'
         }`}
       />
       {label}

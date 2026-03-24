@@ -20,7 +20,7 @@ export default function NewsDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { fetchGET } = useAppFetch();
-  
+
   const [data, setData] = useState<GetNewsDetailResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -60,7 +60,7 @@ export default function NewsDetailPage() {
           <FileText className="w-16 h-16 text-gray-200 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-800 mb-2">News not found</h2>
           <p className="text-gray-500 mb-6 max-w-xs">Berita yang Anda cari tidak tersedia atau telah dipindahkan.</p>
-          <button 
+          <button
             onClick={() => navigate(-1)}
             className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline"
           >

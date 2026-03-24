@@ -28,7 +28,7 @@ const newsSchema = z.object({
   category: z.string().min(1, 'Category is required').max(100),
   publishedAt: z.string().min(1, 'Published date is required'),
   content: z.string().min(1, 'Content is required'),
-  status: z.enum(['draft', 'published'], { required_error: 'Status is required' }),
+  status: z.enum(['draft', 'published']),
   thumbnailUrl: z.string().url('Must be a valid URL').or(z.literal('')),
 });
 
@@ -128,7 +128,7 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
           <Input
             {...register("title")}
             placeholder="Enter article title..."
-            className="h-11 rounded-xl border-slate-200 bg-white text-sm focus:ring-blue-500/10 focus:border-blue-500 transition-all shadow-sm"
+            className="h-11 rounded-xl border-slate-200 bg-white text-sm focus:ring-sttb-navy/10 focus:border-sttb-navy transition-all shadow-sm"
           />
         </div>
 
@@ -138,7 +138,7 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
           </Label>
           <select
             {...register("category")}
-            className="w-full h-11 rounded-xl border border-slate-200 bg-white px-4 text-xs font-medium focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all shadow-sm cursor-pointer"
+            className="w-full h-11 rounded-xl border border-slate-200 bg-white px-4 text-xs font-medium focus:ring-2 focus:ring-sttb-navy/10 focus:border-sttb-navy outline-none transition-all shadow-sm cursor-pointer"
           >
             <option value="">Select Category</option>
             {NEWS_CATEGORIES.map((c) => (
@@ -149,38 +149,49 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
           </select>
         </div>
 
-        <div className="col-span-1 space-y-1.5">
+        <div className="col-span-1 space-y-1.5 text-center">
           <Label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
             Release Date
           </Label>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant={"outline"}
-                className={cn(
-                  "w-full h-11 rounded-xl justify-start text-left font-normal border-slate-200 bg-white hover:bg-slate-50 text-xs",
-                  !publishedAt && "text-muted-foreground"
-                )}
-              >
-                <CalendarIcon className="mr-2 h-3.5 w-3.5 text-slate-400" />
-                {publishedAt ? (
-                  format(new Date(publishedAt), "PPP")
-                ) : (
-                  <span>Pick a date</span>
-                )}
-                <ChevronDown className="ml-auto h-3.5 w-3.5 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
-              <Calendar
-                mode="single"
-                selected={publishedAt ? new Date(publishedAt) : undefined}
-                onSelect={(date: Date | undefined) => setValue('publishedAt', date?.toISOString() || '')}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
-          {errors.publishedAt && <p className="text-[9px] text-red-500 font-bold">{errors.publishedAt.message}</p>}
+          <div className="relative flex justify-center">
+            <div
+              className={cn(
+                "w-full h-11 rounded-xl flex items-center px-4 border border-slate-200 bg-white text-xs transition-all shadow-sm",
+                !publishedAt && "text-muted-foreground",
+              )}
+            >
+              <CalendarIcon className="mr-2 h-3.5 w-3.5 text-slate-400" />
+              <span className="flex-grow text-left">
+                {publishedAt
+                  ? format(new Date(publishedAt), "MMMM do, yyyy")
+                  : "Pick a date"}
+              </span>
+              <ChevronDown className="h-3.5 w-3.5 opacity-50 text-slate-400" />
+            </div>
+
+            <input
+              type="date"
+              className="absolute inset-0 opacity-0 cursor-pointer z-20"
+              value={
+                publishedAt
+                  ? new Date(publishedAt).toISOString().split("T")[0]
+                  : ""
+              }
+              onChange={(e) => {
+                const dateStr = e.target.value;
+                if (dateStr) {
+                  const newDate = new Date(dateStr);
+                  newDate.setHours(0, 0, 0, 0);
+                  setValue("publishedAt", newDate.toISOString());
+                }
+              }}
+            />
+          </div>
+          {errors.publishedAt && (
+            <p className="text-[9px] text-red-500 font-bold mt-1">
+              {errors.publishedAt.message}
+            </p>
+          )}
         </div>
 
         <div className="col-span-1 space-y-1.5">
@@ -188,10 +199,12 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
             URL Slug
           </Label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">/</span>
-            <Input 
-              {...register("slug")} 
-              className="h-11 rounded-xl border-slate-200 bg-slate-50/50 pl-6 text-xs font-mono text-slate-600 border-dashed" 
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">
+              /
+            </span>
+            <Input
+              {...register("slug")}
+              className="h-11 rounded-xl border-slate-200 bg-slate-50/50 pl-6 text-xs font-mono text-slate-600 border-dashed"
             />
           </div>
         </div>
@@ -202,7 +215,7 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
           </Label>
           <select
             {...register("status")}
-            className="w-full h-11 rounded-xl border border-slate-200 bg-white px-4 text-xs font-medium focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all shadow-sm cursor-pointer"
+            className="w-full h-11 rounded-xl border border-slate-200 bg-white px-4 text-xs font-medium focus:ring-2 focus:ring-sttb-navy/10 focus:border-sttb-navy outline-none transition-all shadow-sm cursor-pointer"
           >
             <option value="draft">Draft</option>
             <option value="published">Published</option>
@@ -216,7 +229,7 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
           <Input
             {...register("thumbnailUrl")}
             placeholder="https://example.com/cover.jpg"
-            className="h-11 rounded-xl border-slate-200 bg-white text-xs focus:ring-blue-500/10 focus:border-blue-500 transition-all shadow-sm"
+            className="h-11 rounded-xl border-slate-200 bg-white text-xs focus:ring-sttb-navy/10 focus:border-sttb-navy transition-all shadow-sm"
           />
         </div>
       </div>
@@ -227,7 +240,7 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
         </Label>
         <textarea
           {...register("content")}
-          className="flex-grow w-full rounded-xl border border-slate-200 p-6 text-sm leading-relaxed resize-none bg-white focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all shadow-sm"
+          className="flex-grow w-full rounded-xl border border-slate-200 p-6 text-sm leading-relaxed resize-none bg-white focus:ring-2 focus:ring-sttb-navy/10 focus:border-sttb-navy outline-none transition-all shadow-sm"
           placeholder="Write your article content here..."
         />
       </div>
@@ -235,7 +248,9 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
       <div className="flex-none flex items-center justify-between pt-6 border-t border-slate-100">
         <div className="flex items-center gap-2 text-slate-400">
           <Newspaper className="w-4 h-4" />
-          <span className="text-[10px] font-bold uppercase tracking-widest italic">Drafting Engine v2.0</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest italic">
+            Drafting Engine v2.0
+          </span>
         </div>
         <div className="flex items-center gap-3">
           <Button
@@ -249,14 +264,18 @@ export default function NewsForm({ initialData, onSubmit, onCancel, isSubmitting
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="h-12 px-10 rounded-xl font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-all"
+            className="h-12 px-10 rounded-xl font-bold bg-sttb-navy hover:bg-sttb-navy-dark text-white shadow-lg shadow-sttb-navy/20 active:scale-[0.98] transition-all"
           >
             {isSubmitting ? (
               <span className="flex items-center gap-2">
                 <Loader2 className="w-4 h-4 animate-spin" />
                 Syncing...
               </span>
-            ) : isEdit ? "Update Article" : "Publish Article"}
+            ) : isEdit ? (
+              "Update Article"
+            ) : (
+              "Publish Article"
+            )}
           </Button>
         </div>
       </div>

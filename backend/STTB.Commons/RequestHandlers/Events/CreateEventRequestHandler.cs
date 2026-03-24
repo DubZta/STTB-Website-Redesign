@@ -25,6 +25,7 @@ public class CreateEventRequestHandler : IRequestHandler<CreateEventRequest, Gui
             Slug = request.Slug,
             Category = request.Category,
             EventDate = request.EventDate,
+            EventEndDate = request.EventEndDate,
             Content = _htmlSanitizer.Sanitize(request.Content), // Sanitize HTML
             Status = request.Status,
             ThumbnailUrl = request.ThumbnailUrl,

@@ -12,6 +12,7 @@ interface EventItem {
   slug: string;
   category: string;
   eventDate: string;
+  eventEndDate: string | null;
   status: string;
   thumbnailUrl: string;
 }
@@ -47,18 +48,36 @@ export default function ActivitiesPage() {
     setLoading(false);
   };
 
-  const activities = backendActivities.map((a, idx) => {
-    const d = new Date(a.eventDate);
+  const activities = backendActivities.map((a) => {
+    const startDate = new Date(a.eventDate);
+    const endDate = a.eventEndDate ? new Date(a.eventEndDate) : null;
+    const now = new Date();
+
+    let status = 'upcoming';
+    if (endDate) {
+      if (now > endDate) status = 'expired';
+      else if (now >= startDate) status = 'ongoing';
+    } else {
+      // If no end date, assume ongoing for 2 hours for status purposes, or just same day
+      const assumptionEnd = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
+      if (now > assumptionEnd) status = 'expired';
+      else if (now >= startDate) status = 'ongoing';
+    }
+
+    const timeStr = startDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const endTimeStr = endDate 
+      ? endDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      : (language === 'en' ? 'finish' : 'selesai');
+
     return {
       id: a.id,
       title: a.title,
-      date: d.toLocaleDateString(language === 'en' ? 'en-US' : 'id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
-      time: d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' WIB',
+      date: startDate.toLocaleDateString(language === 'en' ? 'en-US' : 'id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+      time: `${timeStr} - ${endTimeStr} WIB`,
       location: 'STTB Bandung',
       category: a.category || 'Event',
-      status: d < new Date() ? 'expired' : 'ongoing',
-      featured: idx === 0, // First item as featured since no featured flag from backend
-      originalDate: d,
+      status: status,
+      originalDate: startDate,
     };
   });
 
@@ -90,16 +109,14 @@ export default function ActivitiesPage() {
     ...Array.from(new Set(backendActivities.map(a => a.category).filter(Boolean)))
   ];
 
-  const getStatusBadge = (status: string, featured: boolean) => {
+  const getStatusBadge = (status: string) => {
     if (status === 'expired') {
       return <span className="px-2 py-0.5 bg-gray-800 text-white text-xs font-semibold rounded">{t('activities.expired')}</span>;
     }
-    return (
-      <div className="flex gap-1">
-        <span className="px-2 py-0.5 bg-blue-600 text-white text-xs font-semibold rounded">{t('activities.ongoing')}</span>
-        {featured && <span className="px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded">{t('activities.featured')}</span>}
-      </div>
-    );
+    if (status === 'ongoing') {
+      return <span className="px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded">{t('activities.ongoing')}</span>;
+    }
+    return <span className="px-2 py-0.5 bg-blue-600 text-white text-xs font-semibold rounded">{t('activities.upcoming')}</span>;
   };
 
   const generateMonthDays = (monthIndex: number, year: number) => {
@@ -120,9 +137,9 @@ export default function ActivitiesPage() {
 
   const hasEventOnDay = (day: number | null, monthIndex: number, year: number) => {
     if (!day) return false;
-    return activities.some(a => 
-      a.originalDate.getDate() === day && 
-      a.originalDate.getMonth() === monthIndex && 
+    return activities.some(a =>
+      a.originalDate.getDate() === day &&
+      a.originalDate.getMonth() === monthIndex &&
       a.originalDate.getFullYear() === year
     );
   };
@@ -215,9 +232,9 @@ export default function ActivitiesPage() {
         <div className="grid grid-cols-1 md:grid-cols-7 gap-2">
           {weekDays.map((day, index) => {
             const date = weekDates[index];
-            const dayEvents = activities.filter(a => 
-              a.originalDate.getDate() === date.getDate() && 
-              a.originalDate.getMonth() === date.getMonth() && 
+            const dayEvents = activities.filter(a =>
+              a.originalDate.getDate() === date.getDate() &&
+              a.originalDate.getMonth() === date.getMonth() &&
               a.originalDate.getFullYear() === date.getFullYear()
             );
 
@@ -253,9 +270,9 @@ export default function ActivitiesPage() {
   const renderDailyView = () => {
     const today = new Date();
     const hours = Array.from({ length: 24 }, (_, i) => i);
-    const dayEvents = activities.filter(a => 
-      a.originalDate.getDate() === today.getDate() && 
-      a.originalDate.getMonth() === today.getMonth() && 
+    const dayEvents = activities.filter(a =>
+      a.originalDate.getDate() === today.getDate() &&
+      a.originalDate.getMonth() === today.getMonth() &&
       a.originalDate.getFullYear() === today.getFullYear()
     );
 
@@ -270,7 +287,7 @@ export default function ActivitiesPage() {
               const h = a.originalDate.getHours();
               return h === hour;
             });
-            
+
             return (
               <div key={hour} className="flex border-b border-gray-100 py-3">
                 <div className="w-20 text-sm text-gray-500 font-semibold">
@@ -304,7 +321,7 @@ export default function ActivitiesPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  {getStatusBadge(activity.status, activity.featured)}
+                  {getStatusBadge(activity.status)}
                   <span className="text-sm text-gray-500">{activity.category}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{activity.title}</h3>
@@ -350,7 +367,7 @@ export default function ActivitiesPage() {
             glowColor="rgba(11, 63, 130, 0.3)"
           >
             <div className="flex items-start justify-between mb-3">
-              {getStatusBadge(activity.status, activity.featured)}
+              {getStatusBadge(activity.status)}
               <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{activity.category}</span>
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">{activity.title}</h3>
@@ -485,7 +502,7 @@ export default function ActivitiesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {['YEARLY', 'MONTHLY', 'WEEKLY', 'DAILY'].includes(viewMode) && (
           <div className="flex items-center justify-between mb-8 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-            <button 
+            <button
               onClick={() => setSelectedYear((parseInt(selectedYear) - 1).toString())}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200"
             >
@@ -495,7 +512,7 @@ export default function ActivitiesPage() {
               <h1 className="text-3xl font-extrabold text-blue-900 tracking-tight">{selectedYear}</h1>
               <p className="text-xs text-gray-500 font-bold uppercase tracking-widest mt-1">Calendar View</p>
             </div>
-            <button 
+            <button
               onClick={() => setSelectedYear((parseInt(selectedYear) + 1).toString())}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200"
             >

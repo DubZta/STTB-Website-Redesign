@@ -48,6 +48,7 @@ public class GetEventListRequestHandler : IRequestHandler<GetEventListRequest, G
                 Slug = e.Slug,
                 Category = e.Category,
                 EventDate = e.EventDate,
+                EventEndDate = e.EventEndDate,
                 Status = e.Status,
                 ThumbnailUrl = e.ThumbnailUrl
             })

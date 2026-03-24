@@ -329,7 +329,7 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.faculty.description': 'Pengajar berpengalaman dengan kualifikasi tinggi',
 
     // Activities
-    'activities.upcoming': 'Mendatang',
+    'activities.upcoming': 'Upcoming',
     'activities.past': 'Selesai',
     'activities.featured': 'Unggulan',
     'activities.ongoing': 'Sedang Berlangsung',

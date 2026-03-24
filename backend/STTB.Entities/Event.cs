@@ -21,6 +21,7 @@ public class Event : IHaveCreateAndUpdateAudit
     public string Category { get; set; } = string.Empty;
 
     public DateTime EventDate { get; set; }
+    public DateTime? EventEndDate { get; set; }
 
     [Required]
     public string Content { get; set; } = string.Empty;

@@ -71,7 +71,7 @@ export default function NewsPage() {
 
   const featuredNews = Object.keys(newsList).length > 0 ? newsList[0] : null;
   const otherNews = newsList.length > 1 ? newsList.slice(1) : [];
-  
+
   const latestNewsDisplay = newsList.slice(0, 7).map(n => n.title);
 
   const filteredNews =
@@ -168,15 +168,15 @@ export default function NewsPage() {
             <div className="w-full h-[3px] bg-blue-900 mt-2 mb-6"></div>
 
             <ul className="space-y-4 text-right text-gray-700">
-              <li 
+              <li
                 className={`cursor-pointer ${activeCategory === 'All' ? 'font-bold text-red-600' : 'hover:text-red-500'}`}
                 onClick={() => setActiveCategory('All')}
               >
                 All News
               </li>
               {categories.map((cat, i) => (
-                <li 
-                  key={i} 
+                <li
+                  key={i}
                   className={`cursor-pointer ${activeCategory === cat.split(' (')[0] ? 'font-bold text-red-600' : 'hover:text-red-500'}`}
                   onClick={() => setActiveCategory(cat.split(' (')[0])}
                 >
@@ -277,10 +277,6 @@ export default function NewsPage() {
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>3 min read</span>
                       </div>
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-3">

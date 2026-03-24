@@ -7,6 +7,7 @@ export interface EventListItem {
   slug: string;
   category: string;
   eventDate: string; // ISO date string
+  eventEndDate?: string;
   status: string;
   thumbnailUrl: string;
 }
@@ -22,6 +23,7 @@ export interface EventDetail {
   slug: string;
   category: string;
   eventDate: string;
+  eventEndDate?: string;
   content: string;
   status: string;
   thumbnailUrl: string;
@@ -32,6 +34,7 @@ export interface CreateEventPayload {
   slug: string;
   category: string;
   eventDate: string;
+  eventEndDate?: string;
   content: string;
   status: string;
   thumbnailUrl: string;
@@ -43,6 +46,7 @@ export interface UpdateEventPayload {
   slug: string;
   category: string;
   eventDate: string;
+  eventEndDate?: string;
   content: string;
   status: string;
   thumbnailUrl: string;

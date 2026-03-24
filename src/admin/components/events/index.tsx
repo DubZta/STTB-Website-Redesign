@@ -113,7 +113,7 @@ export default function EventsManagement() {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">
+          <h1 className="text-2xl font-bold text-sttb-navy tracking-tight">
             Event Schedules
           </h1>
           <p className="text-slate-500 mt-1 text-sm font-medium">
@@ -131,7 +131,7 @@ export default function EventsManagement() {
           </Button>
           <Button
             onClick={handleCreateClick}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl h-11 px-8 font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
+            className="bg-sttb-navy hover:bg-sttb-navy-dark text-white rounded-xl h-11 px-8 font-bold shadow-lg shadow-sttb-navy/20 transition-all active:scale-95"
           >
             <Plus className="w-4 h-4 mr-2" />
             New Event
@@ -174,27 +174,27 @@ export default function EventsManagement() {
       </AnimatePresence>
 
       {/* Events Table */}
-      <div className="bg-white rounded-[32px] border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow className="h-14 bg-slate-50/50 border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
-              <TableHead className="px-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] w-24">
-                Visual
+            <TableRow className="h-12 bg-slate-50 border-b border-slate-200 hover:bg-slate-50 transition-colors">
+              <TableHead className="px-6 text-[10px] font-bold text-sttb-navy uppercase tracking-[0.1em] w-24 whitespace-nowrap">
+                PREVIEW
               </TableHead>
-              <TableHead className="px-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                Event Identity
+              <TableHead className="px-6 text-[10px] font-bold text-sttb-navy uppercase tracking-[0.1em] whitespace-nowrap">
+                EVENT IDENTITY
               </TableHead>
-              <TableHead className="px-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                Tag
+              <TableHead className="px-6 text-[10px] font-bold text-sttb-navy uppercase tracking-[0.1em] whitespace-nowrap">
+                CATEGORY
               </TableHead>
-              <TableHead className="px-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                Visibility
+              <TableHead className="px-6 text-[10px] font-bold text-sttb-navy uppercase tracking-[0.1em] whitespace-nowrap">
+                STATUS
               </TableHead>
-              <TableHead className="px-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                Timeline
+              <TableHead className="px-6 text-[10px] font-bold text-sttb-navy uppercase tracking-[0.1em] whitespace-nowrap">
+                TIMELINE
               </TableHead>
-              <TableHead className="px-6 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] text-right">
-                Operations
+              <TableHead className="px-6 text-[10px] font-bold text-sttb-navy uppercase tracking-[0.1em] text-right whitespace-nowrap">
+                ACTIONS
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -247,18 +247,18 @@ export default function EventsManagement() {
                   </TableCell>
                   <TableCell className="px-6">
                     <div className="flex flex-col max-w-sm">
-                      <span className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors uppercase tracking-tight truncate">
+                      <span className="text-[14px] font-bold text-sttb-dark-slate group-hover:text-sttb-navy transition-colors tracking-tight truncate">
                         {item.title}
                       </span>
-                      <span className="text-[11px] text-slate-400 font-medium font-mono">
+                      <span className="text-[10px] text-slate-400 font-medium">
                         /{item.slug}
                       </span>
                     </div>
                   </TableCell>
                   <TableCell className="px-6">
-                    <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-600 rounded-lg w-fit border border-slate-200">
-                      <Tag className="w-3 h-3 opacity-50 text-slate-400" />
-                      <span className="text-[10px] font-black uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 px-2 py-0.5 bg-slate-50 text-slate-500 rounded border border-slate-200 w-fit">
+                      <Tag className="w-2.5 h-2.5 opacity-50" />
+                      <span className="text-[9px] font-bold uppercase tracking-wider">
                         {item.category}
                       </span>
                     </div>
@@ -267,11 +267,21 @@ export default function EventsManagement() {
                     <StatusBadge status={item.status} />
                   </TableCell>
                   <TableCell className="px-6">
-                    <div className="flex items-center gap-2 text-slate-500">
-                      <Clock className="w-3.5 h-3.5 opacity-50" />
-                      <span className="text-[13px] font-medium">
-                        {formatDate(item.eventDate)}
-                      </span>
+                    <div className="flex flex-col gap-0.5 text-slate-500">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-3 h-3 opacity-40" />
+                        <span className="text-[12px] font-medium">
+                          {formatDate(item.eventDate)}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-3 h-3 opacity-40 text-sttb-navy" />
+                        <span className="text-[10px] font-bold text-slate-600 uppercase tracking-tighter">
+                          {new Date(item.eventDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          {item.eventEndDate && ` - ${new Date(item.eventEndDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`}
+                          <span className="ml-1 opacity-40">WIB</span>
+                        </span>
+                      </div>
                     </div>
                   </TableCell>
                   <TableCell className="px-6 text-right">

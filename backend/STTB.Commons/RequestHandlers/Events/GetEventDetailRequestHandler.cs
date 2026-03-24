@@ -30,6 +30,7 @@ public class GetEventDetailRequestHandler : IRequestHandler<GetEventDetailReques
             Slug = entity.Slug,
             Category = entity.Category,
             EventDate = entity.EventDate,
+            EventEndDate = entity.EventEndDate,
             Content = entity.Content,
             Status = entity.Status,
             ThumbnailUrl = entity.ThumbnailUrl

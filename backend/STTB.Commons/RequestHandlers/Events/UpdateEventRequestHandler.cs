@@ -28,6 +28,7 @@ public class UpdateEventRequestHandler : IRequestHandler<UpdateEventRequest, boo
         entity.Slug = request.Slug;
         entity.Category = request.Category;
         entity.EventDate = request.EventDate;
+        entity.EventEndDate = request.EventEndDate;
         entity.Content = _htmlSanitizer.Sanitize(request.Content);
         entity.Status = request.Status;
         entity.ThumbnailUrl = request.ThumbnailUrl;

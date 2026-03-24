@@ -11,6 +11,7 @@ interface EventDetail {
   slug: string;
   category: string;
   eventDate: string;
+  eventEndDate: string | null;
   content: string;
   thumbnailUrl: string;
 }
@@ -131,7 +132,8 @@ export default function EventDetailPage() {
                   <div>
                     <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Time</div>
                     <div className="text-sttb-navy font-bold">
-                      {new Date(event.eventDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} WIB
+                      {new Date(event.eventDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                      {event.eventEndDate ? ` - ${new Date(event.eventEndDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : ' - selesai'} WIB
                     </div>
                   </div>
                 </div>
@@ -145,7 +147,7 @@ export default function EventDetailPage() {
                   </div>
                 </div>
               </div>
-              
+
               <button className="w-full mt-10 py-4 bg-sttb-navy text-white font-black rounded-2xl hover:bg-sttb-navy-light shadow-xl shadow-sttb-navy/20 transition-all active:scale-95 uppercase tracking-widest text-sm">
                 REGISTER NOW
               </button>
